@@ -1,0 +1,614 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Delete old posts automatically\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-01-28 15:04+0000\n"
+"PO-Revision-Date: 2023-02-04 14:56+0000\n"
+"Last-Translator: \n"
+"Language-Team: Norwegian (Nynorsk)\n"
+"Language: nn_NO\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Loco https://localise.biz/\n"
+"X-Loco-Version: 2.6.3; wp-6.1.1\n"
+"X-Domain: delete-old-posts"
+
+#: inc/class-delete-old-posts-filters.php:81
+msgid ""
+"\n"
+"                                After you decide the number of days in the "
+"past for the posts to be automatically deleted, you can choose more options "
+"for the deleted posts here. \n"
+"                                If you are looking to delete only one type "
+"of post, or only the posts in some categories, or having one or more "
+"taxonomies (for custom post types), \n"
+"                                then select in the options below what would "
+"you like to apply. \n"
+"                                Then, when deleting the posts published "
+"before the selected date, all selected options below will also have to apply "
+"for the post. \n"
+"                                This way, you can filter the deleted posts "
+"and delete only the posts for which the selected options apply.\n"
+"                            "
+msgstr ""
+" Når du bestemmer deg for antall dager i det siste for innlegg til å bli "
+"slettet automatisk, kan du velge flere alternativer for slettede innlegg her."
+" Hvis du er ute for å slette bare én type innlegg, eller bare innleggene i "
+"noen kategorier, eller å ha en eller flere taksonomier (for custom post "
+"types), og velg deretter i alternativene nedenfor hva ville du liker å bruke."
+"  Deretter, når du sletter innlegg publisert før denne datoen, alle valgte "
+"alternativene nedenfor vil også må gjelde for stillingen. På denne måten kan "
+"du filtrere slettede innlegg og bare sletter innlegg som valgte "
+"alternativene gjelder. "
+
+#: inc/class-delete-old-posts-filters.php:502
+msgid ""
+" Don't forget to set the \"Start deleting posts\" option ON, to start "
+"deleting the post automatically in the background."
+msgstr ""
+" Ikke glem å sette på \"Start slette innlegg\" - alternativet PÅ, til å "
+"begynne å slette posten automatisk i bakgrunnen."
+
+#: inc/class-delete-old-posts.php:308
+msgid " to calculate the number of days automatically,"
+msgstr " for å beregne antall dager automatisk,"
+
+#: inc/class-delete-old-posts-redirects.php:274
+msgid "\" have been deleted."
+msgstr "\"har blitt slettet."
+
+#: inc/class-delete-old-posts-filters.php:386
+msgid "All selected terms"
+msgstr "Alle valgte vilkår"
+
+#: inc/class-delete-old-posts-filters.php:380
+msgid "all selected terms"
+msgstr "alle valgte vilkår"
+
+#: inc/class-delete-old-posts-filters.php:387
+msgid "Any selected terms"
+msgstr "Noen valgte vilkår"
+
+#: inc/class-delete-old-posts-filters.php:357
+msgid "any user"
+msgstr "noen bruker"
+
+#: inc/class-delete-old-posts-filters.php:139
+msgid ""
+"At least one post type has to be selected. The default post type have been "
+"automatically selected."
+msgstr ""
+"Minst ett innlegg skriver du har for å bli valgt. Standard-post typen har "
+"blitt automatisk valgt."
+
+#: inc/class-delete-old-posts-filters.php:70
+msgid "Available filters to use when deleting the posts"
+msgstr "Tilgjengelig filtre til bruk når du sletter innlegg"
+
+#: inc/class-delete-old-posts.php:175
+msgid ""
+"Choose a date or specify the number of days for the posts to be deleted!"
+msgstr "Velg en dato eller angi antall dager for innlegg blir slettet!"
+
+#: inc/class-delete-old-posts.php:221
+msgid ""
+"Choose a date or specify the number of days for the posts to be deleted."
+msgstr "Velg en dato eller angi antall dager for innlegg til å bli slettet."
+
+#: inc/class-delete-old-posts-filters.php:304
+msgid "Choose categories to filter the deleted posts."
+msgstr "Velg kategorier for å filtrere den slettede innlegg."
+
+#: inc/class-delete-old-posts-filters.php:73
+msgid ""
+"Choose in the options below what filters to apply when deleting the posts."
+msgstr ""
+"Velg i blant du alternativene nedenfor hvilke filtre som skal brukes når du "
+"sletter innlegg."
+
+#: inc/class-delete-old-posts-filters.php:300
+#, php-format
+msgid "Choose taxonomies to filter the deleted %s."
+msgstr "Velg taksonomier å filtrere slettet %s."
+
+#: inc/class-delete-old-posts.php:288
+msgid "Choose the number of "
+msgstr "Velg antall "
+
+#: inc/class-delete-old-posts.php:496
+msgid ""
+"Choose the number of post to be deleted at the same time. Please note, that "
+"a higher number of post deleted at once means a higher load on your server. "
+"You can choose a smaller number on a hosting with low resources (ex. shared "
+"hosting) and a higher number if your website is running for example on a "
+"dedicated server. By default, one post is deleted."
+msgstr ""
+"Velg antall innlegg blir slettet på samme tid. Vær oppmerksom på at et "
+"høyere antall innlegg slettet samtidig betyr en høyere belastning på "
+"serveren din. Du kan velge et mindre antall på en hosting med lave ressurser "
+"(eks. delt hosting) og et høyere antall hvis nettstedet ditt er å kjøre for "
+"eksempel på en dedikert server. Standard, én innlegget er slettet."
+
+#: inc/class-delete-old-posts-filters.php:218
+msgid "Choose the post type:"
+msgstr "Velg innlegget skriv:"
+
+#: inc/class-delete-old-posts-filters.php:385
+msgid "Choose the relation applied to taxonomies terms:"
+msgstr "Velg forhold brukes til å taksonomier vilkår:"
+
+#: inc/class-delete-old-posts-filters.php:380
+#, php-format
+msgid ""
+"Choose the relation applied to terms. By default (no relation selected), %s "
+"will be used. \"All selected terms\" mean that the deleted post will need to "
+"have relation with all selected terms. \"Any selected terms\" mean that if "
+"the post has relationship with only one of the selected terms, then the post "
+"will be deleted."
+msgstr ""
+"Velg forhold anvendt til vilkårene. Standard (ingen relasjon er valgt), %s "
+"vil bli brukt. \"Alle valgte vilkår\" betyr at slettet innlegget vil trenger "
+"for å ha forbindelse med alle valgte vilkår. \"En hvilken som helst valgt "
+"vilkår\" betyr at hvis innlegget har forholdet med bare en av de merkede "
+"vilkår, så innlegget vil bli slettet."
+
+#: inc/class-delete-old-posts.php:312
+msgid "Click to copy"
+msgstr "Klikk for å kopiere"
+
+#: inc/class-delete-old-posts.php:273
+msgid "days."
+msgstr "dager."
+
+#: inc/class-delete-old-posts-filters.php:203
+msgid "default post type"
+msgstr "standard innlegget skriv"
+
+#: inc/class-delete-old-posts-redirects.php:494
+#: inc/class-delete-old-posts-redirects.php:505
+msgid "Delete"
+msgstr "Slett"
+
+#: inc/class-delete-old-posts-filters.php:455
+msgid "Delete all files attached to post:"
+msgstr "Slette alle filer som er knyttet til innlegget:"
+
+#: inc/class-delete-old-posts.php:34 inc/class-delete-old-posts.php:35
+msgid "Delete old posts"
+msgstr "Slette gamle innlegg"
+
+#: inc/class-delete-old-posts.php:238
+msgid "Delete Old Posts automatically"
+msgstr "Slette Gamle Innlegg automatisk"
+
+#. Name of the plugin
+msgid "Delete old posts automatically"
+msgstr "Slette gamle innlegg automatisk"
+
+#: inc/class-delete-old-posts-filters.php:426
+msgid "Delete only posts that contain the keyword(s):"
+msgstr "Bare slette innlegg som inneholder søkeordet(s):"
+
+#: inc/class-delete-old-posts-filters.php:362
+msgid "Delete only the posts from specific users:"
+msgstr "Bare sletter innlegg fra bestemte brukere:"
+
+#: inc/class-delete-old-posts.php:252
+msgid "Delete Post older than:"
+msgstr "Slette Innlegg eldre enn:"
+
+#: inc/class-delete-old-posts.php:461
+msgid "Delete the Posts permanently, don't add them into Trash"
+msgstr "Slette Innlegg permanent, ikke legge dem inn i Papirkurven"
+
+#: inc/class-delete-old-posts-redirects.php:350
+msgid "Deleted post slug"
+msgstr "Slettede innlegg slug"
+
+#: inc/class-delete-old-posts-redirects.php:232
+msgid "Deleted post slug:"
+msgstr "Slettede innlegg slug:"
+
+#: inc/class-delete-old-posts-redirects.php:152
+msgid "Deleted posts list"
+msgstr "Slettede innlegg liste"
+
+#: inc/class-delete-old-posts.php:533
+msgid "deleting the posts:"
+msgstr "vi sletter innlegg:"
+
+#: inc/class-delete-old-posts.php:228
+msgid "Dismiss this notice."
+msgstr "Avvise denne varsel."
+
+#: inc/class-delete-old-posts-filters.php:451
+msgid ""
+"Do you want to delete the images attached to the post (featured image and "
+"all files attached to it) when the post is deleted?"
+msgstr ""
+"Ønsker du å slette bilder knyttet til post (featured image og alle filer som "
+"er knyttet til det) når innlegget er slettet?"
+
+#: inc/class-delete-old-posts-filters.php:399
+msgid "don't want to be deleted"
+msgstr "ikke ønsker å bli slettet"
+
+#: inc/class-delete-old-posts-redirects.php:493
+msgid "Edit"
+msgstr "Redigere"
+
+#: inc/class-delete-old-posts.php:439
+msgid ""
+"Even after the posts are removed, they can still be linked to or found on "
+"Google. Choose this option if you want to redirect your visitors to the "
+"deleted post to another similar post on your website. The plugin will "
+"automatically find the best matching option, but you can customize it in the "
+"\"Redirects\" menu. The HTTP response status code 301 Moved Permanently is "
+"used for the redirect."
+msgstr ""
+"Selv etter innleggene er fjernet, kan de fortsatt være knyttet til eller "
+"funnet på Google. Velg dette alternativet hvis du ønsker å omdirigere "
+"besøkende til slettede innlegg til en annen lignende innlegg på ditt "
+"nettsted. Programtillegget vil automatisk finne den som passer best "
+"alternativet, men du kan tilpasse den i \"Sender\" - menyen. HTTP-svar "
+"status kode 301-Permanent Flyttet brukes for viderekobling."
+
+#: inc/class-delete-old-posts-filters.php:433
+msgid "Exclude from search results any posts that contain the keyword(s):"
+msgstr "Utelukke fra søkeresultatene alle innlegg som inneholder søkeordet(s):"
+
+#: inc/class-delete-old-posts-filters.php:446
+msgid "featured image and all files"
+msgstr "utvalgt bilde og filer"
+
+#: inc/class-delete-old-posts.php:516
+msgid ""
+"Filter the deleted post by selecting more options in the filters menu. "
+"Available filters are custom post types, categories, taxonomies, users, "
+"favorite post, and text search (posts containing a text), so only some from "
+"the posts will be deleted even if they are older than selected date "
+"(selected days)."
+msgstr ""
+"Filter slettede innlegg ved å velge flere alternativer i filter-menyen. "
+"Tilgjengelig filtre er tilpasset innlegg typer, kategorier, taksonomier, "
+"brukere, favoritt-post, og tekst søk (innlegg som inneholder tekst), slik at "
+"bare noen fra innlegg vil bli slettet, selv om de er eldre enn valgt dato "
+"(utvalgte dager)."
+
+#: inc/class-delete-old-posts-filters.php:52
+msgid "Filters"
+msgstr "Filtre"
+
+#: inc/class-delete-old-posts-filters.php:404
+msgid "Have some important posts? Enter the post IDs that you want to keep:"
+msgstr "Har noen viktige innlegg? Tast inn Id-post som du ønsker å beholde:"
+
+#: inc/class-delete-old-posts.php:191
+msgid ""
+"Hint! Test the list with deleted posts in the \"Filters\" menu. Activate the "
+"\"Start deleting the posts\" option below and click \"Save\" when you are "
+"ready to start deleting the posts. No posts will be deleted until then."
+msgstr ""
+"Tips! Test liste med slettede innlegg i \"Filter\" - menyen. Aktivere "
+"\"Start slette innlegg\" alternativ nedenfor og klikk på \"Lagre\" når du er "
+"klar til å begynne å slette innlegg. Ingen innlegg vil bli slettet inntil da."
+
+#. Author URI of the plugin
+msgid "https://wpmagic.cloud"
+msgstr ""
+
+#: inc/class-delete-old-posts-redirects.php:349
+msgid "ID"
+msgstr "ID"
+
+#: inc/class-delete-old-posts.php:606
+msgid "Id:"
+msgstr "Id:"
+
+#: inc/class-delete-old-posts-filters.php:446
+#, php-format
+msgid ""
+"If you also want to delete the %s attached to the post, select this option. "
+"When the post is deleted, the post thumbnail and all files attached to it "
+"will be deleted as well. Use this option carefully because there is no "
+"guarantee that the attachment isn't still published in some other post (ex. "
+"picture galleries)."
+msgstr ""
+"Hvis du også vil slette %s er knyttet til innlegget, velger du dette "
+"alternativet. Når innlegget er slettet, post miniatyrbilde og alle filer som "
+"er knyttet til den vil bli slettet så godt. Bruk dette alternativet nøye "
+"fordi det er ingen garanti for at vedlegget ikke er fremdeles publisert i et "
+"annet innlegg (ex. bilde gallerier)."
+
+#: inc/class-delete-old-posts-filters.php:399
+#, php-format
+msgid ""
+"If you have some posts that you %s, write the posts Ids in the text box "
+"separated with coma (ex. 1009, 2345, 4563). You can find the post id in the "
+"browser location when you edit the post (ex. ?post=2033)."
+msgstr ""
+"Hvis du har noen innlegg som du %s, til å skrive innlegg Id i tekstboksen "
+"adskilt med coma (ex. 1009, 2345, 4563). Du kan finne den post-id-en i "
+"nettleseren beliggenhet når du redigerer innlegget (ex. ?innlegg=2033)."
+
+#: inc/class-delete-old-posts-filters.php:421
+#, php-format
+msgid ""
+"If you want delete only some posts containing some %s, write the keywords to "
+"search in the posts here (ex. pillow). If you want to exclude some posts "
+"from the search, write your keywords in the \"Negative keywords\" field "
+"below. Eg, \"Look for posts that include\" = \"pillow\" and \"Exclude from "
+"search results\" = \"sofa\", will return posts containing \"pillow\" but not "
+"\"sofa\"."
+msgstr ""
+"Hvis du vil slette bare noen innlegg som inneholder noen av %s, skriv inn "
+"nøkkelord for å søke i innleggene her (ex. pute). Hvis du ønsker å "
+"ekskludere noen innlegg fra søk, skriver du inn søkeord i den \"Negative "
+"søkeord\" feltet under. F.eks, \"Se for innlegg som er\" = \"pute\" og "
+"\"Ekskluder fra søkeresultatene\" = \"sofa\", vil returnere innlegg som "
+"inneholder \"pute\", men ikke \"sofa\"."
+
+#: inc/class-delete-old-posts-redirects.php:254
+msgid "It's NOT valid URL."
+msgstr "Det er IKKE gyldig URL."
+
+#. Description of the plugin
+msgid ""
+"Keep your website clean by automatically deleting old posts and redirecting "
+"the deleted posts to similar ones."
+msgstr ""
+"Holde ditt nettsted ren ved å automatisk slette gamle innlegg og omdirigere "
+"den slettede innlegg til tilsvarende."
+
+#: inc/class-delete-old-posts-filters.php:421
+msgid "keywords"
+msgstr "nøkkelord"
+
+#: inc/class-delete-old-posts-filters.php:316
+msgid "list:"
+msgstr "liste:"
+
+#: inc/class-delete-old-posts-filters.php:429
+msgid "Look for posts that include the keyword(s):"
+msgstr "Se etter innlegg som inneholder søkeordet(s):"
+
+#: inc/class-delete-old-posts.php:294
+msgid "months"
+msgstr "måneder"
+
+#: inc/class-delete-old-posts-redirects.php:236
+msgid "New redirect to post (full URL starting with https:// or http://):"
+msgstr ""
+
+#: inc/class-delete-old-posts.php:199
+#, php-format
+msgid "Next cron job run scheduled on %s."
+msgstr "Neste cron-jobb kjøre planlagt på %s."
+
+#: inc/class-delete-old-posts-filters.php:492
+msgid "No "
+msgstr "Ingen "
+
+#: inc/class-delete-old-posts.php:466
+#, php-format
+msgid "Number of post to delete when the %s runs."
+msgstr "Antall innlegg til å slette når den %s kjører."
+
+#: inc/class-delete-old-posts.php:319
+msgid "or select a date to calculate days in the past automatically:"
+msgstr "eller velg en dato for å beregne dager i det siste automatisk:"
+
+#: inc/class-delete-old-posts-filters.php:407
+msgid "Post IDs to exclude:"
+msgstr "Post-Id-er for å utelukke:"
+
+#: inc/class-delete-old-posts.php:601
+msgid "Post published date:"
+msgstr "Innlegg publisert dato:"
+
+#: inc/class-delete-old-posts.php:197
+#, php-format
+msgid ""
+"Posts published on %s %s, %s and before that will be deleted regularly in "
+"the background. Up to %d Posts/Day."
+msgstr ""
+"Innlegg publisert på %s %s, %s, og før det vil bli slettet regelmessig i "
+"bakgrunnen. Opptil %d Innlegg/Dag."
+
+#: inc/class-delete-old-posts-filters.php:493
+msgid ""
+"posts will be automatically deleted when the next scheduled cron job runs."
+msgstr ""
+"innlegg vil bli slettet automatisk når den neste planlagte cron-jobb går."
+
+#: inc/class-delete-old-posts.php:431
+msgid "Redirect the URL of the deleted post to a similar post when requested."
+msgstr ""
+"Omdirigerings-URL-en av de slettede innlegg til en lignende innlegg når du "
+"blir bedt om det."
+
+#: inc/class-delete-old-posts-redirects.php:351
+msgid "Redirection"
+msgstr "Omadressering"
+
+#: inc/class-delete-old-posts-redirects.php:30
+msgid "Redirects"
+msgstr "Omdirigeringer"
+
+#: inc/class-delete-old-posts-redirects.php:190
+msgid "Redirects per page"
+msgstr "Omdirigeringer per side"
+
+#: inc/class-delete-old-posts.php:564
+msgid "Save"
+msgstr "Lagre"
+
+#: inc/class-delete-old-posts-filters.php:108
+msgid "Save and test the deleted posts."
+msgstr "Lagre og test slettede innlegg."
+
+#: inc/class-delete-old-posts-redirects.php:163
+msgid "Search redirects"
+msgstr "Søk omdirigeringer"
+
+#: inc/class-delete-old-posts.php:323
+msgid "Select date"
+msgstr "Velg dato"
+
+#: inc/class-delete-old-posts.php:410
+msgid ""
+"Select this option if you want to use a fixed date instead of a number of "
+"days in the past. If you select this option, only the posts older than the "
+"selected date will be deleted. If this option is not selected, the post "
+"older than the number of days in the past will be deleted, which will always "
+"be relative to today."
+msgstr ""
+"Velg dette alternativet hvis du vil bruke en fast dato i stedet for et "
+"antall dager i det siste. Hvis du velger dette alternativet, kun innlegg som "
+"er eldre enn den valgte datoen vil bli slettet. Hvis dette alternativet ikke "
+"er valgt, post eldre enn antall dager i det siste vil bli slettet, som "
+"alltid vil være i forhold til i dag."
+
+#: inc/class-delete-old-posts-redirects.php:398
+msgid "settings"
+msgstr "innstillinger"
+
+#: inc/class-delete-old-posts.php:129
+msgid "Sorry, the security key did not verify."
+msgstr "Beklager, sikkerhetsnøkkel ikke bekrefte."
+
+#: inc/class-delete-old-posts-redirects.php:398
+msgid ""
+"Sorry. You can't use the redirection feature because your permalink "
+"structure is not using the postname. To use the redirect, change your "
+"permanent structure in "
+msgstr ""
+"Lei. Du kan ikke bruke omadressering funksjon fordi din permalink struktur "
+"er ikke med postname. For å bruke viderekobling, kan du endre din faste "
+"strukturen i "
+
+#: inc/class-delete-old-posts.php:530
+msgid "Start"
+msgstr "Start"
+
+#: inc/class-delete-old-posts.php:553
+msgid ""
+"Start/ Stop deleting posts. Select this option and click save to start/ stop "
+"deleting the posts automatically in background. Hint! You can first test the "
+"results when you save the filters."
+msgstr ""
+"Start/ Stopp slette innlegg. Velg dette alternativet, og klikk på lagre for "
+"å starte/ stoppe slette innlegg automatisk i bakgrunnen. Tips! Du kan første "
+"test resultatene når du lagrer den filtre."
+
+#: inc/class-delete-old-posts.php:531
+msgid "Stop"
+msgstr "Stopp"
+
+#: inc/class-delete-old-posts-filters.php:492
+msgid "The following "
+msgstr "Følgende "
+
+#: inc/class-delete-old-posts.php:589
+msgid "The latest deleted post:"
+msgstr "Den nyeste slettede innlegg:"
+
+#: inc/class-delete-old-posts-redirects.php:261
+msgid "The new redirect have been saved."
+msgstr "Den nye omdirigere har blitt lagret."
+
+#: inc/class-delete-old-posts.php:203
+msgid "The posts will be permanently deleted"
+msgstr "Innlegg blir slettet permanent"
+
+#: inc/class-delete-old-posts-redirects.php:210
+msgid "The redirects have been deleted."
+msgstr "Den omdirigeringer har blitt slettet."
+
+#: inc/class-delete-old-posts.php:505
+msgid "These options are available in the Professional version."
+msgstr "Disse alternativene er tilgjengelig i Professional-versjonen."
+
+#: inc/class-delete-old-posts-filters.php:462
+msgid "This option is available in the Professional version."
+msgstr "Dette alternativet er tilgjengelig i Professional-versjonen."
+
+#: inc/class-delete-old-posts-filters.php:465
+msgid "Upgrade and activate it."
+msgstr "Oppgradering og aktivere den."
+
+#: inc/class-delete-old-posts.php:508
+msgid "Upgrade Now!"
+msgstr "Oppgrader Nå!"
+
+#: inc/class-delete-old-posts.php:402
+msgid "Use a fixed date instead of a number of days in the past."
+msgstr "Bruk en fast dato i stedet for et antall dager i det siste."
+
+#. Author of the plugin
+msgid "WPMagic"
+msgstr "WPMagic"
+
+#: inc/class-delete-old-posts-filters.php:301
+#, php-format
+msgid ""
+"You can choose to delete only the custom posts with specific taxonomies. If "
+"no taxonomy is selected, the custom posts with %s will be deleted."
+msgstr ""
+"Du kan velge om du vil slette bare den tilpassede innlegg med spesifikke "
+"taksonomier. Hvis ingen taksonomi er valgt, tilpasset innlegg med %s vil bli "
+"slettet."
+
+#: inc/class-delete-old-posts-filters.php:203
+#, php-format
+msgid ""
+"You can choose to delete only the posts from a specific custom post type, or "
+"all posts types. If not otherwise specified, only the posts from the %s will "
+"be deleted."
+msgstr ""
+"Du kan velge å bare sletter innlegg fra en bestemt custom post type, eller "
+"alle innlegg typer. Hvis ikke annet er spesifisert, er det bare innleggene "
+"fra %s vil bli slettet."
+
+#: inc/class-delete-old-posts-filters.php:305
+#, php-format
+msgid ""
+"You can choose to delete only the posts from specific categories. If "
+"selected, only post from the selected category (categories) will be deleted. "
+"If no category is selected, the posts from %s will be deleted."
+msgstr ""
+"Du kan velge å bare sletter innlegg fra bestemte kategorier. Hvis du valgte "
+"bare innlegg fra valgte kategori (kategorier) vil bli slettet. Hvis ingen "
+"kategori er valgt, innlegg fra %s vil bli slettet."
+
+#: inc/class-delete-old-posts-filters.php:357
+#, php-format
+msgid ""
+"You can choose to delete only the posts from specific users. By default (no "
+"user selected), posts from %s will be deleted."
+msgstr ""
+"Du kan velge å bare sletter innlegg fra bestemte brukere. Standard (no "
+"brukeren som er valgt), innlegg fra %s vil bli slettet."
+
+#: inc/class-delete-old-posts-filters.php:99 inc/class-delete-old-posts.php:111
+msgid "You don't have rights to delete the posts."
+msgstr "Du har ikke rettigheter til å slette innlegg."
+
+#: inc/class-delete-old-posts.php:223
+msgid ""
+"Your posts older than the specified days will be automatically deleted in "
+"the background any time the WP Cron runs or someone visits your website."
+msgstr ""
+"Ditt innlegg eldre enn de angitte dagene vil bli slettet automatisk i "
+"bakgrunnen som helst WP Cron går eller noen som besøker nettstedet ditt."
+
+#: inc/class-delete-old-posts.php:282
+#, php-format
+msgid ""
+"Your posts published before the %s, will be automatically deleted in the "
+"background any time the WP Cron runs or someone visits your website."
+msgstr ""
+"Ditt innlegg publisert før %s, vil bli slettet automatisk i bakgrunnen som "
+"helst WP Cron går eller noen som besøker nettstedet ditt."
