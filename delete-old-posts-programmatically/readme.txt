@@ -4,11 +4,11 @@ Tags: delete posts automatically, bulk delete posts, bulk posts delete, delete p
 Requires at least: 5.7
 Tested up to: 6.7
 Requires PHP: 7.0
-Stable tag: 3.9.3
+Stable tag: 3.9.4
 License: GPL3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
-The auto delete old posts WordPress plugin will keep your website clean by programmatically deleting old posts with a wide range of powerful filters and conditions.
+The Delete Posts Automatically plugin keeps your website clean by programmatically deleting posts using a wide range of powerful filters.
 
 == Description ==
 Deleting the old posts in WordPress is a time-consuming task.
@@ -96,6 +96,9 @@ The plugin will help you delete the posts automatically.
 
 
 == Changelog ==
+
+= 3.9.4 =
+* Updated: Short Description.
 
 = 3.9.3 =
 * Updated: Title and description.
