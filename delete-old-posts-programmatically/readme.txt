@@ -1,10 +1,10 @@
 === Delete old Posts automatically ===
 Contributors: wpmagics, freemius
-Tags: delete, bulk, clean, delete posts, bulk delete posts, delete all, mass delete, delete posts by users, delete media, delete post by taxonomy, wp clean, bulk posts delete, delete all posts, trash, delete with condition, delete with filter, remove
+Tags: delete posts automatically, bulk delete posts, bulk posts delete, delete posts automatically with filters
 Requires at least: 5.7
-Tested up to: 6.5
+Tested up to: 6.7
 Requires PHP: 7.0
-Stable tag: 3.7
+Stable tag: 3.9.0
 License: GPL3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -34,7 +34,7 @@ You can also delete any custom posts, such as WooCommerce products, with ease.
 * Look for posts that contain a specific phrase.
 * Delete posts by categories.
 * Delete posts by tags.
-* Delete only the custom post types from one or multiple taxonomies.
+* Delete the custom post types from one or multiple taxonomies.
 * Select the relationship that will be applied to taxonomies terms.
 * Redirect deleted posts with a status of "301 Moved Permanently" to similar posts on your website.
 * Delete posts by the user.
@@ -96,6 +96,12 @@ The plugin will help you delete the posts automatically.
 
 
 == Changelog ==
+
+= 3.9.2 =
+* Stable Tag correction.
+
+= 3.9.1 =
+* Updated SDK to the latest version.
 
 = 3.9.0 =
 * Added: Filter to delete posts by tags.
