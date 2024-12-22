@@ -4,7 +4,7 @@ Tags: delete posts automatically, bulk delete posts, bulk posts delete, delete p
 Requires at least: 5.7
 Tested up to: 6.7
 Requires PHP: 7.0
-Stable tag: 3.9.0
+Stable tag: 3.9.3
 License: GPL3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -97,8 +97,11 @@ The plugin will help you delete the posts automatically.
 
 == Changelog ==
 
+= 3.9.3 =
+* Updated: Title and description.
+
 = 3.9.2 =
-* Stable Tag correction.
+* Updated: Stable Tag.
 
 = 3.9.1 =
 * Updated SDK to the latest version.

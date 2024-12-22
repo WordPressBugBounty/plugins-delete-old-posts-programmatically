@@ -1,13 +1,13 @@
 <?php
 
 /**
- * Plugin Name: Delete old posts automatically
- * Description: Keep your website clean by automatically deleting old posts and redirecting the deleted posts to similar ones.
+ * Plugin Name: Delete posts automatically
+ * Description: Automatically delete and redirect posts to similar ones to keep your site clean.
  * Author:      WPMagic
  * Author URI:  https://wpmagic.cloud
  * License:     GPL3
  * License URI: https://www.gnu.org/licenses/gpl-3.0.html
- * Version:     3.9.2
+ * Version:     3.9.3
  * Text Domain: delete-old-posts
  *
  * @package headless-cms
