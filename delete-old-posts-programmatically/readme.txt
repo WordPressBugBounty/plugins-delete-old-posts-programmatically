@@ -1,4 +1,4 @@
-=== Delete old Posts automatically ===
+=== Delete Posts automatically ===
 Contributors: wpmagics, freemius
 Tags: delete posts automatically, bulk delete posts, bulk posts delete, delete posts automatically with filters
 Requires at least: 5.7
@@ -94,8 +94,16 @@ You should restore the backup you took of your website before you ran this tool.
 = What does this plugin do exactly? =
 The plugin will help you delete the posts automatically.
 
+= What if I don't want some of my posts to be deleted? =
+You should use the built-in 'filters' to fine tune which posts should be deleted.
 
 == Changelog ==
+
+= 3.9.6 =
+* Updated: FAQs.
+
+= 3.9.5 =
+* Updated: Plugin name.
 
 = 3.9.4 =
 * Updated: Short Description.
