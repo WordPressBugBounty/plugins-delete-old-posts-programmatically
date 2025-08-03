@@ -391,7 +391,7 @@ class Redirects_List_Table extends \WP_List_Table {
         // get deleted posts array and edited redirections array
         $deletedPostsNames = get_option('deletedpostredirectsopt');
         $redirectsOptEdited = get_option('deletedpostredirectsoptedited');
-
+        
         // get the permalink structure
         $permalink_structure = get_option( 'permalink_structure' );
         if( stristr( $permalink_structure, '%postname%' ) === false ) {

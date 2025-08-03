@@ -355,8 +355,12 @@ class Delete_Old_Posts_Filters extends Delete_Old_Posts {
                 $usersFilter = $this->getFiltersOpt( 'userid' );
                 // get all users
                 $users = get_users( array(
-                    'fields' => array('ID'),
+                    'fields' => array('ID', 'display_name'),
                 ) );
+                // sort users alphabeticaly
+                usort( $users, function ( $a, $b ) {
+                    return strcasecmp( $a->display_name, $b->display_name );
+                } );
                 // list users
                 ?>
                 <div class='border border-inherit p-7 relative max-w-xs delop-filter'>
@@ -370,16 +374,17 @@ class Delete_Old_Posts_Filters extends Delete_Old_Posts {
                 echo "<div class='text-base'>";
                 esc_html_e( 'Delete only the posts from specific users:', 'delete-old-posts' );
                 echo "</div>";
-                echo "\n                        <div class='max-h-56 overflow-auto'>";
+                echo "\n                        <div class='max-h-56'>\n                            <select id='userid' name='userid' data-placeholder='Choose users...' multiple data-multi-select>";
                 foreach ( $users as $user ) {
                     $userObj = get_user_by( 'ID', $user->ID );
-                    echo "<label class='block my-2'><input type='checkbox' name='userid[]' value='" . $user->ID . "'";
+                    // echo "<label class='block my-2'><input type='checkbox' name='userid[]' value='".$user->ID."'"; if( isset($usersFilter) && is_array($usersFilter) && array_search($user->ID, $usersFilter) !== false ) echo "checked"; echo "/> ".$userObj->display_name."</label>";
+                    echo "<option value='" . $user->ID . "'";
                     if ( isset( $usersFilter ) && is_array( $usersFilter ) && array_search( $user->ID, $usersFilter ) !== false ) {
-                        echo "checked";
+                        echo " selected";
                     }
-                    echo "/> " . $userObj->display_name . "</label>";
+                    echo ">" . $userObj->display_name . "</option>";
                 }
-                echo "\n                        </div>";
+                echo "\n                            </select>\n                        </div>";
                 ?>
                     </div>
                 </div>

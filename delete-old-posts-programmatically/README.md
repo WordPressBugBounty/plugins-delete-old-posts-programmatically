@@ -1,1 +1,2 @@
-# delete-old-posts
+# Delete Posts automatically
+By WPMagic 

@@ -2,9 +2,9 @@
 Contributors: wpmagics, freemius
 Tags: delete posts automatically, bulk delete posts, bulk posts delete, delete posts automatically with filters
 Requires at least: 5.7
-Tested up to: 6.7
+Tested up to: 6.8
 Requires PHP: 7.0
-Stable tag: 3.9.6
+Stable tag: 3.10.1
 License: GPL3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -99,8 +99,12 @@ You should use the built-in 'filters' to fine tune which posts should be deleted
 
 == Changelog ==
 
+= 3.10.1 =
+* Added: The ability to search for and select items from a list in the filters.
+* Updated: SDK to the latest version.
+
 = 3.9.7 =
-* Updated: SDK.
+* Updated: SDK to the latest version.
 
 = 3.9.6 =
 * Updated: FAQs.

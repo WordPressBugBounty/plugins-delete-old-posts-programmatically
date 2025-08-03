@@ -186,7 +186,7 @@ class Delete_Old_Posts {
                 $timestampNextCronRun = wp_next_scheduled( 'deloldp_cron_delete_old_posts' );
                 $calculateMaxNumberOfDeletedPosts = ( isset( $getOptionObject->params->deloldpPostsNr ) ? 60 / 15 * 60 * 24 * $getOptionObject->params->deloldpPostsNr : 60 / 15 * 60 * 24 );
                 $infoText = sprintf(
-                    __( "Posts published on %s %s, %s and before that will be deleted regularly in the background. Up to %d Posts/Day.", "delete-old-posts" ),
+                    __( "Any posts published before %s %s, %s will be regularly deleted in the background. Up to %d posts per day.", "delete-old-posts" ),
                     date( "F", $postDeleteDaysTime ),
                     date( "d", $postDeleteDaysTime ),
                     date( "Y", $postDeleteDaysTime ),
