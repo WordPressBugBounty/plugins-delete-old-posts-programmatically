@@ -1,0 +1,612 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Delete old posts automatically\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-01-28 15:04+0000\n"
+"PO-Revision-Date: 2023-02-02 05:57+0000\n"
+"Last-Translator: \n"
+"Language-Team: Bengali (Bangladesh)\n"
+"Language: bn_BD\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Loco https://localise.biz/\n"
+"X-Loco-Version: 2.6.3; wp-6.1.1\n"
+"X-Domain: delete-old-posts"
+
+#: inc/class-delete-old-posts-filters.php:81
+msgid ""
+"\n"
+"                                After you decide the number of days in the "
+"past for the posts to be automatically deleted, you can choose more options "
+"for the deleted posts here. \n"
+"                                If you are looking to delete only one type "
+"of post, or only the posts in some categories, or having one or more "
+"taxonomies (for custom post types), \n"
+"                                then select in the options below what would "
+"you like to apply. \n"
+"                                Then, when deleting the posts published "
+"before the selected date, all selected options below will also have to apply "
+"for the post. \n"
+"                                This way, you can filter the deleted posts "
+"and delete only the posts for which the selected options apply.\n"
+"                            "
+msgstr ""
+" পরে আপনি সিদ্ধান্ত নিতে দিন সংখ্যা অতীতে জন্য করা পোস্ট স্বয়ংক্রিয়ভাবে "
+"মুছে ফেলা, আপনি নির্বাচন করতে পারেন আরো জন্য বিকল্প মুছে ফেলা পোস্ট এখানে. "
+"If you are looking to delete শুধুমাত্র এক ধরনের পোস্ট বা শুধুমাত্র পোস্ট, "
+"কিছু বিভাগ বা হচ্ছে এক বা একাধিক taxonomies (কাস্টম পোস্ট ধরনের জন্য), তারপর "
+"নির্বাচন করে অপশন নিচে কি আপনি আবেদন করতে চাই.  তারপর যখন মুছে ফেলা পোস্ট "
+"আগে প্রকাশিত নির্বাচিত তারিখ, সব নির্বাচিত অপশন নিচের করতে হবে আবেদন পোস্টের "
+"জন্য. এই ভাবে, আপনি ফিল্টার করতে পারেন মুছে ফেলা পোস্ট, এবং মুছে দিন "
+"শুধুমাত্র পোস্ট, যার জন্য নির্বাচিত বিকল্প প্রয়োগ করুন. "
+
+#: inc/class-delete-old-posts-filters.php:502
+msgid ""
+" Don't forget to set the \"Start deleting posts\" option ON, to start "
+"deleting the post automatically in the background."
+msgstr ""
+" করতে ভুলবেন না সেট \"শুরু, মুছে ফেলা, পোস্ট\" বিকল্প উপর শুরু করতে, মুছে "
+"ফেলা, পোস্ট স্বয়ংক্রিয়ভাবে ব্যাকগ্রাউন্ডে."
+
+#: inc/class-delete-old-posts.php:308
+msgid " to calculate the number of days automatically,"
+msgstr " সংখ্যা নিরূপণ করা দিন,স্বয়ংক্রিয়ভাবে"
+
+#: inc/class-delete-old-posts-redirects.php:274
+msgid "\" have been deleted."
+msgstr "\"মুছে ফেলা হয়েছে."
+
+#: inc/class-delete-old-posts-filters.php:386
+msgid "All selected terms"
+msgstr "সব নির্বাচিত পদ"
+
+#: inc/class-delete-old-posts-filters.php:380
+msgid "all selected terms"
+msgstr "সব নির্বাচিত পদ"
+
+#: inc/class-delete-old-posts-filters.php:387
+msgid "Any selected terms"
+msgstr "কোনো নির্বাচিত পদ"
+
+#: inc/class-delete-old-posts-filters.php:357
+msgid "any user"
+msgstr "কোন ব্যবহারকারী"
+
+#: inc/class-delete-old-posts-filters.php:139
+msgid ""
+"At least one post type has to be selected. The default post type have been "
+"automatically selected."
+msgstr ""
+"অন্তত একটি পোস্ট টাইপ নির্বাচন করা. ডিফল্ট পোস্ট টাইপ করা হয়েছে, "
+"স্বয়ংক্রিয়ভাবে নির্বাচিত."
+
+#: inc/class-delete-old-posts-filters.php:70
+msgid "Available filters to use when deleting the posts"
+msgstr "উপলব্ধ ফিল্টার ব্যবহার করার জন্য মুছে ফেলা হলে, এই পোস্ট"
+
+#: inc/class-delete-old-posts.php:175
+msgid ""
+"Choose a date or specify the number of days for the posts to be deleted!"
+msgstr "নির্বাচন একটি তারিখ বা সংখ্যা উল্লেখ দিনের জন্য পোস্ট মুছে ফেলা হবে!"
+
+#: inc/class-delete-old-posts.php:221
+msgid ""
+"Choose a date or specify the number of days for the posts to be deleted."
+msgstr "নির্বাচন একটি তারিখ বা সংখ্যা উল্লেখ দিনের জন্য পোস্ট মুছে ফেলা হবে."
+
+#: inc/class-delete-old-posts-filters.php:304
+msgid "Choose categories to filter the deleted posts."
+msgstr "ধরন নির্বাচন করতে ফিল্টার মুছে ফেলা পোস্ট."
+
+#: inc/class-delete-old-posts-filters.php:73
+msgid ""
+"Choose in the options below what filters to apply when deleting the posts."
+msgstr "নির্বাচন করে অপশন নিচে কি ফিল্টার প্রয়োগ করুন যখন মুছে ফেলা পোস্ট."
+
+#: inc/class-delete-old-posts-filters.php:300
+#, php-format
+msgid "Choose taxonomies to filter the deleted %s."
+msgstr "নির্বাচন taxonomies ফিল্টার মুছে ফেলা %s."
+
+#: inc/class-delete-old-posts.php:288
+msgid "Choose the number of "
+msgstr "সংখ্যা নির্বাচন করুন "
+
+#: inc/class-delete-old-posts.php:496
+msgid ""
+"Choose the number of post to be deleted at the same time. Please note, that "
+"a higher number of post deleted at once means a higher load on your server. "
+"You can choose a smaller number on a hosting with low resources (ex. shared "
+"hosting) and a higher number if your website is running for example on a "
+"dedicated server. By default, one post is deleted."
+msgstr ""
+"সংখ্যা নির্বাচন করুন পোস্ট মুছে ফেলা হবে একই সময়ে. দয়া করে মনে রাখবেন, যে "
+"একটি উচ্চতর সংখ্যা, পোস্ট, মুছে ফেলা, একবারে মানে একটি উচ্চ আপনার সার্ভারে "
+"লোড. আপনি নির্বাচন করতে পারেন একটি ছোট সংখ্যা একটি হোস্টিং সঙ্গে, কম সম্পদ "
+"(ex. শেয়ার্ড হোস্টিং) এবং একটি উচ্চ নম্বর যদি আপনার ওয়েবসাইট চলমান হয়, "
+"উদাহরণস্বরূপ, একটি ডেডিকেটেড সার্ভার. ডিফল্টরূপে, একটি পোস্ট মুছে ফেলা হয়."
+
+#: inc/class-delete-old-posts-filters.php:218
+msgid "Choose the post type:"
+msgstr "নির্বাচন করুন পোস্ট ধরনের:"
+
+#: inc/class-delete-old-posts-filters.php:385
+msgid "Choose the relation applied to taxonomies terms:"
+msgstr "নির্বাচন সম্পর্কিত প্রয়োগ taxonomies শর্তাবলী:"
+
+#: inc/class-delete-old-posts-filters.php:380
+#, php-format
+msgid ""
+"Choose the relation applied to terms. By default (no relation selected), %s "
+"will be used. \"All selected terms\" mean that the deleted post will need to "
+"have relation with all selected terms. \"Any selected terms\" mean that if "
+"the post has relationship with only one of the selected terms, then the post "
+"will be deleted."
+msgstr ""
+"নির্বাচন সম্পর্কিত প্রয়োগ পদ থেকে. ডিফল্টরূপে (কোন সম্পর্ক নির্বাচিত), %s "
+"ব্যবহার করা হবে. \"সব নির্বাচিত পদ\" অর্থ যে মুছে ফেলা পোস্ট আছে প্রয়োজন "
+"হবে সঙ্গে সম্পর্ক সব নির্বাচিত পদ. \"কোনো নির্বাচিত পদ\" অর্থ এই যে, যদি "
+"পোস্ট আছে সঙ্গে সম্পর্ক শুধুমাত্র একটি নির্বাচিত পদ, তারপর পোস্ট মুছে ফেলা "
+"হবে."
+
+#: inc/class-delete-old-posts.php:312
+msgid "Click to copy"
+msgstr "কপি করার জন্য ক্লিক করুন"
+
+#: inc/class-delete-old-posts.php:273
+msgid "days."
+msgstr "দিন."
+
+#: inc/class-delete-old-posts-filters.php:203
+msgid "default post type"
+msgstr "ডিফল্ট পোস্ট টাইপ"
+
+#: inc/class-delete-old-posts-redirects.php:494
+#: inc/class-delete-old-posts-redirects.php:505
+msgid "Delete"
+msgstr "মুছে দিন"
+
+#: inc/class-delete-old-posts-filters.php:455
+msgid "Delete all files attached to post:"
+msgstr "সব মুছে দিন ফাইল সংযুক্ত পোস্ট:"
+
+#: inc/class-delete-old-posts.php:34 inc/class-delete-old-posts.php:35
+msgid "Delete old posts"
+msgstr "মুছে ফেলা পুরাতন পোস্ট"
+
+#: inc/class-delete-old-posts.php:238
+msgid "Delete Old Posts automatically"
+msgstr "মুছে ফেলা পুরাতন পোস্ট স্বয়ংক্রিয়ভাবে"
+
+#. Name of the plugin
+msgid "Delete old posts automatically"
+msgstr "মুছে ফেলা পুরাতন পোস্ট স্বয়ংক্রিয়ভাবে"
+
+#: inc/class-delete-old-posts-filters.php:426
+msgid "Delete only posts that contain the keyword(s):"
+msgstr "মুছে দিন শুধুমাত্র পোস্ট ধারণ করে keyword(s):"
+
+#: inc/class-delete-old-posts-filters.php:362
+msgid "Delete only the posts from specific users:"
+msgstr "মুছে দিন শুধুমাত্র পোস্ট নির্দিষ্ট ব্যবহারকারীদের কাছ থেকে:"
+
+#: inc/class-delete-old-posts.php:252
+msgid "Delete Post older than:"
+msgstr "মুছে ফেলা পোস্ট আর পুরোনো:"
+
+#: inc/class-delete-old-posts.php:461
+msgid "Delete the Posts permanently, don't add them into Trash"
+msgstr "মুছে ফেলা পোস্ট স্থায়ীভাবে যোগ না তাদের মধ্যে ট্র্যাশ"
+
+#: inc/class-delete-old-posts-redirects.php:350
+msgid "Deleted post slug"
+msgstr "মুছে ফেলা পোস্ট স্লাগ্"
+
+#: inc/class-delete-old-posts-redirects.php:232
+msgid "Deleted post slug:"
+msgstr "মুছে ফেলা পোস্ট স্লাগ্:"
+
+#: inc/class-delete-old-posts-redirects.php:152
+msgid "Deleted posts list"
+msgstr "মুছে ফেলা পোস্ট তালিকা"
+
+#: inc/class-delete-old-posts.php:533
+msgid "deleting the posts:"
+msgstr "মুছে ফেলা পোস্ট:"
+
+#: inc/class-delete-old-posts.php:228
+msgid "Dismiss this notice."
+msgstr "বরখাস্ত এই নোটিশ."
+
+#: inc/class-delete-old-posts-filters.php:451
+msgid ""
+"Do you want to delete the images attached to the post (featured image and "
+"all files attached to it) when the post is deleted?"
+msgstr ""
+"আপনি মুছে ফেলতে চান ইমেজ সংযুক্ত পোস্ট (বৈশিষ্ট্যযুক্ত ইমেজ এবং সব ফাইল এটি "
+"সংযুক্ত) যখন পোস্ট মুছে ফেলা হয়?"
+
+#: inc/class-delete-old-posts-filters.php:399
+msgid "don't want to be deleted"
+msgstr "করতে চান না, মুছে ফেলা যাবে"
+
+#: inc/class-delete-old-posts-redirects.php:493
+msgid "Edit"
+msgstr "সম্পাদনা"
+
+#: inc/class-delete-old-posts.php:439
+msgid ""
+"Even after the posts are removed, they can still be linked to or found on "
+"Google. Choose this option if you want to redirect your visitors to the "
+"deleted post to another similar post on your website. The plugin will "
+"automatically find the best matching option, but you can customize it in the "
+"\"Redirects\" menu. The HTTP response status code 301 Moved Permanently is "
+"used for the redirect."
+msgstr ""
+"এমনকি পরে পোস্ট মুছে ফেলা হয়, তারা এখনও করতে পারেন লিঙ্ক করা বা পাওয়া গুগল."
+" এই অপশনটি নির্বাচন করা হলে, আপনি পুনর্নির্দেশ করতে চান, আপনার দর্শক থেকে "
+"মুছে ফেলা পোস্ট করার জন্য অন্য অনুরূপ আপনার ওয়েবসাইটে পোস্ট. প্লাগ "
+"স্বয়ংক্রিয়ভাবে এটি সেরা মেলা বিকল্প, কিন্তু আপনি কাস্টমাইজ করতে পারেন, এটি "
+"\"Redirects\" মেনু. HTTP প্রতিক্রিয়া অবস্থা কোড 301 স্থায়ীভাবে সরানো "
+"হয়েছে জন্য ব্যবহার করা হয়, পুনর্নির্দেশ."
+
+#: inc/class-delete-old-posts-filters.php:433
+msgid "Exclude from search results any posts that contain the keyword(s):"
+msgstr "অগ্রাহ্য অনুসন্ধান ফলাফল থেকে কোন পোস্ট থাকে যে keyword(s):"
+
+#: inc/class-delete-old-posts-filters.php:446
+msgid "featured image and all files"
+msgstr "বৈশিষ্ট্যযুক্ত ইমেজ এবং সব ফাইল"
+
+#: inc/class-delete-old-posts.php:516
+msgid ""
+"Filter the deleted post by selecting more options in the filters menu. "
+"Available filters are custom post types, categories, taxonomies, users, "
+"favorite post, and text search (posts containing a text), so only some from "
+"the posts will be deleted even if they are older than selected date "
+"(selected days)."
+msgstr ""
+"ফিল্টার মুছে ফেলা পোস্ট নির্বাচন করে আরো অপশন মধ্যে ফিল্টার মেনু. উপলব্ধ "
+"ফিল্টার করা হয়, কাস্টম পোস্ট ধরনের, বিভাগ, taxonomies, ব্যবহারকারীদের, "
+"প্রিয় পোস্ট, এবং টেক্সট অনুসন্ধান (পোস্ট ধারণকারী একটি টেক্সট), তাই "
+"শুধুমাত্র থেকে কিছু পোস্ট মুছে ফেলা হবে, এমনকি যদি, তারা আর পুরোনো নির্বাচিত "
+"তারিখ (নির্বাচিত দিন)."
+
+#: inc/class-delete-old-posts-filters.php:52
+msgid "Filters"
+msgstr "ফিল্টার"
+
+#: inc/class-delete-old-posts-filters.php:404
+msgid "Have some important posts? Enter the post IDs that you want to keep:"
+msgstr "আছে কিছু গুরুত্বপূর্ণ পোস্ট? Enter the post Id-র যে আপনি রাখতে চান:"
+
+#: inc/class-delete-old-posts.php:191
+msgid ""
+"Hint! Test the list with deleted posts in the \"Filters\" menu. Activate the "
+"\"Start deleting the posts\" option below and click \"Save\" when you are "
+"ready to start deleting the posts. No posts will be deleted until then."
+msgstr ""
+"ইঙ্গিত! পরীক্ষা দিয়ে তালিকা মুছে ফেলা পোস্ট \"ফিল্টার\" মেনু. সক্রিয় করুন "
+"\"শুরু, মুছে ফেলা পোস্ট\" বিকল্প নীচের এবং ক্লিক করুন \"সংরক্ষণ\" যখন আপনি "
+"শুরু করার জন্য প্রস্তুত হয় মুছে ফেলা পোস্ট. কোন পোস্ট মুছে ফেলা হবে, যতক্ষণ "
+"না তারপর."
+
+#. Author URI of the plugin
+msgid "https://wpmagic.cloud"
+msgstr ""
+
+#: inc/class-delete-old-posts-redirects.php:349
+msgid "ID"
+msgstr "আইডি"
+
+#: inc/class-delete-old-posts.php:606
+msgid "Id:"
+msgstr "Id:"
+
+#: inc/class-delete-old-posts-filters.php:446
+#, php-format
+msgid ""
+"If you also want to delete the %s attached to the post, select this option. "
+"When the post is deleted, the post thumbnail and all files attached to it "
+"will be deleted as well. Use this option carefully because there is no "
+"guarantee that the attachment isn't still published in some other post (ex. "
+"picture galleries)."
+msgstr ""
+"এছাড়াও আপনি মুছে ফেলতে চান, যা %s attached to the post এই অপশনটি নির্বাচন "
+"করুন. যখন পোস্ট মুছে ফেলা হয়, পোস্ট থাম্বনেইল, এবং সব ফাইল সংযুক্ত, এটি "
+"মুছে ফেলা হবে, পাশাপাশি. এই বিকল্পটি ব্যবহার করুন সাবধানে, কারণ যে কোন "
+"গ্যারান্টি নেই সংযুক্তি নয়, এখনও প্রকাশিত অন্য কিছু পোস্ট (ex. ছবি গ্যালারী)"
+"."
+
+#: inc/class-delete-old-posts-filters.php:399
+#, php-format
+msgid ""
+"If you have some posts that you %s, write the posts Ids in the text box "
+"separated with coma (ex. 1009, 2345, 4563). You can find the post id in the "
+"browser location when you edit the post (ex. ?post=2033)."
+msgstr ""
+"যদি আপনি কিছু পোস্ট আছে যে আপনি %s লিখুন, পোস্ট Id-র মধ্যে টেক্সট বক্স সঙ্গে "
+"পৃথক কোমা (ex. 1009, 2345, 4563). আপনি খুঁজে পেতে পারেন পোস্ট আইডি ব্রাউজারে "
+"অবস্থান যখন আপনি সম্পাদনা পোস্ট (ex. ?পোস্ট=2033)."
+
+#: inc/class-delete-old-posts-filters.php:421
+#, php-format
+msgid ""
+"If you want delete only some posts containing some %s, write the keywords to "
+"search in the posts here (ex. pillow). If you want to exclude some posts "
+"from the search, write your keywords in the \"Negative keywords\" field "
+"below. Eg, \"Look for posts that include\" = \"pillow\" and \"Exclude from "
+"search results\" = \"sofa\", will return posts containing \"pillow\" but not "
+"\"sofa\"."
+msgstr ""
+"যদি আপনি চান মুছে দিন শুধুমাত্র কিছু পোস্ট ধারণকারী কিছু %s লিখুন খোঁজো "
+"মধ্যে অনুসন্ধান করতে পোস্ট এখানে (ex. বালিশ). যদি আপনি বাদ দিতে চান কিছু "
+"পোস্ট থেকে অনুসন্ধান লিখুন, আপনার খোঁজো মধ্যে নেতিবাচক \"খোঁজো\" ক্ষেত্রের "
+"নীচে. যেমন, \"দেখো জন্য যে পোস্ট অন্তর্ভুক্ত\" = \"বালিশ\" এবং \"অগ্রাহ্য "
+"অনুসন্ধান ফলাফল থেকে\" = \"সোফা\" আসতে হবে, পোস্ট ধারণকারী \"বালিশ\" কিন্তু "
+"না \"সোফা\"."
+
+#: inc/class-delete-old-posts-redirects.php:254
+msgid "It's NOT valid URL."
+msgstr "এটা না বৈধ URL টি."
+
+#. Description of the plugin
+msgid ""
+"Keep your website clean by automatically deleting old posts and redirecting "
+"the deleted posts to similar ones."
+msgstr ""
+"আপনার ওয়েবসাইটে রাখা পরিষ্কার দ্বারা স্বয়ংক্রিয়ভাবে মুছে ফেলা পুরাতন "
+"পোস্ট এবং পুনঃনির্দেশিত মুছে ফেলা পোস্ট অনুরূপ বেশী."
+
+#: inc/class-delete-old-posts-filters.php:421
+msgid "keywords"
+msgstr "মূলশব্দ"
+
+#: inc/class-delete-old-posts-filters.php:316
+msgid "list:"
+msgstr "তালিকা:"
+
+#: inc/class-delete-old-posts-filters.php:429
+msgid "Look for posts that include the keyword(s):"
+msgstr "জন্য চেহারা যে পোস্ট অন্তর্ভুক্ত keyword(s):"
+
+#: inc/class-delete-old-posts.php:294
+msgid "months"
+msgstr "মাস"
+
+#: inc/class-delete-old-posts-redirects.php:236
+msgid "New redirect to post (full URL starting with https:// or http://):"
+msgstr ""
+
+#: inc/class-delete-old-posts.php:199
+#, php-format
+msgid "Next cron job run scheduled on %s."
+msgstr "পরবর্তী cron কর্ম চালানোর উপর নির্ধারিত %s."
+
+#: inc/class-delete-old-posts-filters.php:492
+msgid "No "
+msgstr "কোন "
+
+#: inc/class-delete-old-posts.php:466
+#, php-format
+msgid "Number of post to delete when the %s runs."
+msgstr "সংখ্যা, পোস্ট মুছে ফেলতে যখন %s সঞ্চালিত হয়."
+
+#: inc/class-delete-old-posts.php:319
+msgid "or select a date to calculate days in the past automatically:"
+msgstr "বা একটি তারিখ নির্বাচন করতে নিরূপণ দিন গত স্বয়ংক্রিয়ভাবে:"
+
+#: inc/class-delete-old-posts-filters.php:407
+msgid "Post IDs to exclude:"
+msgstr "পোস্ট Id-র অগ্রাহ্য করতে:"
+
+#: inc/class-delete-old-posts.php:601
+msgid "Post published date:"
+msgstr "পোস্ট প্রকাশিত তারিখ:"
+
+#: inc/class-delete-old-posts.php:197
+#, php-format
+msgid ""
+"Posts published on %s %s, %s and before that will be deleted regularly in "
+"the background. Up to %d Posts/Day."
+msgstr ""
+"পোস্ট প্রকাশিত %s %s, %s, এবং যে আগে, মুছে ফেলা হবে নিয়মিত পটভূমি. আপ করার "
+"জন্য, %d পোস্ট/দিন."
+
+#: inc/class-delete-old-posts-filters.php:493
+msgid ""
+"posts will be automatically deleted when the next scheduled cron job runs."
+msgstr ""
+"পোস্ট স্বয়ংক্রিয়ভাবে মুছে দেওয়া হবে যখন পরবর্তী নির্ধারিত cron কর্ম "
+"সঞ্চালিত হয়."
+
+#: inc/class-delete-old-posts.php:431
+msgid "Redirect the URL of the deleted post to a similar post when requested."
+msgstr "পুনর্নির্দেশ URL মুছে ফেলা পোস্ট অনুরূপ একটি পোস্ট অনুরোধ করা হলে."
+
+#: inc/class-delete-old-posts-redirects.php:351
+msgid "Redirection"
+msgstr "ফেরৎ"
+
+#: inc/class-delete-old-posts-redirects.php:30
+msgid "Redirects"
+msgstr "পুননির্দেশ করা হয়েছে"
+
+#: inc/class-delete-old-posts-redirects.php:190
+msgid "Redirects per page"
+msgstr "পুননির্দেশ করা হয়েছে প্রতি পৃষ্ঠায়"
+
+#: inc/class-delete-old-posts.php:564
+msgid "Save"
+msgstr "সংরক্ষণ করুন"
+
+#: inc/class-delete-old-posts-filters.php:108
+msgid "Save and test the deleted posts."
+msgstr "সংরক্ষণ করুন এবং পরীক্ষা মুছে ফেলা পোস্ট."
+
+#: inc/class-delete-old-posts-redirects.php:163
+msgid "Search redirects"
+msgstr "অনুসন্ধান পুননির্দেশনা"
+
+#: inc/class-delete-old-posts.php:323
+msgid "Select date"
+msgstr "নির্বাচন তারিখ"
+
+#: inc/class-delete-old-posts.php:410
+msgid ""
+"Select this option if you want to use a fixed date instead of a number of "
+"days in the past. If you select this option, only the posts older than the "
+"selected date will be deleted. If this option is not selected, the post "
+"older than the number of days in the past will be deleted, which will always "
+"be relative to today."
+msgstr ""
+"এই অপশনটি নির্বাচন করুন যদি আপনি ব্যবহার করতে চান একটি নির্দিষ্ট তারিখ এর "
+"পরিবর্তে একটি সংখ্যা দিন গত. যদি আপনি এই অপশনটি নির্বাচন করুন, শুধুমাত্র "
+"পোস্ট আর পুরোনো নির্বাচিত তারিখ মুছে ফেলা হবে. যদি এই অপশনটি নির্বাচিত না "
+"হয়, পোস্ট আর পুরোনো দিনের সংখ্যা অতীত মুছে ফেলা হবে, যা সবসময় হতে হবে "
+"আপেক্ষিক আজ."
+
+#: inc/class-delete-old-posts-redirects.php:398
+msgid "settings"
+msgstr "সেটিংস"
+
+#: inc/class-delete-old-posts.php:129
+msgid "Sorry, the security key did not verify."
+msgstr "দুঃখিত, নিরাপত্তা কী যাচাই করা হয়নি."
+
+#: inc/class-delete-old-posts-redirects.php:398
+msgid ""
+"Sorry. You can't use the redirection feature because your permalink "
+"structure is not using the postname. To use the redirect, change your "
+"permanent structure in "
+msgstr ""
+"দুঃখিত. আপনি ব্যবহার করতে পারবেন না ফেরৎ বৈশিষ্ট্য, কারণ, আপনার মাহবুব গঠন "
+"ব্যবহার করা হয় না postname. ব্যবহার করার জন্য, পুনর্নির্দেশ, পরিবর্তন, "
+"আপনার স্থায়ী কাঠামো "
+
+#: inc/class-delete-old-posts.php:530
+msgid "Start"
+msgstr "শুরু"
+
+#: inc/class-delete-old-posts.php:553
+msgid ""
+"Start/ Stop deleting posts. Select this option and click save to start/ stop "
+"deleting the posts automatically in background. Hint! You can first test the "
+"results when you save the filters."
+msgstr ""
+"স্টার্ট/ স্টপ পোস্ট মুছে ফেলা. এই বিকল্পটি নির্বাচন করুন এবং ক্লিক করুন "
+"সংরক্ষণ করার জন্য স্টার্ট/ স্টপ মুছে ফেলা পোস্ট স্বয়ংক্রিয়ভাবে পটভূমিতে. "
+"ইঙ্গিত! আপনি করতে পারেন, প্রথম পরীক্ষার ফলাফল যখন আপনি সংরক্ষণ ফিল্টার."
+
+#: inc/class-delete-old-posts.php:531
+msgid "Stop"
+msgstr "বন্ধ"
+
+#: inc/class-delete-old-posts-filters.php:492
+msgid "The following "
+msgstr "নিম্নলিখিত "
+
+#: inc/class-delete-old-posts.php:589
+msgid "The latest deleted post:"
+msgstr "সর্বশেষ পোস্ট মুছে ফেলা:"
+
+#: inc/class-delete-old-posts-redirects.php:261
+msgid "The new redirect have been saved."
+msgstr "নতুন পুনর্নির্দেশ সংরক্ষণ করা হয়েছে."
+
+#: inc/class-delete-old-posts.php:203
+msgid "The posts will be permanently deleted"
+msgstr "পোস্ট হতে হবে, স্থায়ীভাবে মুছে ফেলা"
+
+#: inc/class-delete-old-posts-redirects.php:210
+msgid "The redirects have been deleted."
+msgstr "এই পুননির্দেশনা মুছে ফেলা হয়েছে."
+
+#: inc/class-delete-old-posts.php:505
+msgid "These options are available in the Professional version."
+msgstr "এই অপশন মধ্যে উপলব্ধ করা হয় পেশাদারী সংস্করণ."
+
+#: inc/class-delete-old-posts-filters.php:462
+msgid "This option is available in the Professional version."
+msgstr "এই অপশন মধ্যে উপলব্ধ করা হয় পেশাদারী সংস্করণ."
+
+#: inc/class-delete-old-posts-filters.php:465
+msgid "Upgrade and activate it."
+msgstr "আপগ্রেড এবং এটি সক্রিয়."
+
+#: inc/class-delete-old-posts.php:508
+msgid "Upgrade Now!"
+msgstr "এখন আপগ্রেড!"
+
+#: inc/class-delete-old-posts.php:402
+msgid "Use a fixed date instead of a number of days in the past."
+msgstr "ব্যবহার একটি নির্দিষ্ট তারিখ এর পরিবর্তে একটি সংখ্যা দিন গত."
+
+#. Author of the plugin
+msgid "WPMagic"
+msgstr "WPMagic"
+
+#: inc/class-delete-old-posts-filters.php:301
+#, php-format
+msgid ""
+"You can choose to delete only the custom posts with specific taxonomies. If "
+"no taxonomy is selected, the custom posts with %s will be deleted."
+msgstr ""
+"আপনি নির্বাচন করতে পারেন, মুছে দিন শুধুমাত্র কাস্টম পোস্ট সঙ্গে নির্দিষ্ট "
+"taxonomies. যদি কোন শ্রেণীবিন্যাস নির্বাচন করা হয়, কাস্টম পোস্ট এর সাথে %s "
+"মুছে ফেলা হবে."
+
+#: inc/class-delete-old-posts-filters.php:203
+#, php-format
+msgid ""
+"You can choose to delete only the posts from a specific custom post type, or "
+"all posts types. If not otherwise specified, only the posts from the %s will "
+"be deleted."
+msgstr ""
+"আপনি নির্বাচন করতে পারেন, মুছে দিন, শুধুমাত্র পোস্ট থেকে একটি নির্দিষ্ট "
+"কাস্টম পোস্ট টাইপ, বা সকল পোস্ট ধরনের. যদি না অন্যথায়, নির্দিষ্ট, শুধুমাত্র "
+"পোস্ট থেকে %s মুছে ফেলা হবে."
+
+#: inc/class-delete-old-posts-filters.php:305
+#, php-format
+msgid ""
+"You can choose to delete only the posts from specific categories. If "
+"selected, only post from the selected category (categories) will be deleted. "
+"If no category is selected, the posts from %s will be deleted."
+msgstr ""
+"আপনি নির্বাচন করতে পারেন, মুছে দিন, শুধুমাত্র পোস্ট, নির্দিষ্ট বিভাগ থেকে. "
+"যদি নির্বাচিত, শুধুমাত্র পোস্ট থেকে নির্বাচিত বিভাগ (বিভাগ) মুছে ফেলা হবে. "
+"যদি কোন বিভাগ নির্বাচন করা হয়, এই পোস্ট থেকে %s মুছে ফেলা হবে."
+
+#: inc/class-delete-old-posts-filters.php:357
+#, php-format
+msgid ""
+"You can choose to delete only the posts from specific users. By default (no "
+"user selected), posts from %s will be deleted."
+msgstr ""
+"আপনি নির্বাচন করতে পারেন, মুছে দিন, শুধুমাত্র পোস্ট নির্দিষ্ট ব্যবহারকারীদের "
+"কাছ থেকে. ডিফল্টরূপে (কোন ব্যবহারকারী নির্বাচিত), পোস্ট, %s থেকে মুছে ফেলা "
+"হবে."
+
+#: inc/class-delete-old-posts-filters.php:99 inc/class-delete-old-posts.php:111
+msgid "You don't have rights to delete the posts."
+msgstr "আপনি অধিকার আছে না মুছে ফেলতে পোস্ট."
+
+#: inc/class-delete-old-posts.php:223
+msgid ""
+"Your posts older than the specified days will be automatically deleted in "
+"the background any time the WP Cron runs or someone visits your website."
+msgstr ""
+"আপনার পোস্ট আর পুরোনো নির্দিষ্ট দিন স্বয়ংক্রিয়ভাবে মুছে দেওয়া হবে, "
+"ব্যাকগ্রাউন্ডে কোন সময় ডাব্লু Cron চালায় বা কেউ আপনার ওয়েবসাইট পরিদর্শন."
+
+#: inc/class-delete-old-posts.php:282
+#, php-format
+msgid ""
+"Your posts published before the %s, will be automatically deleted in the "
+"background any time the WP Cron runs or someone visits your website."
+msgstr ""
+"আপনার পোস্ট আগে প্রকাশিত %s স্বয়ংক্রিয়ভাবে মুছে দেওয়া হবে, ব্যাকগ্রাউন্ডে "
+"কোন সময় ডাব্লু Cron চালায় বা কেউ আপনার ওয়েবসাইট পরিদর্শন."
