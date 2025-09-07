@@ -4,7 +4,7 @@ Tags: delete posts automatically, bulk delete posts, bulk posts delete, delete p
 Requires at least: 5.7
 Tested up to: 6.8
 Requires PHP: 7.0
-Stable tag: 3.10.1
+Stable tag: 3.10.3
 License: GPL3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -41,7 +41,7 @@ You can also delete any custom posts, such as WooCommerce products, with ease.
 * Delete the post permanently (PRO version).
 * Delete post attachments when the post is deleted (PRO version).
 
-Read more on the [plugin page on wpmagic.cloud](https://wpmagic.cloud/product/auto-delete-old-posts-wordpress-plugin/).
+Read more on the [plugin page](https://wpmagic.pwa.cloud/product/auto-delete-old-posts-wordpress-plugin/).
 
 = Supported languages: =
 
@@ -99,7 +99,10 @@ You should use the built-in 'filters' to fine tune which posts should be deleted
 
 == Changelog ==
 
-= 3.10.2 =
+= 3.10.3 =
+* Updated: Plugin page link.
+
+= 3.10.1 =
 * Added: The ability to search for and select items from a list in the filters.
 * Updated: SDK to the latest version.
 
