@@ -711,6 +711,16 @@ class Delete_Old_Posts {
             </div>
         </section>
 
+        <section class="px-6">
+            <p class="text-center mb-4">
+                <strong>Disclaimer!</strong> Before activating or scheduling automated post deletion, <strong>we strongly recommend creating a complete backup of your WordPress site</strong> (database + files). 
+                <br />Deleted posts cannot be recovered through this plugin, and we are not responsible for any loss of data caused by improper configuration or lack of backups.
+            </p>
+            <hr /><br />
+            <p class="text-center"><a href="<?php 
+        echo admin_url( 'admin.php' );
+        ?>?page=delete-old-posts-contact">Contact Support</a> | Add your ⭐⭐⭐⭐⭐ on <a href="https://wordpress.org/support/plugin/delete-old-posts-programmatically/reviews/#new-post" target="_blank">wordpress.org</a> to spread the love.</p>
+        </section>
         <?php 
     }
 

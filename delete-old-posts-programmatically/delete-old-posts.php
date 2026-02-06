@@ -7,7 +7,7 @@
  * Author URI:  https://wpmagic.pwa.cloud
  * License:     GPL3
  * License URI: https://www.gnu.org/licenses/gpl-3.0.html
- * Version:     3.10.5
+ * Version:     3.11.4
  * Text Domain: delete-old-posts
  *
  * @package headless-cms

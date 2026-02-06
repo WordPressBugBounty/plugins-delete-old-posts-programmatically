@@ -1,49 +1,78 @@
 === Delete Posts automatically ===
 Contributors: wpmagics, freemius
-Tags: delete posts automatically, bulk delete posts, bulk posts delete, delete posts automatically with filters
+Tags: delete posts, auto delete, cleanup, old posts, schedule
 Requires at least: 5.7
 Tested up to: 6.8
 Requires PHP: 7.0
-Stable tag: 3.10.5
+Stable tag: 3.11.4
 License: GPL3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
 The Delete Posts Automatically plugin keeps your website clean by programmatically deleting posts using a wide range of powerful filters.
 
 == Description ==
-Deleting the old posts in WordPress is a time-consuming task.
-With the Delete Old Posts Automatically plugin, you can make this task automatically.
 
-Just set the value for the number of days in the past, and the plugin will automatically delete any post that was published before that.
-You can also filter the deleted posts if you want to skip some of them and keep some important ones.
+Automatically delete old or outdated WordPress posts safely — keep your site clean, fast, and relevant.
+Delete Old Posts plugin lets you automatically remove outdated content from your WordPress site with ease. 
+Schedule deletions, filter by category, tag, post type, or status, and optionally redirect deleted posts to relevant pages to preserve SEO. 
+Perfect for bloggers, news sites, e-commerce stores, and anyone who wants a clean, optimized site without manual cleanup.
 
-Any blog accumulates, over time, a considerable number of blog posts. If your old blog posts are out-of-date, irrelevant, of poor quality, not useful, don’t get much traffic, and don’t support your blog’s overall goals, you should consider removing them. If your website has hundreds of old posts, deleting them is a time-consuming task.
-If any of these blog posts still have organic traffic, it will be automatically redirected, with a 301 code, to the best matching related post.
+== Features ==
 
-With the help of this plugin, you will be able to **delete the posts automatically** and thus save a lot of time. You can decide to permanently delete the posts or put them in the trash.
-You can also delete any custom posts, such as WooCommerce products, with ease.
+- 🕒 **Automatic Deletion** – Schedule post deletions automatically — no manual work needed.  
+- 🗂️ **Flexible Filtering** – Choose which posts to delete based on date, category, tag, post type, authors, or status.  
+- 🚫 **Exclude Important Posts** – Protect specific posts from deletion.  
+- 🔁 **SEO-Friendly Redirects** – Automatically redirect deleted posts to their closest match or a custom URL (optional).  
+- 💾 **Safe & Controlled** – Logs every deletion for easy review, so you always know what happened (coming soon).  
+- 🧰 **Supports Custom Post Types** – Works with any posts type.
+- 🔄 **“Set It and Forget It” Automation** – Once configured, it keeps your site clean automatically.  
+- 💡 **Lightweight & Fast** – No bloat, minimal database load, and compatible with all major themes and plugins.  
+- ❌ **Delete the post permanently** (PRO version).
+- ❌ **Delete post attachments** 📎 🏞️ when the post is deleted (PRO version).
 
+== Why You Might Need This Plugin ==
 
-= Features =
+Keeping your WordPress site clean and relevant is important — but deleting old content manually takes time.  
+This plugin helps you automatically remove outdated posts, drafts, or custom content types on a schedule, based on your rules.
 
-* Automatically delete unwanted posts.
-* Automatically delete unwanted custom post types.
-* Choose the number of days in the past as a starting point from which to delete posts.
-* Choose a fixed date as a starting point from which to delete posts.
-* Exclude posts that you don't want to delete.
-* Look for posts that contain a specific phrase.
-* Delete posts by categories.
-* Delete posts by tags.
-* Delete the custom post types from one or multiple taxonomies.
-* Select the relationship that will be applied to taxonomies terms.
-* Redirect deleted posts with a status of "301 Moved Permanently" to similar posts on your website.
-* Delete posts by the user.
-* Delete the post permanently (PRO version).
-* Delete post attachments when the post is deleted (PRO version).
+**You might need this plugin if:**
 
-Read more on the [plugin page](https://wpmagic.pwa.cloud/product/auto-delete-old-posts-wordpress-plugin/).
+- 📰 You run a **blog** with time-sensitive posts (e.g., events, announcements, deals) that should disappear after a certain date.  
+- 🏪 You manage a **WooCommerce store** and want to automatically remove expired or seasonal products.  
+- 🎓 You run a **membership, e-learning, or event site** with temporary content that should be cleaned up regularly.  
+- 🗞️ You operate a **news or magazine site** and want to auto-delete posts older than 30, 60, or 90 days to keep your archive light.  
+- ⚙️ You’re a **developer or site maintainer** managing multiple WordPress installations and need a reliable cleanup automation tool.  
+- 🧠 You care about **SEO and performance**, and want to remove outdated or low-value content safely — optionally redirecting deleted posts to newer ones.  
+- ✅ You simply want a **“set it and forget it”** way to keep your WordPress dashboard clean and your site running fast.
 
-= Supported languages: =
+== Installation ==
+
+1. Upload the plugin files to the `/wp-content/plugins/delete-old-posts-programmatically` directory, or install the plugin through the WordPress plugins screen directly.  
+2. Activate the plugin through the 'Plugins' screen in WordPress.  
+3. Go to **Delete Old Posts** to configure schedules, filters, and optional redirects.  
+4. Save changes. The plugin will run automatically according to your schedule.
+
+== Frequently Asked Questions ==
+
+= Will this plugin delete posts permanently? =
+Yes. Deleted posts are permanently removed from your database. We recommend creating a backup before first use.
+
+= Can I exclude certain posts? =
+Absolutely. You can set filters to protect specific post, or individual posts from deletion.
+
+= Can I redirect deleted posts to another page? =
+Yes. You can optionally redirect deleted posts to the closest relevant post or a custom URL to preserve SEO value.
+
+= Does it work with custom post types? =
+Yes. You can select any custom post type when configuring the plugin.
+
+= Is there a Pro version? =
+A Pro version is also available, offering additional features such as advanced deletion, the ability to delete a set number of posts in one go, and advanced filtering.
+
+= How to get the Pro version? =
+Install and activate the free version. Then upgrade from the plugin menu.
+
+== Supported languages: ==
 
 * English
 * Deutsch
@@ -57,47 +86,10 @@ Read more on the [plugin page](https://wpmagic.pwa.cloud/product/auto-delete-old
 If you want, you can help [translate](https://translate.wordpress.org/projects/wp-plugins/delete-old-posts-programmatically/) the "Delete old posts automatically" plugin into another language. Many thanks!
 Please note that there are no guarantees that translations from the original English are accurate.
 
-= Spread The Love ❤️ =
-
-If you love the Delete old Posts automatically plugin, please show your appreciation by leaving a [five star rating ⭐⭐⭐⭐⭐](https://wordpress.org/support/plugin/delete-old-posts-programmatically/reviews/#new-post) on WordPress.org.
-Sharing the word with your friends on [Facebook](https://www.facebook.com/sharer.php?u=https://wordpress.org/plugins/delete-old-posts-programmatically/) and [Twitter](https://twitter.com/intent/tweet?url=https://wordpress.org/plugins/delete-old-posts-programmatically/) you'll be helping other website owners discover this plugin and benefit from it!
-
-== Installation ==
-
-Option 1:
-
-1. Go to WordPress Dashboard. Locate Plugins -> Add New
-2. Search **Delete old Posts automatically** using the search option
-3. Find the plugin and click Install Now button
-4. After installation, click on the Activate Plugin link to activate the plugin.
-
-Option 2:
-
-To install a plugin you just need to put the plugin files into the wp-content/plugins directory. Once a plugin is installed, you may activate it or deactivate it from the Plugins menu in your WP administration. In WordPress 2.7 and above you can install plugins directly from the admin area.
-
-Manual WordPress plugin installs are easy!
-
-1.  Go to the plugin page and download the plugin.
-2.  Log into your WordPress admin site and go to the Plugins section.
-3.  Click on Upload and select the zip file.
-4.  Activate the plugin.
-5.  Go back to the Plugins section, scroll down, and look for the plugin settings link under plugin name.
-
-== Frequently Asked Questions ==
-
-= Should I take a backup before using this tool? =
-Yes! You should always take a backup before deleting posts or pages on your website.
-
-= What happens if it deletes something I do not want to delete? =
-You should restore the backup you took of your website before you ran this tool.
-
-= What does this plugin do exactly? =
-The plugin will help you delete the posts automatically.
-
-= What if I don't want some of my posts to be deleted? =
-You should use the built-in 'filters' to fine tune which posts should be deleted.
-
 == Changelog ==
+
+= 3.11.0 =
+* Updated: SDK to the latest version.
 
 = 3.10.5 =
 * Updated: Author page link.
