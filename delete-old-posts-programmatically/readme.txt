@@ -4,7 +4,7 @@ Tags: delete posts, auto delete, cleanup, old posts, schedule
 Requires at least: 5.7
 Tested up to: 6.8
 Requires PHP: 7.0
-Stable tag: 3.11.4
+Stable tag: 3.12.0
 License: GPL3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -20,7 +20,7 @@ Perfect for bloggers, news sites, e-commerce stores, and anyone who wants a clea
 == Features ==
 
 - 🕒 **Automatic Deletion** – Schedule post deletions automatically — no manual work needed.  
-- 🗂️ **Flexible Filtering** – Choose which posts to delete based on date, category, tag, post type, authors, or status.  
+- 🗂️ **Flexible Filtering** – Choose which posts to delete based on date, category, tag, post type, authors, or status.
 - 🚫 **Exclude Important Posts** – Protect specific posts from deletion.  
 - 🔁 **SEO-Friendly Redirects** – Automatically redirect deleted posts to their closest match or a custom URL (optional).  
 - 💾 **Safe & Controlled** – Logs every deletion for easy review, so you always know what happened (coming soon).  
@@ -87,6 +87,9 @@ If you want, you can help [translate](https://translate.wordpress.org/projects/w
 Please note that there are no guarantees that translations from the original English are accurate.
 
 == Changelog ==
+
+= 3.12.0 =
+* Updated: SDK to the latest version.
 
 = 3.11.0 =
 * Updated: SDK to the latest version.
