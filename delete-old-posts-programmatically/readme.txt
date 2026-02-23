@@ -2,9 +2,9 @@
 Contributors: wpmagics, freemius
 Tags: delete posts, auto delete, cleanup, old posts, bulk delete
 Requires at least: 5.7
-Tested up to: 6.8
+Tested up to: 6.9
 Requires PHP: 7.0
-Stable tag: 3.12.1
+Stable tag: 3.12.2
 License: GPL3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -87,6 +87,9 @@ If you want, you can help [translate](https://translate.wordpress.org/projects/w
 Please note that there are no guarantees that translations from the original English are accurate.
 
 == Changelog ==
+
+= 3.12.2 =
+* Tested with version 6.9
 
 = 3.12.1 =
 * Updated: WP tags.
