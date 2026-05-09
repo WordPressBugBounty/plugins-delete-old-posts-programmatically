@@ -29,8 +29,8 @@ class Delete_Old_Posts {
      */
     function deloldp_custom_menu_page() {
         $deloldp_menu = add_menu_page(
-            __( 'Delete old posts', 'delete-old-posts' ),
-            esc_html__( 'Delete old posts', 'delete-old-posts' ),
+            __( 'Auto Post Cleaner', 'delete-old-posts' ),
+            esc_html__( 'Auto Post Cleaner', 'delete-old-posts' ),
             'manage_options',
             'delete-old-posts',
             array($this, 'deloldp_PluginPage'),
@@ -244,7 +244,7 @@ class Delete_Old_Posts {
                             <div class="flex justify-between -mb-px">
                                 <div class=" text-blue-dark py-4 text-lg">
                                     <?php 
-        esc_html_e( 'Delete old posts automatically', 'delete-old-posts' );
+        esc_html_e( 'Auto Post Cleaner', 'delete-old-posts' );
         ?>
                                 </div>
                                 <div class="flex text-sm">

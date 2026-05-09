@@ -12,7 +12,9 @@ class Delete_Old_Posts_Redirects extends Delete_Old_Posts {
     public function __construct(){
         // add redirection for deleted posts
         add_action('template_redirect', [ $this, 'deloldp_redirectDeletedPosts' ]);
-
+        // add global redirection
+        add_action( 'admin_post_redirects_global', [ $this, 'deloldp_redirectGlobal'] );
+        // add redirects menu
         add_action( 'admin_menu', [ $this, 'deloldp_custom_menu_page' ] );
     }
 
@@ -26,7 +28,7 @@ class Delete_Old_Posts_Redirects extends Delete_Old_Posts {
         // Add submenu page with same slug as parent to ensure no duplicates
         $deloldp_redirects_submenu = add_submenu_page(
             'delete-old-posts',
-            'Redirects - Delete old posts automatically',
+            'Redirects - Auto Post Cleaner',
             esc_html__('Redirects', 'delete-old-posts'),
             'manage_options',
             'delete-old-posts-redirects',
@@ -62,8 +64,17 @@ class Delete_Old_Posts_Redirects extends Delete_Old_Posts {
                 if( stristr($requestedUrl, $deletedPostN) !== false ){
                     /**
                      * the requested url is one of deleted posts
-                     * redirect it to a similar post or check if was manually edited by user
+                     * check if global redirect is defined or
+                     * check if was manually edited by user or 
+                     * redirect it to a similar post 
                      */
+                    // cehck if global redirect is set
+                    $global_redirect_url = (property_exists($getOptionObject->params, 'global_redirect_url')) ? $getOptionObject->params->global_redirect_url : '';
+                    if( $global_redirect_url != '' && wp_http_validate_url( $global_redirect_url ) ) {
+                        // URL is valid
+                        wp_redirect( esc_url($global_redirect_url), 301 );
+                        exit;
+                    }
                     // check if redirect manually edited and redirect to the requested URL
                     $redirectsOptEdited = get_option('deletedpostredirectsoptedited');
                     if( is_array($redirectsOptEdited) && array_key_exists($deletedPostKey, $redirectsOptEdited) ) {
@@ -124,7 +135,7 @@ class Delete_Old_Posts_Redirects extends Delete_Old_Posts {
      * Create the rediects page
      */
     function deloldpRedirects(){
-       
+
         /** Check and make the redirects table actions */
         $this->tableActions();
 
@@ -153,17 +164,43 @@ class Delete_Old_Posts_Redirects extends Delete_Old_Posts {
             <?php
             $page   = filter_input( INPUT_GET, 'page', FILTER_UNSAFE_RAW );
             $paged  = filter_input( INPUT_GET, 'paged', FILTER_SANITIZE_NUMBER_INT );
-            // $s      = filter_input( INPUT_GET, 's', FILTER_UNSAFE_RAW );
+            $deloldp_options = get_option('deloldp-post-days-option');
+            $global_redirect_url = (property_exists($deloldp_options->params, 'global_redirect_url')) ? $deloldp_options->params->global_redirect_url : '';
             
             echo '
-            <form method="post" id="delete-old-posts-redirects">';
-                printf( '<input type="hidden" name="page" value="%s" />', $page );
-                printf( '<input type="hidden" name="paged" value="%d" />', $paged );
-                $redirects_list_table->prepare_items();
-                $redirects_list_table->search_box( __( 'Search redirects', 'delete-old-posts' ), 'search_id' );
-                $redirects_list_table->display();
-                echo '
-            </form>';
+            <hr /><br />
+            <section>
+                <div>
+                    <form action="'. esc_url( admin_url('admin-post.php') ) .'" method="post">
+                        <input type="hidden" name="action" value="redirects_global">';
+                        wp_nonce_field( 'redirects_global', 'redirects_global_nonce_field' );
+                        echo '
+                        <div class="global-redirect-url-input-wrapper">
+                            <label for="global_redirect_url">';
+                                _e('Redirect all deleted items to: ', 'delete-old-posts');
+                                echo '<input type="text" id="global_redirect_url" name="global_redirect_url" class="w-1/2" value="'.esc_url($global_redirect_url).'" />';
+                                echo '<span class="after">x</span>';
+                                echo '
+                            </label>';
+                            printf( '<input type="submit" class="button no-vertical-align !ml-2" value="%s" />', 'Save' );
+                            echo '
+                        </div>';
+                        echo '<br />ex. <a href="#" id="global_redirects_home_link" data-href="'. home_url() .'">'. home_url() .'</a>
+                    </form>
+                </div>
+            </section>
+            <section>
+                <div>
+                    <form method="post" id="delete-old-posts-redirects">';
+                        printf( '<input type="hidden" name="page" value="%s" />', $page );
+                        printf( '<input type="hidden" name="paged" value="%d" />', $paged );
+                        $redirects_list_table->prepare_items();
+                        $redirects_list_table->search_box( __( 'Search redirects', 'delete-old-posts' ), 'search_id' );
+                        $redirects_list_table->display();
+                        echo '
+                    </form>
+                </div>
+            </section>';
             ?>
         </div>
         <?php
@@ -277,9 +314,34 @@ class Delete_Old_Posts_Redirects extends Delete_Old_Posts {
                 break;
         }
     }
+
+    /**
+     * Add global redirect for deleted posts
+     */
+    function deloldp_redirectGlobal(){
+        if ( ! isset( $_POST['redirects_global_nonce_field'] ) || ! wp_verify_nonce( $_POST['redirects_global_nonce_field'], 'redirects_global' ) ) {
+            _e('Sorry, not allowed!', 'delete-old-posts');
+            return;
+        }
+
+        if( ! isset($_POST['global_redirect_url']) ) return;
+        $deloldp_post_days_option = get_option('deloldp-post-days-option');
+        if( is_object($deloldp_post_days_option->params) ) {
+            if( $_POST['global_redirect_url'] != '' ) {
+                $deloldp_post_days_option->params->global_redirect_url = strtolower(esc_url_raw($_POST['global_redirect_url']));
+            } else {
+                unset($deloldp_post_days_option->params->global_redirect_url);
+            }
+            // save the global URL for redirects
+            update_option('deloldp-post-days-option', $deloldp_post_days_option);
+        }
+
+        ( isset($_POST['_wp_http_referer']) ) ? wp_redirect( esc_url($_POST['_wp_http_referer']) ) : wp_redirect( home_url() );
+    }
 }
 
 /**
+ * MARK: WP_List_Table Ext.
  * ================================================================================== WP_List_Table Class for Redirections
  */
 // WP_List_Table is not loaded automatically so we need to load it in our application

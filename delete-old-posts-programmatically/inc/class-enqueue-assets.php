@@ -34,14 +34,14 @@ class Enqueue_Assets {
 		/**
 		 * load assets only if is page of the plugin
 		 */
-		if( stristr( $current_url, 'page=delete-old-posts' ) !== false || stristr( $current_url, 'page=delete-old-posts-filters' ) !== false ) {
+		if( stristr( $current_url, 'page=delete-old-posts' ) !== false ) {
 			$vers = $this->delop_get_plugin_version();
 			wp_enqueue_style	( 'tailwind', plugin_dir_url( __FILE__ ) . '../assets/css/tailwind.css', false, $vers, 'all');
 			wp_enqueue_script	( 'alpine', plugin_dir_url( __FILE__ ) . '../assets/js/alpine.min.js', [], $vers, true);
 			wp_enqueue_script	( 'alpine_script', plugin_dir_url( __FILE__ ) . '../assets/js/deloldp_alpine.js', [], $vers, true);
 			wp_enqueue_script	( 'multi_select', plugin_dir_url( __FILE__ ) . '../assets/js/delp_multi_select.js', [], $vers, true);
 			wp_enqueue_style	( 'multi_select', plugin_dir_url( __FILE__ ) . '../assets/css/delp_multi_select.css', false, $vers, 'all');
-			wp_enqueue_script	( 'delp_script', plugin_dir_url( __FILE__ ) . '../assets/js/delp_script.js', ['jquery', 'chosen'], $vers, true);
+			wp_enqueue_script	( 'delp_script', plugin_dir_url( __FILE__ ) . '../assets/js/delp_script.js', ['jquery'], $vers, true);
 		}
 	}
 

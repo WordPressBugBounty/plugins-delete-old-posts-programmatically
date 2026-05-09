@@ -48,7 +48,7 @@ class Delete_Old_Posts_Filters extends Delete_Old_Posts {
         // Add submenu page with same slug as parent to ensure no duplicates
         $deloldp_filters_submenu = add_submenu_page(
             'delete-old-posts',
-            esc_html__( 'Filters - Delete old posts automatically' ),
+            esc_html__( 'Filters - Auto Post Cleaner' ),
             esc_html__( 'Filters', 'delete-old-posts' ),
             'manage_options',
             'delete-old-posts-filters',

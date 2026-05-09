@@ -1,6 +1,10 @@
 @tailwind base;
 @tailwind components;
 
+:root {
+  --red: #cc1818;
+}
+
 body {
     @apply bg-gray-100 text-gray-700;
 }
@@ -137,6 +141,33 @@ input:checked + .slider:before {
 
 #delete-old-posts-redirects .delete-old-posts_page_delete-old-posts-redirects {
     position: relative;
+}
+.delete-old-posts_page_delete-old-posts-redirects .no-vertical-align {
+    vertical-align: initial;
+}
+.global-redirect-url-input-wrapper {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+}
+.global-redirect-url-input-wrapper label {
+    position: relative;
+}
+.global-redirect-url-input-wrapper label .after {
+    display: none;
+}
+.global-redirect-url-input-wrapper label:hover .after {
+    display: inline-block;
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--red);
+    width: 10px;
+    cursor: pointer;
+}
+.global-redirect-url-input-wrapper input[type="submit"] {
+    vertical-align: middle;
 }
 
 @tailwind utilities;

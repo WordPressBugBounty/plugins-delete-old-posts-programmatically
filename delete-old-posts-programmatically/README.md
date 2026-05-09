@@ -1,2 +1,2 @@
-# Delete Posts automatically
+# Automatically delete posts in bulk
 By WPMagic 

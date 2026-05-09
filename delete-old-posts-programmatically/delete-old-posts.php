@@ -1,13 +1,13 @@
 <?php
 
 /**
- * Plugin Name: Delete posts automatically
+ * Plugin Name: Auto Post Cleaner
  * Description: Automatically delete and redirect posts to similar ones to keep your site clean.
  * Author:      WPMagic
  * Author URI:  https://wpmagic.pwa.cloud
  * License:     GPL3
  * License URI: https://www.gnu.org/licenses/gpl-3.0.html
- * Version:     3.12.2
+ * Version:     3.13.1
  * Text Domain: delete-old-posts
  *
  * @package headless-cms
@@ -34,19 +34,20 @@ if ( function_exists( 'dop_fs' ) ) {
                 // Include Freemius SDK.
                 require_once dirname( __FILE__ ) . '/freemius/start.php';
                 $dop_fs = fs_dynamic_init( array(
-                    'id'             => '8165',
-                    'slug'           => 'delete-old-posts',
-                    'type'           => 'plugin',
-                    'public_key'     => 'pk_344033c43756e8fcfcd1e6a2c6b17',
-                    'is_premium'     => false,
-                    'premium_suffix' => 'Professional',
-                    'has_addons'     => false,
-                    'has_paid_plans' => true,
-                    'menu'           => array(
+                    'id'               => '8165',
+                    'slug'             => 'delete-old-posts',
+                    'type'             => 'plugin',
+                    'public_key'       => 'pk_344033c43756e8fcfcd1e6a2c6b17',
+                    'is_premium'       => false,
+                    'premium_suffix'   => 'Professional',
+                    'has_addons'       => false,
+                    'has_paid_plans'   => true,
+                    'menu'             => array(
                         'slug'    => 'delete-old-posts',
                         'support' => false,
                     ),
-                    'is_live'        => true,
+                    'is_live'          => true,
+                    'is_org_compliant' => true,
                 ) );
             }
             return $dop_fs;
