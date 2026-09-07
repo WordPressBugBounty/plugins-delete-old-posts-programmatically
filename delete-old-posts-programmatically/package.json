@@ -1,11 +1,10 @@
 {
   "name": "delete-old-posts-plugin",
   "scripts": {
-    "build": "node_modules/.bin/postcss styles.css -o ./assets/css/tailwind.css",
-    "watch": "node_modules/.bin/postcss styles.css -o ./assets/css/tailwind.css --watch",
+    "build:css": "tailwindcss -i ./styles.css -o ./assets/css/tailwind.css --minify",
+    "watch:css": "tailwindcss -i ./styles.css -o ./assets/css/tailwind.css --watch",
     "start:message": "echo 'Watching for code changes.  Start making changes!'",
-    "watch:php": "onchange 'inc/*.php' -- npm run build",
-    "watch:css": "onchange 'styles.css' -- npm run build",
+    "watch:php": "onchange 'inc/*.php' -- npm run build:css",
     "start": "npm run start:message & npm run watch:php & npm run watch:css"
   },
   "dependencies": {

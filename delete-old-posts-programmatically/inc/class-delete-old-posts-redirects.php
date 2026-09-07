@@ -239,11 +239,19 @@ class Delete_Old_Posts_Redirects extends Delete_Old_Posts {
         switch( $_REQUEST['action'] ){
             case 'delete_all':
                 /** delete redirects in bulk */
+
+                // Verify nonce — must match 'bulk-' . plural used in table constructor
+                check_admin_referer( 'bulk-delop-redirects' );
+                
+                if( empty($_REQUEST['redirect_id']) ) return; // bail early
+
                 $deletedPostsNames = get_option('deletedpostredirectsopt');
-                if( isset($_REQUEST['redirect_id']) ) foreach( $_REQUEST['redirect_id'] as $redirect_id_to_delete ){
+
+                if( is_array($_REQUEST['redirect_id']) ) foreach( $_REQUEST['redirect_id'] as $redirect_id_to_delete ){
                     unset( $deletedPostsNames[absint($redirect_id_to_delete)] );
-                    update_option('deletedpostredirectsopt', $deletedPostsNames);
+                    update_option('deletedpostredirectsopt', $deletedPostsNames, false);
                 }
+                
                 printf( '<div class="%1$s"><p>%2$s</p></div>', esc_attr( 'notice notice-success' ), esc_html( __('The redirects have been deleted.', 'delete-old-posts') ) );
                 break;
             case 'edit':
@@ -294,7 +302,7 @@ class Delete_Old_Posts_Redirects extends Delete_Old_Posts {
                         $redirectsOptEdited = get_option('deletedpostredirectsoptedited');
                         if( ! is_array($redirectsOptEdited) ) $redirectsOptEdited = array();
                         $redirectsOptEdited[absint($_GET['element'])] = $new_redirect_url;
-                        update_option('deletedpostredirectsoptedited', $redirectsOptEdited);
+                        update_option('deletedpostredirectsoptedited', $redirectsOptEdited, false);
                         printf( '<div class="%1$s"><p>%2$s</p></div>', esc_attr( 'notice notice-success' ), esc_html( __('The new redirect have been saved.', 'delete-old-posts') ) );
                     }
                 }
@@ -307,7 +315,7 @@ class Delete_Old_Posts_Redirects extends Delete_Old_Posts {
                     if( isset($deletedPostsNames[$element]) ){
                         $redirect_text      = $deletedPostsNames[$element];
                         unset($deletedPostsNames[$element]);
-                        update_option('deletedpostredirectsopt', $deletedPostsNames);
+                        update_option('deletedpostredirectsopt', $deletedPostsNames, false);
                         printf( '<div class="%1$s"><p>%2$s</p></div>', esc_attr( 'notice notice-success' ), esc_html( __('The redirect "'.$redirect_text.'" have been deleted.', 'delete-old-posts') ) );
                     }
                 }
@@ -333,7 +341,7 @@ class Delete_Old_Posts_Redirects extends Delete_Old_Posts {
                 unset($deloldp_post_days_option->params->global_redirect_url);
             }
             // save the global URL for redirects
-            update_option('deloldp-post-days-option', $deloldp_post_days_option);
+            update_option('deloldp-post-days-option', $deloldp_post_days_option, false);
         }
 
         ( isset($_POST['_wp_http_referer']) ) ? wp_redirect( esc_url($_POST['_wp_http_referer']) ) : wp_redirect( home_url() );
@@ -353,6 +361,27 @@ if( !class_exists('WP_List_Table') ){
  * Create the class that will list the redirects table and will extend the WP_List_Table
  */
 class Redirects_List_Table extends \WP_List_Table {
+
+    public function __construct() {
+        parent::__construct( array(
+            'singular' => 'delop-redirect',   // singular label, used internally
+            'plural'   => 'delop-redirects',  // <-- check_admin_referer() must match this in bulk actions
+            'ajax'     => false,
+        ) );
+    }
+
+    /**
+     * Edit table classes
+     */
+    protected function get_table_classes() {
+        // Get the default classes
+        $classes = parent::get_table_classes();
+
+        // Remove 'fixed'
+        $classes = array_diff( $classes, array( 'fixed' ) );
+
+        return $classes;
+    }
     /**
      * Prepare the items for the table to process
      *
@@ -402,7 +431,7 @@ class Redirects_List_Table extends \WP_List_Table {
     /**
      * Override the parent columns method. Defines the columns to use in your listing table
      *
-     * @return Array
+     * @return array
      */
     public function get_columns()
     {
@@ -419,7 +448,7 @@ class Redirects_List_Table extends \WP_List_Table {
     /**
      * Define which columns are hidden
      *
-     * @return Array
+     * @return array
      */
     public function get_hidden_columns()
     {
@@ -429,7 +458,7 @@ class Redirects_List_Table extends \WP_List_Table {
     /**
      * Define the sortable columns
      *
-     * @return Array
+     * @return array
      */
     public function get_sortable_columns()
     {
@@ -444,7 +473,7 @@ class Redirects_List_Table extends \WP_List_Table {
     /**
      * Get the table data
      *
-     * @return Array
+     * @return array
      */
     private function table_data( $search = '' )
     {
@@ -482,8 +511,8 @@ class Redirects_List_Table extends \WP_List_Table {
     /**
      * Define what data to show on each column of the table
      *
-     * @param  Array $item        Data
-     * @param  String $column_name - Current column name
+     * @param  array $item        Data
+     * @param  string $column_name - Current column name
      *
      * @return Mixed
      */
@@ -503,7 +532,7 @@ class Redirects_List_Table extends \WP_List_Table {
     /**
      * Allows you to sort the data by the variables set in the $_GET
      *
-     * @return Mixed
+     * @return mixed
      */
     private function sort_data( $a, $b ) {
         // Set defaults
@@ -548,7 +577,7 @@ class Redirects_List_Table extends \WP_List_Table {
     /**
      * Adding action links to column
      */
-    function column_post_slug($item){
+    function column_post_slug( array $item){
         if( !isset($_REQUEST['page']) || !isset($item['id']) || !isset($item['post_slug']) ) return false; //exit earlier
 
         $actions = array(
@@ -564,7 +593,7 @@ class Redirects_List_Table extends \WP_List_Table {
      */
     function get_bulk_actions() {
         $actions = array(
-                'delete_all'    => __('Delete', 'delete-old-posts'),
+                'delete_all' => __('Delete', 'delete-old-posts'),
         );
 
         return $actions;

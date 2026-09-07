@@ -1,9 +1,9 @@
 === Auto Post Cleaner ===
 Contributors: wpmagics, freemius
-Tags: bulk delete, posts, cleanup, auto delete, post manager
+Tags: bulk delete, auto delete, cleanup, posts, post manager
 Requires at least: 5.7
-Tested up to: 6.9
-Requires PHP: 7.0
+Tested up to: 7.1
+Requires PHP: 7.4
 Stable tag: "trunk"
 License: GPL3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
@@ -87,6 +87,14 @@ If you want, you can help [translate](https://translate.wordpress.org/projects/w
 Please note that there are no guarantees that translations from the original English are accurate.
 
 == Changelog ==
+
+= 3.14.0 =
+* Security fix: Added nonce verification to bulk actions on the redirects table to prevent CSRF.
+* Feature: Add support for deleting attachments when the FIFU plugin is used.
+* Fix: Redirects table not displaying properly.
+* Update: SDK has been updated to the latest version.
+* Update: Marked as compatible with WordPress 7.1
+* Required PHP version increased up to 7.4
 
 = 3.13.1 =
 * Added: option to redirect all deleted posts to one URL.
