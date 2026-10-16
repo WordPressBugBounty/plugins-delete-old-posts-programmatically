@@ -47,9 +47,9 @@ class Delete_Old_Posts_Filters extends Delete_Old_Posts {
     function deloldp_custom_menu_page() {
         // Add submenu page with same slug as parent to ensure no duplicates
         $deloldp_filters_submenu = add_submenu_page(
-            'delete-old-posts',
+            'delete-old-posts-programmatically',
             esc_html__( 'Filters - Auto Post Cleaner' ),
-            esc_html__( 'Filters', 'delete-old-posts' ),
+            esc_html__( 'Filters', 'delete-old-posts-programmatically' ),
             'manage_options',
             'delete-old-posts-filters',
             [$this, 'deloldpFilters']
@@ -68,11 +68,11 @@ class Delete_Old_Posts_Filters extends Delete_Old_Posts {
         <section class="mx-4 my-8 delop" x-data="deloldp_Start()" x-init="onstart()">
             <div class="wrap mb-4">
                 <h2><?php 
-        esc_html_e( 'Available filters to use when deleting the posts', 'delete-old-posts' );
+        esc_html_e( 'Available filters to use when deleting the posts', 'delete-old-posts-programmatically' );
         ?></h2>
                 <?php 
         // display info
-        echo $this->deloldp_makeAlert( esc_html__( "Select which filters you would like to apply when deleting your posts from the options below.", "delete-old-posts" ), "info", "is-dismissible" );
+        echo $this->deloldp_makeAlert( esc_html__( "Select which filters you would like to apply when deleting your posts from the options below.", "delete-old-posts-programmatically" ), "info", "is-dismissible" );
         ?>
             </div>
             <div class="max-w-full bg-white border border-inherit p-8 mr-5">
@@ -80,7 +80,7 @@ class Delete_Old_Posts_Filters extends Delete_Old_Posts {
                     <div class="flex flex-row flex-wrap gap-5">
                         <?php 
         if ( current_user_can( 'delete_posts' ) & current_user_can( 'delete_others_posts' ) ) {
-            esc_html_e( "\n                                Once you've decided on the number of days in the past that posts should automatically be deleted, you can refine the criteria for deletion even further. If you want to delete posts of only one type, posts in specific categories, or posts with one or more taxonomies (for custom post types), simply select the appropriate options below. Any posts published before the date you have chosen will then be filtered to make sure only those meeting your additional criteria are deleted. This way, you can be sure that only the posts you want removed are deleted.\n                                ", "delete-old-posts" );
+            esc_html_e( "\n                                Once you've decided on the number of days in the past that posts should automatically be deleted, you can refine the criteria for deletion even further. If you want to delete posts of only one type, posts in specific categories, or posts with one or more taxonomies (for custom post types), simply select the appropriate options below. Any posts published before the date you have chosen will then be filtered to make sure only those meeting your additional criteria are deleted. This way, you can be sure that only the posts you want removed are deleted.\n                                ", "delete-old-posts-programmatically" );
             $this->delop_get_form_input( 'cpt' );
             $this->delop_get_form_input( 'cpt_type' );
             if ( current_user_can( 'manage_categories' ) ) {
@@ -94,7 +94,7 @@ class Delete_Old_Posts_Filters extends Delete_Old_Posts {
             $this->delop_get_form_input( 'search_keywords' );
             $this->delop_get_form_input( 'attached_img' );
         } else {
-            esc_html_e( "You don't have rights to delete the posts.", "delete-old-posts" );
+            esc_html_e( "You don't have rights to delete the posts.", "delete-old-posts-programmatically" );
         }
         ?>
                         <div class="w-full flex items-center">
@@ -104,7 +104,7 @@ class Delete_Old_Posts_Filters extends Delete_Old_Posts {
                                     class="bg-blue-500 rounded-full font-bold text-white px-4 py-3 transition duration-300 ease-in-out hover:bg-blue-600"
                                 >
                                     <?php 
-        esc_html_e( 'Save and test the deleted posts', 'delete-old-posts' );
+        esc_html_e( 'Save and test the deleted posts', 'delete-old-posts-programmatically' );
         ?>
                                     <svg xmlns="http://www.w3.org/2000/svg" class="inline ml-2 w-6 stroke-current text-white stroke-2" viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                         <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
@@ -129,13 +129,14 @@ class Delete_Old_Posts_Filters extends Delete_Old_Posts {
         // check if filters form was just saved
         if ( isset( $_POST['delop_nonce_filters'] ) && wp_verify_nonce( $_POST['delop_nonce_filters'], 'delop_filters_save' ) ) {
             // sanitize $_POST vars
-            $filtersOptions = ( isset( $_POST ) ? (array) $_POST : array() );
-            $filtersOptions = filter_var_array( $filtersOptions );
+            $filtersOptions = $this->sanitize_text_or_array_field( wp_unslash( (array) $_POST ) );
+            // don't store the form's internal fields
+            unset($filtersOptions['delop_nonce_filters'], $filtersOptions['_wp_http_referer']);
             // check if any post type selected (at least the default post type have to be selected)
             if ( !isset( $filtersOptions['cpt'] ) || isset( $filtersOptions['cpt'] ) && empty( $filtersOptions['cpt'] ) ) {
                 // set the default post
                 $filtersOptions['cpt'] = array('post');
-                echo $this->deloldp_makeAlert( esc_html__( "At least one post type has to be selected. The default post type have been automatically selected.", "delete-old-posts" ), "warning", "is-dismissible" );
+                echo $this->deloldp_makeAlert( esc_html__( "At least one post type has to be selected. The default post type have been automatically selected.", "delete-old-posts-programmatically" ), "warning", "is-dismissible" );
             }
             // save Filters option into an Option
             update_option( 'delop_filters', $filtersOptions );
@@ -155,7 +156,8 @@ class Delete_Old_Posts_Filters extends Delete_Old_Posts {
                 <div class="border border-inherit p-7 relative delop-filter">
                     <span class="dashicons dashicons-admin-post text-4xl mb-4"></span>
                     <?php 
-                $helpTxt = sprintf( esc_html__( 'You can choose to delete only the posts from a specific custom post type, or all posts types. If not otherwise specified, only the posts from the %s will be deleted.', 'delete-old-posts' ), '<strong>' . esc_html__( "default post type", "delete-old-posts" ) . '</strong>' );
+                /* translators: %s: the words "default post type" in bold */
+                $helpTxt = sprintf( esc_html__( 'You can choose to delete only the posts from a specific custom post type, or all posts types. If not otherwise specified, only the posts from the %s will be deleted.', 'delete-old-posts-programmatically' ), '<strong>' . esc_html__( "default post type", "delete-old-posts-programmatically" ) . '</strong>' );
                 $this->generateHelpTooltip( $helpTxt, 'w-full text-right absolute right-1 top-1', 'text-left right-1' );
                 /**
                  * Get the list with custom post types
@@ -175,7 +177,7 @@ class Delete_Old_Posts_Filters extends Delete_Old_Posts {
                     <div class='m-2 max-h-56 overflow-y-scroll'>
                         <?php 
                 echo "<div class='text-base'>";
-                esc_html_e( 'Choose the post type:', 'delete-old-posts' );
+                esc_html_e( 'Choose the post type:', "delete-old-posts-programmatically" );
                 echo "</div>";
                 echo "\n                        <label class='block my-2'>\n                            <input type='checkbox' name='cpt[]' value='post'";
                 if ( empty( $cpts ) || isset( $cpts ) && is_array( $cpts ) && array_search( 'post', $cpts ) !== false ) {
@@ -222,7 +224,7 @@ class Delete_Old_Posts_Filters extends Delete_Old_Posts {
                         <div class="w-9 h-5 bg-gray-200 peer-focus:outline-none peer-focus:ring-0 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
                     </label>
                     <span class="ms-3 text-sm text-gray-900 dark:text-gray-300 ml-2 leading-6 max-w-[150px] inline-block"><?php 
-                _e( 'Show hidden Custom Post Types.', 'delete-old-posts' );
+                _e( 'Show hidden Custom Post Types.', 'delete-old-posts-programmatically' );
                 ?></span>
                 </div>
                 <?php 
@@ -234,11 +236,11 @@ class Delete_Old_Posts_Filters extends Delete_Old_Posts {
                 <div class="border border-inherit p-7 relative delop-filter">
                     <span class="dashicons dashicons-post-status text-4xl mb-4"></span>
                     <?php 
-                $helpTxt = esc_html__( 'You can choose to delete only the posts by a specific status. The default status used is "publish".', 'delete-old-posts' );
+                $helpTxt = esc_html__( 'You can choose to delete only the posts by a specific status. The default status used is "publish".', 'delete-old-posts-programmatically' );
                 $this->generateHelpTooltip( $helpTxt, 'w-full text-right absolute right-1 top-1', 'text-left right-1' );
                 // Generate the checkboxes
                 echo "<div class='text-base'>";
-                esc_html_e( 'Choose the post status:', 'delete-old-posts' );
+                esc_html_e( 'Choose the post status:', 'delete-old-posts-programmatically' );
                 echo "</div>";
                 if ( is_array( $all_posts_statuses ) ) {
                     foreach ( $all_posts_statuses as $key => $posts_status ) {
@@ -310,16 +312,16 @@ class Delete_Old_Posts_Filters extends Delete_Old_Posts {
                             $helpText = 'You can choose to delete only the posts from specific categories. If selected, only post from the selected category (categories) will be deleted. If no category is selected, the posts from %s will be deleted.';
                             $strongText = "any category";
                         }
-                        $helpTxt = sprintf( $helpText, '<strong>' . esc_html__( $strongText, "delete-old-posts" ) . '</strong>' );
+                        $helpTxt = sprintf( $helpText, '<strong>' . esc_html__( $strongText, "delete-old-posts-programmatically" ) . '</strong>' );
                         $this->generateHelpTooltip( $helpTxt, 'w-full text-right absolute right-1 top-1', 'text-left right-1' );
                         ?>
                         <div class="mb-2 text-base">
                             <?php 
                         $custompostname = ucfirst( str_replace( "_", " ", $getCustomPostTypes[$cptIndex] ) );
                         $getTaxName = get_taxonomy_labels( get_taxonomy( $category ) );
-                        echo sprintf( esc_html__( $titleText, "delete-old-posts" ), "<strong>" . esc_html__( $custompostname, "delete-old-posts" ) . "</strong>" );
+                        echo sprintf( esc_html__( $titleText, "delete-old-posts-programmatically" ), "<strong>" . esc_html__( $custompostname, "delete-old-posts-programmatically" ) . "</strong>" );
                         echo "<br /><strong>" . $getTaxName->name . "</strong> ";
-                        esc_html_e( "list:", 'delete-old-posts' );
+                        esc_html_e( "list:", "delete-old-posts-programmatically" );
                         ?>
                         </div>
                         <div class="max-h-56 overflow-auto">
@@ -366,13 +368,14 @@ class Delete_Old_Posts_Filters extends Delete_Old_Posts {
                 <div class='border border-inherit p-7 relative max-w-xs delop-filter'>
                     <span class="dashicons dashicons-admin-users text-4xl mb-4"></span>
                     <?php 
-                $helpTxt = sprintf( esc_html__( 'You can choose to delete only the posts from specific users. By default (no user selected), posts from %s will be deleted.', 'delete-old-posts' ), '<strong>' . esc_html__( "any user", "delete-old-posts" ) . '</strong>' );
+                /* translators: %s: the words "any user" in bold */
+                $helpTxt = sprintf( esc_html__( 'You can choose to delete only the posts from specific users. By default (no user selected), posts from %s will be deleted.', "delete-old-posts-programmatically" ), '<strong>' . esc_html__( "any user", "delete-old-posts-programmatically" ) . '</strong>' );
                 $this->generateHelpTooltip( $helpTxt, 'w-full text-right absolute right-1 top-1', 'text-left right-1' );
                 ?>
                     <div class='m-2'>
                         <?php 
                 echo "<div class='text-base'>";
-                esc_html_e( 'Delete only the posts from specific users:', 'delete-old-posts' );
+                esc_html_e( 'Delete only the posts from specific users:', "delete-old-posts-programmatically" );
                 echo "</div>";
                 echo "\n                        <div class='max-h-56'>\n                            <select id='userid' name='userid' data-placeholder='Choose users...' multiple data-multi-select>";
                 foreach ( $users as $user ) {
@@ -400,24 +403,27 @@ class Delete_Old_Posts_Filters extends Delete_Old_Posts {
                 <div class='border border-inherit p-7 relative max-w-xs delop-filter'>
                     <span class="dashicons dashicons-forms text-4xl mb-4"></span>
                     <?php 
-                $helpTxt = sprintf( esc_html__( 'Choose the relation applied to selected categories or terms. By default (no relation selected), %s will be used. "All selected categories or terms" mean that the deleted post will need to have relation with all selected categories or terms. "Any selected categories or terms" mean that if the post has relationship with only one of the selected terms, then the post will be deleted.', 'delete-old-posts' ), '<strong>' . esc_html__( "all selected terms", "delete-old-posts" ) . '</strong>' );
+                /* translators: %s: the default relation ("all selected terms") in bold */
+                $helpTxt = sprintf( esc_html__( 'Choose the relation applied to selected categories or terms. By default (no relation selected), %s will be used. "All selected categories or terms" mean that the deleted post will need to have relation with all selected categories or terms. "Any selected categories or terms" mean that if the post has relationship with only one of the selected terms, then the post will be deleted.', "delete-old-posts-programmatically" ), '<strong>' . esc_html__( "all selected terms", "delete-old-posts-programmatically" ) . '</strong>' );
                 $this->generateHelpTooltip( $helpTxt, 'w-full text-right absolute right-1 top-1', 'text-left right-1' );
                 ?>
                     <div class='m-2'>
                         <?php 
                 echo "<div class='text-base'>";
-                esc_html_e( 'Choose the relation applied to selected categories or taxonomies terms:', 'delete-old-posts' );
+                esc_html_e( 'Choose the relation applied to selected categories or taxonomies terms:', "delete-old-posts-programmatically" );
                 echo "</div>";
+                /* translators: %s: the word "ALL" in bold */
                 echo "<label class='block my-2'><input type='radio' name='relation' value='AND'";
                 if ( isset( $relationFilter ) && $relationFilter == 'AND' ) {
                     echo "checked";
                 }
-                echo "/>" . sprintf( esc_html__( "All selected categories or terms (post will need to be in %s selected categories or terms)", "delete-old-posts" ), '<strong>' . esc_html__( 'ALL', 'delete-old-posts' ) . '</strong>' ) . "</label>";
+                echo "/>" . sprintf( esc_html__( "All selected categories or terms (post will need to be in %s selected categories or terms)", "delete-old-posts-programmatically" ), '<strong>' . esc_html__( 'ALL', "delete-old-posts-programmatically" ) . '</strong>' ) . "</label>";
+                /* translators: %s: the word "ANY" in bold */
                 echo "<label class='block my-2'><input type='radio' name='relation' value='OR'";
                 if ( isset( $relationFilter ) && $relationFilter == 'OR' ) {
                     echo "checked";
                 }
-                echo "/>" . sprintf( esc_html__( "Any selected categories or terms (post will need to be in %s selected categories or terms)", "delete-old-posts" ), '<strong>' . esc_html__( 'ANY', 'delete-old-posts' ) . '</strong>' ) . "</label>";
+                echo "/>" . sprintf( esc_html__( "Any selected categories or terms (post will need to be in %s selected categories or terms)", "delete-old-posts-programmatically" ), '<strong>' . esc_html__( 'ANY', "delete-old-posts-programmatically" ) . '</strong>' ) . "</label>";
                 ?>
                     </div>
                 </div>
@@ -430,18 +436,19 @@ class Delete_Old_Posts_Filters extends Delete_Old_Posts {
                     <?php 
                 // get saved post ids if form was submited
                 $postids = $this->getFiltersOpt( 'postids' );
-                $helpTxt = sprintf( esc_html__( 'If you have some posts that you %s, write the posts Ids in the text box separated with coma (ex. 1009, 2345, 4563). You can find the post id in the browser location when you edit the post (ex. ?post=2033).', 'delete-old-posts' ), '<strong>' . esc_html__( "don't want to be deleted", "delete-old-posts" ) . '</strong>' );
+                /* translators: %s: the words "don't want to be deleted" in bold */
+                $helpTxt = sprintf( esc_html__( 'If you have some posts that you %s, write the posts Ids in the text box separated with coma (ex. 1009, 2345, 4563). You can find the post id in the browser location when you edit the post (ex. ?post=2033).', "delete-old-posts-programmatically" ), '<strong>' . esc_html__( "don't want to be deleted", "delete-old-posts-programmatically" ) . '</strong>' );
                 $this->generateHelpTooltip( $helpTxt, 'w-full text-right absolute right-1 top-1', 'text-left right-1' );
                 ?>
                     <div class="m-2">
                         <?php 
                 echo "<div class='text-base'>";
-                esc_html_e( 'Have some important posts? Enter the post IDs that you want to keep:', 'delete-old-posts' );
+                esc_html_e( 'Have some important posts? Enter the post IDs that you want to keep:', "delete-old-posts-programmatically" );
                 echo "</div>";
                 ?>
                         <label class="block my-2 mt-8">
                             <span><?php 
-                esc_html_e( "Post IDs to exclude:", "delete-old-posts" );
+                esc_html_e( "Post IDs to exclude:", "delete-old-posts-programmatically" );
                 ?></span>
                             <input class="w-full" type="text" name="postids" value="<?php 
                 echo sanitize_text_field( $postids );
@@ -459,18 +466,19 @@ class Delete_Old_Posts_Filters extends Delete_Old_Posts {
                 // get saved post ids if form was submited
                 $search_keyword = $this->getFiltersOpt( 'search_keyword' );
                 $search_keyword_negativ = $this->getFiltersOpt( 'search_keyword_negativ' );
-                $helpTxt = sprintf( esc_html__( 'If you want delete only some posts containing some %s, write the keywords to search in the posts here (ex. pillow). If you want to exclude some posts from the search, write your keywords in the "Negative keywords" field below. Eg, "Look for posts that include" = "pillow" and "Exclude from search results" = "sofa", will return posts containing "pillow" but not "sofa".', 'delete-old-posts' ), '<strong>' . esc_html__( "keywords", "delete-old-posts" ) . '</strong>' );
+                /* translators: %s: the word "keywords" in bold */
+                $helpTxt = sprintf( esc_html__( 'If you want delete only some posts containing some %s, write the keywords to search in the posts here (ex. pillow). If you want to exclude some posts from the search, write your keywords in the "Negative keywords" field below. Eg, "Look for posts that include" = "pillow" and "Exclude from search results" = "sofa", will return posts containing "pillow" but not "sofa".', "delete-old-posts-programmatically" ), '<strong>' . esc_html__( "keywords", "delete-old-posts-programmatically" ) . '</strong>' );
                 $this->generateHelpTooltip( $helpTxt, 'w-full text-right absolute right-1 top-1', 'text-left right-1' );
                 ?>
                     <div class="m-2">
                         <?php 
                 echo "<div class='text-base'>";
-                esc_html_e( 'Delete only posts that contain the keyword(s):', 'delete-old-posts' );
+                esc_html_e( 'Delete only posts that contain the keyword(s):', "delete-old-posts-programmatically" );
                 echo "</div>";
                 ?>
                         <label class="block my-2">
                             <span><?php 
-                esc_html_e( "Look for posts that include the keyword(s):", "delete-old-posts" );
+                esc_html_e( "Look for posts that include the keyword(s):", "delete-old-posts-programmatically" );
                 ?></span>
                             <input class="w-full" type="text" name="search_keyword" value="<?php 
                 echo sanitize_text_field( $search_keyword );
@@ -478,7 +486,7 @@ class Delete_Old_Posts_Filters extends Delete_Old_Posts {
                         </label>
                         <label class="block my-2">
                             <span><?php 
-                esc_html_e( "Exclude from search results any posts that contain the keyword(s):", "delete-old-posts" );
+                esc_html_e( "Exclude from search results any posts that contain the keyword(s):", "delete-old-posts-programmatically" );
                 ?></span>
                             <input class="w-full" type="text" name="search_keyword_negativ" value="<?php 
                 echo sanitize_text_field( $search_keyword_negativ );
@@ -496,19 +504,20 @@ class Delete_Old_Posts_Filters extends Delete_Old_Posts {
                 // get saved attached_img option if form was submited
                 $attached_img = $this->getFiltersOpt( 'attached_img' );
                 $force_delete_attached_img = $this->getFiltersOpt( 'force_delete_attached_img' );
-                $helpTxt = sprintf( esc_html__( 'If you also want to delete the %s attached to the post, select this option. When the post is deleted, the post thumbnail and all files attached to it will be deleted as well. Use this option carefully because there is no guarantee that the attachment isn\'t still published in some other post (ex. picture galleries).', 'delete-old-posts' ), '<strong>' . esc_html__( "featured image and all files", "delete-old-posts" ) . '</strong>' );
+                /* translators: %s: the words "featured image and all files" in bold */
+                $helpTxt = sprintf( esc_html__( 'If you also want to delete the %s attached to the post, select this option. When the post is deleted, the post thumbnail and all files attached to it will be deleted as well. Use this option carefully because there is no guarantee that the attachment isn\'t still published in some other post (ex. picture galleries).', "delete-old-posts-programmatically" ), '<strong>' . esc_html__( "featured image and all files", "delete-old-posts-programmatically" ) . '</strong>' );
                 $this->generateHelpTooltip( $helpTxt, 'w-full text-right absolute right-1 top-1', 'text-left right-1' );
                 ?>
                     <div class="m-2">
                         <?php 
                 echo "<div class='text-base'>";
-                esc_html_e( 'Do you want to delete the images attached to the post (featured image and all files attached to it) when the post is deleted? Note: Attachments will not be deleted if used in another post (use "force delete" for that).', 'delete-old-posts' );
+                esc_html_e( 'Do you want to delete the images attached to the post (featured image and all files attached to it) when the post is deleted? Note: Attachments will not be deleted if used in another post (use "force delete" for that).', "delete-old-posts-programmatically" );
                 echo "</div>";
                 ?>
                         <label class="block my-2">
                             <span class="font-bold">
                                 <?php 
-                esc_html_e( "Delete all files attached to post:", "delete-old-posts" );
+                esc_html_e( "Delete all files attached to post:", "delete-old-posts-programmatically" );
                 ?>
                             </span>
                             <input class="w-full" type="checkbox" name="attached_img" value="1" <?php 
@@ -524,7 +533,7 @@ class Delete_Old_Posts_Filters extends Delete_Old_Posts {
                         <label class="block my-2">
                             <span class="font-bold">
                                 <?php 
-                esc_html_e( "Force delete attached files:", "delete-old-posts" );
+                esc_html_e( "Force delete attached files:", "delete-old-posts-programmatically" );
                 ?>
                             </span>
                             <input 
@@ -549,9 +558,9 @@ class Delete_Old_Posts_Filters extends Delete_Old_Posts {
                         <?php 
                 if ( !$dop_fs->can_use_premium_code() ) {
                     echo '
-                            <section class="text-red-600">' . esc_html__( 'This option is available in the Professional version.', 'delete-old-posts' );
+                            <section class="text-red-600">' . esc_html__( 'This option is available in the Professional version.', "delete-old-posts-programmatically" );
                     echo '
-                                <a href="' . $dop_fs->get_upgrade_url() . '">' . '<u>' . esc_html__( 'Upgrade and activate it.', 'delete-old-posts' ) . '</u>' . '</a>';
+                                <a href="' . dop_fs()->checkout_url() . '">' . '<u>' . esc_html__( 'Upgrade and activate it.', "delete-old-posts-programmatically" ) . '</u>' . '</a>';
                     echo '
                             </section>';
                 }
@@ -575,8 +584,7 @@ class Delete_Old_Posts_Filters extends Delete_Old_Posts {
         <div class="p-5 bg-amber-50">
             <div class="text-base mb-2">
                 <?php 
-        ( !empty( $altPostsArray ) ? esc_html_e( 'The following ', 'delete-old-posts' ) : esc_html_e( 'No ', 'delete-old-posts' ) );
-        esc_html_e( "posts will be automatically deleted when the next scheduled cron job runs.", "delete-old-posts" );
+        ( !empty( $altPostsArray ) ? esc_html_e( "The following posts will be automatically deleted when the next scheduled cron job runs.", "delete-old-posts-programmatically" ) : esc_html_e( "No posts will be automatically deleted when the next scheduled cron job runs.", "delete-old-posts-programmatically" ) );
         // check if strat deleteing the post option is on off, then show a message to set it on on
         $toggledelete = false;
         $getOptionObject = get_option( 'deloldp-post-days-option' );
@@ -589,7 +597,7 @@ class Delete_Old_Posts_Filters extends Delete_Old_Posts {
             }
         }
         if ( !$toggledelete ) {
-            esc_html_e( " Don't forget to set the \"Start deleting posts\" option ON, to start deleting the post automatically in the background.", "delete-old-posts" );
+            esc_html_e( " Don't forget to set the \"Start deleting posts\" option ON, to start deleting the post automatically in the background.", "delete-old-posts-programmatically" );
         }
         ?>
             </div>
@@ -598,7 +606,7 @@ class Delete_Old_Posts_Filters extends Delete_Old_Posts {
         $attached_img_opt = $this->getFiltersOpt( 'attached_img' );
         foreach ( $altPostsArray as $altPostDataObj ) {
             if ( is_object( $altPostDataObj ) ) {
-                echo 'Post ' . 'ID <a href="' . get_permalink( $altPostDataObj->ID ) . '" target="_blank">' . $altPostDataObj->ID . '</a> - ' . $altPostDataObj->post_title . ' (' . $altPostDataObj->post_status . ': ' . date( "d M Y H:i", strtotime( $altPostDataObj->post_date ) ) . ')<br />';
+                echo 'Post ' . 'ID <a href="' . esc_url( get_permalink( $altPostDataObj->ID ) ) . '" target="_blank">' . (int) $altPostDataObj->ID . '</a> - ' . esc_html( $altPostDataObj->post_title ) . ' (' . esc_html( $altPostDataObj->post_status ) . ': ' . mysql2date( "d M Y H:i", $altPostDataObj->post_date ) . ')<br />';
             }
         }
         ?>
@@ -652,7 +660,7 @@ class Delete_Old_Posts_Filters extends Delete_Old_Posts {
         }
         echo "\n        <label class='block my-2'>\n            <input type='checkbox' name='cpt_type[]' value='" . $value . "'";
         echo $checked;
-        echo "/>\n            <span class='ml-1 decoration-2'>\n                " . esc_html( $label, 'delete-old-posts' ) . "\n            </span>\n        </label>";
+        echo "/>\n            <span class='ml-1 decoration-2'>\n                " . esc_html( $label, "delete-old-posts-programmatically" ) . "\n            </span>\n        </label>";
     }
 
     /*

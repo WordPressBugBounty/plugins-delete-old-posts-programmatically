@@ -1,0 +1,673 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Delete old posts automatically\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/delete-old-posts-"
+"programmatically\n"
+"POT-Creation-Date: 2026-10-14T11:04:24+00:00\n"
+"PO-Revision-Date: 2026-10-14 11:08+0000\n"
+"Last-Translator: \n"
+"Language-Team: Dutch\n"
+"Language: nl_NL\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Loco https://localise.biz/\n"
+"X-Loco-Version: 2.8.9; wp-7.1.3; php-8.3.33\n"
+"X-Domain: delete-old-posts-programmatically\n"
+
+#. Plugin Name of the plugin
+#: delete-old-posts.php inc/class-delete-old-posts.php:32
+#: inc/class-delete-old-posts.php:33 inc/class-delete-old-posts.php:241
+msgid "Auto Post Cleaner"
+msgstr "Auto Post Cleaner"
+
+#. Description of the plugin
+#: delete-old-posts.php
+msgid ""
+"Automatically delete and redirect posts to similar ones to keep your site "
+"clean."
+msgstr ""
+"Verwijdert berichten automatisch en leidt ze om naar vergelijkbare berichten "
+"om je site opgeruimd te houden."
+
+#. Author of the plugin
+#: delete-old-posts.php
+msgid "WPMagic"
+msgstr "WPMagic"
+
+#. Author URI of the plugin
+#: delete-old-posts.php
+msgid "https://felsflow.dev"
+msgstr "https://felsflow.dev"
+
+#: inc/class-delete-old-posts-filters.php:52
+msgid "Filters"
+msgstr "Filters"
+
+#: inc/class-delete-old-posts-filters.php:70
+msgid "Available filters to use when deleting the posts"
+msgstr "Beschikbare filters voor het verwijderen van berichten"
+
+#: inc/class-delete-old-posts-filters.php:73
+msgid ""
+"Select which filters you would like to apply when deleting your posts from "
+"the options below."
+msgstr ""
+"Kies hieronder welke filters je wilt toepassen bij het verwijderen van je "
+"berichten."
+
+#: inc/class-delete-old-posts-filters.php:81
+msgid ""
+"\n"
+"                                Once you've decided on the number of days in "
+"the past that posts should automatically be deleted, you can refine the "
+"criteria for deletion even further. If you want to delete posts of only one "
+"type, posts in specific categories, or posts with one or more taxonomies "
+"(for custom post types), simply select the appropriate options below. Any "
+"posts published before the date you have chosen will then be filtered to "
+"make sure only those meeting your additional criteria are deleted. This way, "
+"you can be sure that only the posts you want removed are deleted.\n"
+"                                "
+msgstr ""
+"\n"
+"                                Zodra je hebt bepaald na hoeveel dagen "
+"berichten automatisch verwijderd moeten worden, kun je de criteria voor "
+"verwijdering nog verder verfijnen. Wil je alleen berichten van één type "
+"verwijderen, berichten in bepaalde categorieën of berichten met een of meer "
+"taxonomieën (voor aangepaste berichttypes)? Selecteer dan hieronder de "
+"gewenste opties. Alle berichten die vóór de gekozen datum zijn gepubliceerd, "
+"worden dan gefilterd, zodat alleen berichten die aan je extra criteria "
+"voldoen worden verwijderd. Zo weet je zeker dat alleen de berichten die je "
+"wilt verwijderen ook echt worden verwijderd.\n"
+"                                "
+
+#: inc/class-delete-old-posts-filters.php:97 inc/class-delete-old-posts.php:110
+msgid "You don't have rights to delete the posts."
+msgstr "Je hebt geen rechten om de berichten te verwijderen."
+
+#: inc/class-delete-old-posts-filters.php:106
+msgid "Save and test the deleted posts"
+msgstr "Opslaan en de te verwijderen berichten testen"
+
+#: inc/class-delete-old-posts-filters.php:138
+msgid ""
+"At least one post type has to be selected. The default post type have been "
+"automatically selected."
+msgstr ""
+"Er moet minimaal één berichttype geselecteerd zijn. Het standaard "
+"berichttype is automatisch geselecteerd."
+
+#. translators: %s: the words "default post type" in bold
+#: inc/class-delete-old-posts-filters.php:162
+#, php-format
+msgid ""
+"You can choose to delete only the posts from a specific custom post type, or "
+"all posts types. If not otherwise specified, only the posts from the %s will "
+"be deleted."
+msgstr ""
+"Je kunt ervoor kiezen alleen berichten van een bepaald aangepast berichttype "
+"of van alle berichttypes te verwijderen. Tenzij anders aangegeven, worden "
+"alleen berichten van het %s verwijderd."
+
+#. translators: %s: the words "default post type" in bold
+#: inc/class-delete-old-posts-filters.php:162
+msgid "default post type"
+msgstr "standaard berichttype"
+
+#: inc/class-delete-old-posts-filters.php:180
+msgid "Choose the post type:"
+msgstr "Kies het berichttype:"
+
+#: inc/class-delete-old-posts-filters.php:220
+msgid "Show hidden Custom Post Types."
+msgstr "Verborgen aangepaste berichttypes tonen."
+
+#: inc/class-delete-old-posts-filters.php:231
+msgid ""
+"You can choose to delete only the posts by a specific status. The default "
+"status used is \"publish\"."
+msgstr ""
+"Je kunt ervoor kiezen alleen berichten met een bepaalde status te "
+"verwijderen. Standaard wordt de status ‘publish’ (gepubliceerd) gebruikt."
+
+#: inc/class-delete-old-posts-filters.php:234
+msgid "Choose the post status:"
+msgstr "Kies de berichtstatus:"
+
+#: inc/class-delete-old-posts-filters.php:306
+msgid "list:"
+msgstr "lijst:"
+
+#. translators: %s: the words "any user" in bold
+#: inc/class-delete-old-posts-filters.php:351
+#, php-format
+msgid ""
+"You can choose to delete only the posts from specific users. By default (no "
+"user selected), posts from %s will be deleted."
+msgstr ""
+"Je kunt ervoor kiezen alleen berichten van bepaalde gebruikers te "
+"verwijderen. Standaard (geen gebruiker geselecteerd) worden berichten van %s "
+"verwijderd."
+
+#. translators: %s: the words "any user" in bold
+#: inc/class-delete-old-posts-filters.php:351
+msgid "any user"
+msgstr "alle gebruikers"
+
+#: inc/class-delete-old-posts-filters.php:356
+msgid "Delete only the posts from specific users:"
+msgstr "Alleen berichten van bepaalde gebruikers verwijderen:"
+
+#. translators: %s: the default relation ("all selected terms") in bold
+#: inc/class-delete-old-posts-filters.php:382
+#, php-format
+msgid ""
+"Choose the relation applied to selected categories or terms. By default (no "
+"relation selected), %s will be used. \"All selected categories or terms\" "
+"mean that the deleted post will need to have relation with all selected "
+"categories or terms. \"Any selected categories or terms\" mean that if the "
+"post has relationship with only one of the selected terms, then the post "
+"will be deleted."
+msgstr ""
+"Kies de relatie die wordt toegepast op de geselecteerde categorieën of "
+"termen. Standaard (geen relatie geselecteerd) wordt %s gebruikt. ‘Alle "
+"geselecteerde categorieën of termen’ betekent dat het te verwijderen bericht "
+"aan alle geselecteerde categorieën of termen gekoppeld moet zijn. "
+"‘Willekeurige geselecteerde categorieën of termen’ betekent dat het bericht "
+"wordt verwijderd als het aan minstens één van de geselecteerde termen "
+"gekoppeld is."
+
+#. translators: %s: the default relation ("all selected terms") in bold
+#: inc/class-delete-old-posts-filters.php:382
+msgid "all selected terms"
+msgstr "alle geselecteerde termen"
+
+#: inc/class-delete-old-posts-filters.php:387
+msgid "Choose the relation applied to selected categories or taxonomies terms:"
+msgstr "Kies de relatie voor de geselecteerde categorieën of taxonomietermen:"
+
+#. translators: %s: the word "ALL" in bold
+#: inc/class-delete-old-posts-filters.php:389
+#, php-format
+msgid ""
+"All selected categories or terms (post will need to be in %s selected "
+"categories or terms)"
+msgstr ""
+"Alle geselecteerde categorieën of termen (het bericht moet in %s "
+"geselecteerde categorieën of termen zitten)"
+
+#. translators: %s: the word "ALL" in bold
+#: inc/class-delete-old-posts-filters.php:389
+msgid "ALL"
+msgstr "ALLE"
+
+#. translators: %s: the word "ANY" in bold
+#: inc/class-delete-old-posts-filters.php:391
+#, php-format
+msgid ""
+"Any selected categories or terms (post will need to be in %s selected "
+"categories or terms)"
+msgstr ""
+"Willekeurige geselecteerde categorieën of termen (het bericht moet in %s van "
+"de geselecteerde categorieën of termen zitten)"
+
+#. translators: %s: the word "ANY" in bold
+#: inc/class-delete-old-posts-filters.php:391
+msgid "ANY"
+msgstr "MINSTENS ÉÉN"
+
+#. translators: %s: the words "don't want to be deleted" in bold
+#: inc/class-delete-old-posts-filters.php:404
+#, php-format
+msgid ""
+"If you have some posts that you %s, write the posts Ids in the text box "
+"separated with coma (ex. 1009, 2345, 4563). You can find the post id in the "
+"browser location when you edit the post (ex. ?post=2033)."
+msgstr ""
+"Als je berichten hebt die je %s, vul dan hun ID’s in het tekstvak in, "
+"gescheiden door komma’s (bijv. 1009, 2345, 4563). Je vindt het bericht-ID in "
+"de adresbalk van de browser wanneer je het bericht bewerkt (bijv. ?"
+"post=2033)."
+
+#. translators: %s: the words "don't want to be deleted" in bold
+#: inc/class-delete-old-posts-filters.php:404
+msgid "don't want to be deleted"
+msgstr "niet wilt verwijderen"
+
+#: inc/class-delete-old-posts-filters.php:409
+msgid "Have some important posts? Enter the post IDs that you want to keep:"
+msgstr ""
+"Belangrijke berichten? Vul de ID’s in van de berichten die je wilt behouden:"
+
+#: inc/class-delete-old-posts-filters.php:412
+msgid "Post IDs to exclude:"
+msgstr "Uit te sluiten bericht-ID’s:"
+
+#. translators: %s: the word "keywords" in bold
+#: inc/class-delete-old-posts-filters.php:427
+#, php-format
+msgid ""
+"If you want delete only some posts containing some %s, write the keywords to "
+"search in the posts here (ex. pillow). If you want to exclude some posts "
+"from the search, write your keywords in the \"Negative keywords\" field "
+"below. Eg, \"Look for posts that include\" = \"pillow\" and \"Exclude from "
+"search results\" = \"sofa\", will return posts containing \"pillow\" but not "
+"\"sofa\"."
+msgstr ""
+"Wil je alleen berichten verwijderen die bepaalde %s bevatten? Vul hier de "
+"trefwoorden in (bijv. kussen). Wil je berichten uitsluiten van de "
+"zoekopdracht, vul je trefwoorden dan in het veld hieronder in. Bijvoorbeeld: "
+"‘Zoek naar berichten met de trefwoorden’ = ‘kussen’ en ‘Sluit berichten met "
+"deze trefwoorden uit van de zoekresultaten’ = ‘bank’ geeft berichten met "
+"‘kussen’ maar zonder ‘bank’."
+
+#. translators: %s: the word "keywords" in bold
+#: inc/class-delete-old-posts-filters.php:427
+msgid "keywords"
+msgstr "trefwoorden"
+
+#: inc/class-delete-old-posts-filters.php:432
+msgid "Delete only posts that contain the keyword(s):"
+msgstr "Alleen berichten verwijderen die de trefwoorden bevatten:"
+
+#: inc/class-delete-old-posts-filters.php:435
+msgid "Look for posts that include the keyword(s):"
+msgstr "Zoek naar berichten met de trefwoorden:"
+
+#: inc/class-delete-old-posts-filters.php:439
+msgid "Exclude from search results any posts that contain the keyword(s):"
+msgstr "Sluit berichten met deze trefwoorden uit van de zoekresultaten:"
+
+#. translators: %s: the words "featured image and all files" in bold
+#: inc/class-delete-old-posts-filters.php:454
+#, php-format
+msgid ""
+"If you also want to delete the %s attached to the post, select this option. "
+"When the post is deleted, the post thumbnail and all files attached to it "
+"will be deleted as well. Use this option carefully because there is no "
+"guarantee that the attachment isn't still published in some other post (ex. "
+"picture galleries)."
+msgstr ""
+"Selecteer deze optie als je ook %s wilt verwijderen die aan het bericht zijn "
+"gekoppeld. Wanneer het bericht wordt verwijderd, worden ook de miniatuur en "
+"alle gekoppelde bestanden verwijderd. Gebruik deze optie voorzichtig, want "
+"er is geen garantie dat de bijlage niet nog in een ander bericht wordt "
+"gebruikt (bijv. fotogalerijen)."
+
+#. translators: %s: the words "featured image and all files" in bold
+#: inc/class-delete-old-posts-filters.php:454
+msgid "featured image and all files"
+msgstr "de uitgelichte afbeelding en alle bestanden"
+
+#: inc/class-delete-old-posts-filters.php:459
+msgid ""
+"Do you want to delete the images attached to the post (featured image and "
+"all files attached to it) when the post is deleted? Note: Attachments will "
+"not be deleted if used in another post (use \"force delete\" for that)."
+msgstr ""
+"Wil je bij het verwijderen van een bericht ook de bijgevoegde afbeeldingen "
+"(uitgelichte afbeelding en alle bijgevoegde bestanden) verwijderen? Let op: "
+"bijlagen worden niet verwijderd als ze in een ander bericht worden gebruikt "
+"(gebruik daarvoor ‘geforceerd verwijderen’)."
+
+#: inc/class-delete-old-posts-filters.php:463
+msgid "Delete all files attached to post:"
+msgstr "Alle aan het bericht gekoppelde bestanden verwijderen:"
+
+#: inc/class-delete-old-posts-filters.php:469
+msgid "Force delete attached files:"
+msgstr "Gekoppelde bestanden geforceerd verwijderen:"
+
+#: inc/class-delete-old-posts-filters.php:485
+msgid "This option is available in the Professional version."
+msgstr "Deze optie is beschikbaar in de Professional-versie."
+
+#: inc/class-delete-old-posts-filters.php:488
+msgid "Upgrade and activate it."
+msgstr "Upgrade en activeer de optie."
+
+#: inc/class-delete-old-posts-filters.php:515
+msgid ""
+"The following posts will be automatically deleted when the next scheduled "
+"cron job runs."
+msgstr ""
+"De volgende berichten worden automatisch verwijderd bij de volgende geplande "
+"cronjob."
+
+#: inc/class-delete-old-posts-filters.php:515
+msgid ""
+"No posts will be automatically deleted when the next scheduled cron job runs."
+msgstr "Er worden geen berichten verwijderd bij de volgende geplande cronjob."
+
+#: inc/class-delete-old-posts-filters.php:524
+msgid ""
+" Don't forget to set the \"Start deleting posts\" option ON, to start "
+"deleting the post automatically in the background."
+msgstr ""
+" Vergeet niet de optie ‘Start het verwijderen van berichten’ in te "
+"schakelen, zodat de berichten automatisch op de achtergrond worden "
+"verwijderd."
+
+#: inc/class-delete-old-posts-redirects.php:34
+msgid "Redirects"
+msgstr "Omleidingen"
+
+#: inc/class-delete-old-posts-redirects.php:169
+msgid "Deleted posts list"
+msgstr "Lijst met verwijderde berichten"
+
+#: inc/class-delete-old-posts-redirects.php:186
+msgid "Redirect all deleted items to: "
+msgstr "Alle verwijderde items omleiden naar: "
+
+#: inc/class-delete-old-posts-redirects.php:204
+msgid "Search redirects"
+msgstr "Omleidingen zoeken"
+
+#: inc/class-delete-old-posts-redirects.php:233
+msgid "Redirects per page"
+msgstr "Omleidingen per pagina"
+
+#: inc/class-delete-old-posts-redirects.php:261
+msgid "The redirects have been deleted."
+msgstr "De omleidingen zijn verwijderd."
+
+#: inc/class-delete-old-posts-redirects.php:283
+msgid "Deleted post slug:"
+msgstr "Slug van het verwijderde bericht:"
+
+#: inc/class-delete-old-posts-redirects.php:287
+msgid "New redirect to post (full URL starting with https:// or http://):"
+msgstr ""
+"Nieuwe omleiding naar bericht (volledige URL, beginnend met https:// of "
+"http://):"
+
+#: inc/class-delete-old-posts-redirects.php:305
+msgid "It's NOT valid URL."
+msgstr "Dit is GEEN geldige URL."
+
+#: inc/class-delete-old-posts-redirects.php:312
+msgid "The new redirect have been saved."
+msgstr "De nieuwe omleiding is opgeslagen."
+
+#. translators: %s: The redirect URL or title that was deleted
+#: inc/class-delete-old-posts-redirects.php:330
+#, php-format
+msgid "The redirect \"%s\" has been deleted."
+msgstr "De omleiding ‘%s’ is verwijderd."
+
+#: inc/class-delete-old-posts-redirects.php:345
+#: inc/class-delete-old-posts-redirects.php:349
+msgid "Sorry, not allowed!"
+msgstr "Sorry, dit is niet toegestaan!"
+
+#: inc/class-delete-old-posts-redirects.php:476
+msgid "ID"
+msgstr "ID"
+
+#: inc/class-delete-old-posts-redirects.php:477
+msgid "Deleted post slug"
+msgstr "Slug van het verwijderde bericht"
+
+#: inc/class-delete-old-posts-redirects.php:478
+msgid "Redirection"
+msgstr "Omleiding"
+
+#: inc/class-delete-old-posts-redirects.php:525
+msgid ""
+"Sorry. You can't use the redirection feature because your permalink "
+"structure is not using the postname. To use the redirect, change your "
+"permanent structure in "
+msgstr ""
+"Je kunt de omleidingsfunctie niet gebruiken, omdat je permalinkstructuur de "
+"berichtnaam niet gebruikt. Om omleidingen te gebruiken, wijzig je je "
+"permalinkstructuur in de "
+
+#: inc/class-delete-old-posts-redirects.php:525
+msgid "settings"
+msgstr "instellingen"
+
+#: inc/class-delete-old-posts-redirects.php:620
+msgid "Edit"
+msgstr "Bewerken"
+
+#: inc/class-delete-old-posts-redirects.php:621
+#: inc/class-delete-old-posts-redirects.php:632
+msgid "Delete"
+msgstr "Verwijderen"
+
+#: inc/class-delete-old-posts.php:128
+msgid "Sorry, the security key did not verify."
+msgstr "Sorry, de beveiligingssleutel kon niet worden geverifieerd."
+
+#: inc/class-delete-old-posts.php:173
+msgid ""
+"Choose a date or specify the number of days for the posts to be deleted!"
+msgstr ""
+"Kies een datum of geef het aantal dagen op waarna de berichten verwijderd "
+"moeten worden!"
+
+#. translators: %s: link to the Filters page
+#: inc/class-delete-old-posts.php:191
+#, php-format
+msgid ""
+"Hint! Test out the list of deleted posts in the \"%s\" menu, and when you're "
+"ready to begin deleting posts, activate the \"Start deleting posts\" option "
+"and click \"Save\". Note that no posts will be deleted until you take this "
+"action."
+msgstr ""
+"Tip! Test de lijst met te verwijderen berichten in het menu ‘%s’. Als je "
+"klaar bent om berichten te verwijderen, schakel je de optie ‘Start het "
+"verwijderen van berichten’ in en klik je op ‘Opslaan’. Er worden geen "
+"berichten verwijderd voordat je dit doet."
+
+#: inc/class-delete-old-posts.php:192
+msgctxt "menu name in hint"
+msgid "Filters"
+msgstr "Filters"
+
+#. translators: 1: month name, 2: day of the month, 3: year, 4: maximum number of posts deleted per day
+#: inc/class-delete-old-posts.php:199
+#, php-format
+msgid ""
+"Any posts published before %1$s %2$s, %3$s will be regularly deleted in the "
+"background. Up to %4$d posts per day."
+msgstr ""
+"Alle berichten die vóór %2$s %1$s %3$s zijn gepubliceerd, worden regelmatig "
+"op de achtergrond verwijderd. Tot %4$d berichten per dag."
+
+#. translators: %s: date and time of the next scheduled cron run
+#: inc/class-delete-old-posts.php:202
+#, php-format
+msgid "Next cron job run scheduled on %s."
+msgstr "Volgende cronjob gepland op %s."
+
+#: inc/class-delete-old-posts.php:206
+msgid "The posts will be permanently deleted"
+msgstr "De berichten worden permanent verwijderd"
+
+#: inc/class-delete-old-posts.php:224
+msgid ""
+"Choose a date or specify the number of days to have your posts automatically "
+"deleted."
+msgstr ""
+"Kies een datum of geef het aantal dagen op waarna je berichten automatisch "
+"worden verwijderd."
+
+#: inc/class-delete-old-posts.php:226
+msgid ""
+"With the available filters, you have complete control to determine which "
+"posts are deleted. Posts are automatically deleted when the WordPress Cron "
+"runs or whenever someone visits your website."
+msgstr ""
+"Met de beschikbare filters bepaal je precies welke berichten worden "
+"verwijderd. Berichten worden automatisch verwijderd wanneer WordPress-cron "
+"draait of wanneer iemand je site bezoekt."
+
+#: inc/class-delete-old-posts.php:231
+msgid "Dismiss this notice."
+msgstr "Deze melding verbergen."
+
+#: inc/class-delete-old-posts.php:255
+msgid "Delete posts older than:"
+msgstr "Berichten verwijderen ouder dan:"
+
+#: inc/class-delete-old-posts.php:276
+msgid "days."
+msgstr "dagen."
+
+#: inc/class-delete-old-posts.php:285
+msgid ""
+"Your posts published before the <strong>specified days</strong>, will be "
+"automatically deleted in the background any time the WP Cron runs or someone "
+"visits your website."
+msgstr ""
+"Je berichten die ouder zijn dan het <strong>opgegeven aantal dagen</strong>, "
+"worden automatisch op de achtergrond verwijderd telkens wanneer WP-Cron "
+"draait of iemand je site bezoekt."
+
+#: inc/class-delete-old-posts.php:291
+msgid "Choose the number of "
+msgstr "Kies het aantal "
+
+#: inc/class-delete-old-posts.php:297
+msgid "months"
+msgstr "maanden"
+
+#: inc/class-delete-old-posts.php:311
+msgid " to calculate the number of days automatically,"
+msgstr " om het aantal dagen automatisch te berekenen,"
+
+#: inc/class-delete-old-posts.php:315
+msgid "Click to copy"
+msgstr "Klik om te kopiëren"
+
+#: inc/class-delete-old-posts.php:322
+msgid "or select a date to calculate days in the past automatically:"
+msgstr "of selecteer een datum om het aantal dagen automatisch te berekenen:"
+
+#: inc/class-delete-old-posts.php:326
+msgid "Select date"
+msgstr "Datum selecteren"
+
+#: inc/class-delete-old-posts.php:405
+msgid "Use a fixed date instead of a number of days in the past."
+msgstr "Een vaste datum gebruiken in plaats van een aantal dagen."
+
+#: inc/class-delete-old-posts.php:413
+msgid ""
+"Select this option if you want to use a fixed date instead of a number of "
+"days in the past. If you select this option, only the posts older than the "
+"selected date will be deleted. If this option is not selected, the post "
+"older than the number of days in the past will be deleted, which will always "
+"be relative to today."
+msgstr ""
+"Selecteer deze optie als je een vaste datum wilt gebruiken in plaats van een "
+"aantal dagen. Dan worden alleen berichten verwijderd die ouder zijn dan de "
+"geselecteerde datum. Als deze optie niet is geselecteerd, worden berichten "
+"verwijderd die ouder zijn dan het opgegeven aantal dagen, altijd gerekend "
+"vanaf vandaag."
+
+#: inc/class-delete-old-posts.php:434
+msgid "Redirect the URL of the deleted post to a similar post when requested."
+msgstr ""
+"De URL van het verwijderde bericht omleiden naar een vergelijkbaar bericht "
+"wanneer deze wordt opgevraagd."
+
+#: inc/class-delete-old-posts.php:442
+msgid ""
+"Even after the posts are removed, they can still be linked to or found on "
+"Google. Choose this option if you want to redirect your visitors to the "
+"deleted post to another similar post on your website. The plugin will "
+"automatically find the best matching option, but you can customize it in the "
+"\"Redirects\" menu. The HTTP response status code 301 Moved Permanently is "
+"used for the redirect."
+msgstr ""
+"Ook nadat berichten zijn verwijderd, kunnen er nog links naar zijn of kunnen "
+"ze via Google worden gevonden. Kies deze optie als je bezoekers van een "
+"verwijderd bericht wilt omleiden naar een vergelijkbaar bericht op je "
+"website. De plugin vindt automatisch het best passende bericht, maar je kunt "
+"dit aanpassen in het menu ‘Omleidingen’. Voor de omleiding wordt HTTP-"
+"statuscode 301 Moved Permanently gebruikt."
+
+#: inc/class-delete-old-posts.php:464
+msgid "Delete the Posts permanently, don't add them into Trash"
+msgstr "Berichten permanent verwijderen, niet naar de prullenbak verplaatsen"
+
+#. translators: %s: "WP-Cron" link to the WordPress cron documentation
+#: inc/class-delete-old-posts.php:470
+#, php-format
+msgid "Number of post to delete when the %s runs."
+msgstr "Aantal berichten dat wordt verwijderd telkens wanneer %s draait."
+
+#: inc/class-delete-old-posts.php:500
+msgid ""
+"Choose the number of post to be deleted at the same time. Please note, that "
+"a higher number of post deleted at once means a higher load on your server. "
+"You can choose a smaller number on a hosting with low resources (ex. shared "
+"hosting) and a higher number if your website is running for example on a "
+"dedicated server. By default, one post is deleted."
+msgstr ""
+"Kies het aantal berichten dat tegelijk wordt verwijderd. Let op: hoe meer "
+"berichten tegelijk worden verwijderd, hoe zwaarder je server wordt belast. "
+"Kies een kleiner aantal bij hosting met weinig middelen (bijv. shared "
+"hosting) en een groter aantal als je website bijvoorbeeld op een dedicated "
+"server draait. Standaard wordt één bericht verwijderd."
+
+#: inc/class-delete-old-posts.php:509
+msgid "These options are available in the Professional version."
+msgstr "Deze opties zijn beschikbaar in de Professional-versie."
+
+#: inc/class-delete-old-posts.php:512
+msgid "Upgrade Now!"
+msgstr "Nu upgraden!"
+
+#: inc/class-delete-old-posts.php:520
+msgid ""
+"Filter the deleted post by selecting more options in the filters menu. "
+"Available filters are custom post types, categories, taxonomies, users, "
+"favorite post, and text search (posts containing a text), so only some from "
+"the posts will be deleted even if they are older than selected date "
+"(selected days)."
+msgstr ""
+"Verfijn de te verwijderen berichten met extra opties in het menu ‘Filters’. "
+"Beschikbare filters zijn aangepaste berichttypes, categorieën, taxonomieën, "
+"gebruikers, favoriete berichten en zoeken op tekst (berichten die een tekst "
+"bevatten). Zo worden alleen bepaalde berichten verwijderd, ook als ze ouder "
+"zijn dan de geselecteerde datum (het geselecteerde aantal dagen)."
+
+#: inc/class-delete-old-posts.php:534
+msgid "Start deleting the posts:"
+msgstr "Start het verwijderen van berichten:"
+
+#: inc/class-delete-old-posts.php:535
+msgid "Stop deleting the posts:"
+msgstr "Stop het verwijderen van berichten:"
+
+#: inc/class-delete-old-posts.php:555
+msgid ""
+"Start/ Stop deleting posts. Select this option and click save to start/ stop "
+"deleting the posts automatically in background. Hint! You can first test the "
+"results when you save the filters."
+msgstr ""
+"Het verwijderen van berichten starten/stoppen. Selecteer deze optie en klik "
+"op ‘Opslaan’ om het automatisch verwijderen van berichten op de achtergrond "
+"te starten/stoppen. Tip! Je kunt eerst de resultaten testen door de filters "
+"op te slaan."
+
+#: inc/class-delete-old-posts.php:566
+msgid "Save"
+msgstr "Opslaan"
+
+#: inc/class-delete-old-posts.php:591
+msgid "The latest deleted post:"
+msgstr "Laatst verwijderde bericht:"
+
+#: inc/class-delete-old-posts.php:603
+msgid "Post published date:"
+msgstr "Publicatiedatum van het bericht:"
+
+#: inc/class-delete-old-posts.php:608
+msgid "Id:"
+msgstr "ID:"

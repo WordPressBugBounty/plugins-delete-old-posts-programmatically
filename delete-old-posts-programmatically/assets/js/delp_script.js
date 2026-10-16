@@ -2,7 +2,10 @@ document.addEventListener("DOMContentLoaded", (event) => {
 	const global_redirects_url_del 		= document.querySelector(".global-redirect-url-input-wrapper .after");
 	const global_redirects_home_link 	= document.querySelector("#global_redirects_home_link");
 	const global_redirects_input 			= document.querySelector("#global_redirect_url");
-	
+
+	// only on the Redirects page
+	if ( ! global_redirects_url_del || ! global_redirects_home_link || ! global_redirects_input ) return;
+
 	global_redirects_home_link.addEventListener("click", (event) => {
 		event.preventDefault();
 		global_redirects_input.value = event.target.dataset.href

@@ -1,0 +1,638 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Delete old posts automatically\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/delete-old-posts-"
+"programmatically\n"
+"POT-Creation-Date: 2026-10-14T11:04:24+00:00\n"
+"PO-Revision-Date: 2026-10-14 11:08+0000\n"
+"Last-Translator: \n"
+"Language-Team: Hindi\n"
+"Language: hi_IN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Loco https://localise.biz/\n"
+"X-Loco-Version: 2.8.9; wp-7.1.3; php-8.3.33\n"
+"X-Domain: delete-old-posts-programmatically\n"
+
+#. Plugin Name of the plugin
+#: delete-old-posts.php inc/class-delete-old-posts.php:32
+#: inc/class-delete-old-posts.php:33 inc/class-delete-old-posts.php:241
+msgid "Auto Post Cleaner"
+msgstr "Auto Post Cleaner"
+
+#. Description of the plugin
+#: delete-old-posts.php
+msgid ""
+"Automatically delete and redirect posts to similar ones to keep your site "
+"clean."
+msgstr ""
+"पोस्ट को अपने आप हटाता है और आपकी साइट को साफ़ रखने के लिए उन्हें मिलती-जुलती पोस्ट पर "
+"रीडायरेक्ट करता है।"
+
+#. Author of the plugin
+#: delete-old-posts.php
+msgid "WPMagic"
+msgstr "WPMagic"
+
+#. Author URI of the plugin
+#: delete-old-posts.php
+msgid "https://felsflow.dev"
+msgstr "https://felsflow.dev"
+
+#: inc/class-delete-old-posts-filters.php:52
+msgid "Filters"
+msgstr "फिल्टर"
+
+#: inc/class-delete-old-posts-filters.php:70
+msgid "Available filters to use when deleting the posts"
+msgstr "पोस्ट हटाते समय उपयोग के लिए उपलब्ध फ़िल्टर"
+
+#: inc/class-delete-old-posts-filters.php:73
+msgid ""
+"Select which filters you would like to apply when deleting your posts from "
+"the options below."
+msgstr ""
+"नीचे दिए गए विकल्पों में से चुनें कि अपनी पोस्ट हटाते समय आप कौन-से फ़िल्टर लागू करना चाहते "
+"हैं।"
+
+#: inc/class-delete-old-posts-filters.php:81
+msgid ""
+"\n"
+"                                Once you've decided on the number of days in "
+"the past that posts should automatically be deleted, you can refine the "
+"criteria for deletion even further. If you want to delete posts of only one "
+"type, posts in specific categories, or posts with one or more taxonomies "
+"(for custom post types), simply select the appropriate options below. Any "
+"posts published before the date you have chosen will then be filtered to "
+"make sure only those meeting your additional criteria are deleted. This way, "
+"you can be sure that only the posts you want removed are deleted.\n"
+"                                "
+msgstr ""
+"\n"
+"                                जब आप तय कर लें कि कितने दिनों बाद पोस्ट अपने आप "
+"हटाई जानी चाहिए, तो आप हटाने के मानदंडों को और भी सटीक बना सकते हैं। अगर आप केवल एक "
+"प्रकार की पोस्ट, विशिष्ट श्रेणियों की पोस्ट, या एक या अधिक टैक्सोनॉमी वाली पोस्ट (कस्टम "
+"पोस्ट प्रकारों के लिए) हटाना चाहते हैं, तो बस नीचे उपयुक्त विकल्प चुनें। आपके चुने गए दिनांक से "
+"पहले प्रकाशित सभी पोस्ट फ़िल्टर की जाएँगी, ताकि केवल वही पोस्ट हटाई जाएँ जो आपके "
+"अतिरिक्त मानदंडों को पूरा करती हैं। इस तरह आप निश्चिंत रह सकते हैं कि केवल वही पोस्ट हटाई "
+"जाएँगी जिन्हें आप हटाना चाहते हैं।\n"
+"                                "
+
+#: inc/class-delete-old-posts-filters.php:97 inc/class-delete-old-posts.php:110
+msgid "You don't have rights to delete the posts."
+msgstr "आपके पास पोस्ट हटाने की अनुमति नहीं है।"
+
+#: inc/class-delete-old-posts-filters.php:106
+msgid "Save and test the deleted posts"
+msgstr "सहेजें और हटाई जाने वाली पोस्ट का परीक्षण करें"
+
+#: inc/class-delete-old-posts-filters.php:138
+msgid ""
+"At least one post type has to be selected. The default post type have been "
+"automatically selected."
+msgstr ""
+"कम से कम एक पोस्ट प्रकार चुना जाना चाहिए। डिफ़ॉल्ट पोस्ट प्रकार अपने आप चुन लिया गया है।"
+
+#. translators: %s: the words "default post type" in bold
+#: inc/class-delete-old-posts-filters.php:162
+#, php-format
+msgid ""
+"You can choose to delete only the posts from a specific custom post type, or "
+"all posts types. If not otherwise specified, only the posts from the %s will "
+"be deleted."
+msgstr ""
+"आप केवल किसी विशिष्ट कस्टम पोस्ट प्रकार की पोस्ट या सभी पोस्ट प्रकारों की पोस्ट हटाना "
+"चुन सकते हैं। अगर कुछ और निर्दिष्ट न किया जाए, तो केवल %s की पोस्ट हटाई जाएँगी।"
+
+#. translators: %s: the words "default post type" in bold
+#: inc/class-delete-old-posts-filters.php:162
+msgid "default post type"
+msgstr "डिफ़ॉल्ट पोस्ट प्रकार"
+
+#: inc/class-delete-old-posts-filters.php:180
+msgid "Choose the post type:"
+msgstr "पोस्ट प्रकार चुनें:"
+
+#: inc/class-delete-old-posts-filters.php:220
+msgid "Show hidden Custom Post Types."
+msgstr "छिपे हुए कस्टम पोस्ट प्रकार दिखाएँ।"
+
+#: inc/class-delete-old-posts-filters.php:231
+msgid ""
+"You can choose to delete only the posts by a specific status. The default "
+"status used is \"publish\"."
+msgstr ""
+"आप केवल किसी विशिष्ट स्थिति वाली पोस्ट हटाने का विकल्प चुन सकते हैं। डिफ़ॉल्ट रूप से "
+"“publish” (प्रकाशित) स्थिति का उपयोग होता है।"
+
+#: inc/class-delete-old-posts-filters.php:234
+msgid "Choose the post status:"
+msgstr "पोस्ट की स्थिति चुनें:"
+
+#: inc/class-delete-old-posts-filters.php:306
+msgid "list:"
+msgstr "सूची:"
+
+#. translators: %s: the words "any user" in bold
+#: inc/class-delete-old-posts-filters.php:351
+#, php-format
+msgid ""
+"You can choose to delete only the posts from specific users. By default (no "
+"user selected), posts from %s will be deleted."
+msgstr ""
+"आप केवल विशिष्ट उपयोगकर्ताओं की पोस्ट हटाना चुन सकते हैं। डिफ़ॉल्ट रूप से (कोई उपयोगकर्ता "
+"न चुनने पर) %s की पोस्ट हटाई जाएँगी।"
+
+#. translators: %s: the words "any user" in bold
+#: inc/class-delete-old-posts-filters.php:351
+msgid "any user"
+msgstr "किसी भी उपयोगकर्ता"
+
+#: inc/class-delete-old-posts-filters.php:356
+msgid "Delete only the posts from specific users:"
+msgstr "केवल विशिष्ट उपयोगकर्ताओं की पोस्ट हटाएँ:"
+
+#. translators: %s: the default relation ("all selected terms") in bold
+#: inc/class-delete-old-posts-filters.php:382
+#, php-format
+msgid ""
+"Choose the relation applied to selected categories or terms. By default (no "
+"relation selected), %s will be used. \"All selected categories or terms\" "
+"mean that the deleted post will need to have relation with all selected "
+"categories or terms. \"Any selected categories or terms\" mean that if the "
+"post has relationship with only one of the selected terms, then the post "
+"will be deleted."
+msgstr ""
+"चुनी गई श्रेणियों या शब्दों पर लागू होने वाला संबंध चुनें। डिफ़ॉल्ट रूप से (कोई संबंध न चुनने पर) "
+"%s का उपयोग होगा। “सभी चुनी गई श्रेणियाँ या शब्द” का अर्थ है कि हटाई जाने वाली पोस्ट "
+"का सभी चुनी गई श्रेणियों या शब्दों से संबंध होना चाहिए। “कोई भी चुनी गई श्रेणी या शब्द” "
+"का अर्थ है कि अगर पोस्ट का चुने गए शब्दों में से किसी एक से भी संबंध है, तो पोस्ट हटा दी "
+"जाएगी।"
+
+#. translators: %s: the default relation ("all selected terms") in bold
+#: inc/class-delete-old-posts-filters.php:382
+msgid "all selected terms"
+msgstr "सभी चुने गए शब्द"
+
+#: inc/class-delete-old-posts-filters.php:387
+msgid "Choose the relation applied to selected categories or taxonomies terms:"
+msgstr "चुनी गई श्रेणियों या टैक्सोनॉमी शब्दों पर लागू होने वाला संबंध चुनें:"
+
+#. translators: %s: the word "ALL" in bold
+#: inc/class-delete-old-posts-filters.php:389
+#, php-format
+msgid ""
+"All selected categories or terms (post will need to be in %s selected "
+"categories or terms)"
+msgstr ""
+"सभी चुनी गई श्रेणियाँ या शब्द (पोस्ट का %s चुनी गई श्रेणियों या शब्दों में होना ज़रूरी है)"
+
+#. translators: %s: the word "ALL" in bold
+#: inc/class-delete-old-posts-filters.php:389
+msgid "ALL"
+msgstr "सभी"
+
+#. translators: %s: the word "ANY" in bold
+#: inc/class-delete-old-posts-filters.php:391
+#, php-format
+msgid ""
+"Any selected categories or terms (post will need to be in %s selected "
+"categories or terms)"
+msgstr ""
+"कोई भी चुनी गई श्रेणी या शब्द (पोस्ट का चुनी गई श्रेणियों या शब्दों में से %s में होना ज़रूरी "
+"है)"
+
+#. translators: %s: the word "ANY" in bold
+#: inc/class-delete-old-posts-filters.php:391
+msgid "ANY"
+msgstr "कम से कम एक"
+
+#. translators: %s: the words "don't want to be deleted" in bold
+#: inc/class-delete-old-posts-filters.php:404
+#, php-format
+msgid ""
+"If you have some posts that you %s, write the posts Ids in the text box "
+"separated with coma (ex. 1009, 2345, 4563). You can find the post id in the "
+"browser location when you edit the post (ex. ?post=2033)."
+msgstr ""
+"अगर आपकी कुछ पोस्ट ऐसी हैं जिन्हें आप %s, तो उनकी ID टेक्स्ट बॉक्स में अल्पविराम से अलग करके "
+"लिखें (उदा. 1009, 2345, 4563)। पोस्ट संपादित करते समय आप ब्राउज़र के पता बार में पोस्ट "
+"ID देख सकते हैं (उदा. ?post=2033)।"
+
+#. translators: %s: the words "don't want to be deleted" in bold
+#: inc/class-delete-old-posts-filters.php:404
+msgid "don't want to be deleted"
+msgstr "हटाना नहीं चाहते"
+
+#: inc/class-delete-old-posts-filters.php:409
+msgid "Have some important posts? Enter the post IDs that you want to keep:"
+msgstr "कुछ महत्वपूर्ण पोस्ट हैं? उन पोस्ट की ID दर्ज करें जिन्हें आप रखना चाहते हैं:"
+
+#: inc/class-delete-old-posts-filters.php:412
+msgid "Post IDs to exclude:"
+msgstr "बाहर रखी जाने वाली पोस्ट ID:"
+
+#. translators: %s: the word "keywords" in bold
+#: inc/class-delete-old-posts-filters.php:427
+#, php-format
+msgid ""
+"If you want delete only some posts containing some %s, write the keywords to "
+"search in the posts here (ex. pillow). If you want to exclude some posts "
+"from the search, write your keywords in the \"Negative keywords\" field "
+"below. Eg, \"Look for posts that include\" = \"pillow\" and \"Exclude from "
+"search results\" = \"sofa\", will return posts containing \"pillow\" but not "
+"\"sofa\"."
+msgstr ""
+"अगर आप केवल कुछ विशेष %s वाली पोस्ट हटाना चाहते हैं, तो खोजने के लिए कीवर्ड यहाँ लिखें "
+"(उदा. तकिया)। अगर आप कुछ पोस्ट को खोज से बाहर रखना चाहते हैं, तो अपने कीवर्ड नीचे दिए "
+"गए फ़ील्ड में लिखें। उदाहरण: “ऐसी पोस्ट खोजें जिनमें ये कीवर्ड हों” = “तकिया” और “खोज "
+"परिणामों से बाहर रखें” = “सोफ़ा” से वे पोस्ट मिलेंगी जिनमें “तकिया” है लेकिन “सोफ़ा” नहीं।"
+
+#. translators: %s: the word "keywords" in bold
+#: inc/class-delete-old-posts-filters.php:427
+msgid "keywords"
+msgstr "कीवर्ड"
+
+#: inc/class-delete-old-posts-filters.php:432
+msgid "Delete only posts that contain the keyword(s):"
+msgstr "केवल वे पोस्ट हटाएँ जिनमें ये कीवर्ड हों:"
+
+#: inc/class-delete-old-posts-filters.php:435
+msgid "Look for posts that include the keyword(s):"
+msgstr "ऐसी पोस्ट खोजें जिनमें ये कीवर्ड हों:"
+
+#: inc/class-delete-old-posts-filters.php:439
+msgid "Exclude from search results any posts that contain the keyword(s):"
+msgstr "जिन पोस्ट में ये कीवर्ड हों, उन्हें खोज परिणामों से बाहर रखें:"
+
+#. translators: %s: the words "featured image and all files" in bold
+#: inc/class-delete-old-posts-filters.php:454
+#, php-format
+msgid ""
+"If you also want to delete the %s attached to the post, select this option. "
+"When the post is deleted, the post thumbnail and all files attached to it "
+"will be deleted as well. Use this option carefully because there is no "
+"guarantee that the attachment isn't still published in some other post (ex. "
+"picture galleries)."
+msgstr ""
+"अगर आप पोस्ट से जुड़ी %s भी हटाना चाहते हैं, तो यह विकल्प चुनें। पोस्ट हटाने पर पोस्ट का "
+"थंबनेल और उससे जुड़ी सभी फ़ाइलें भी हटा दी जाएँगी। इस विकल्प का उपयोग सावधानी से करें, "
+"क्योंकि इसकी कोई गारंटी नहीं है कि अटैचमेंट किसी दूसरी पोस्ट में अब भी उपयोग नहीं हो रहा "
+"(उदा. चित्र गैलरी)।"
+
+#. translators: %s: the words "featured image and all files" in bold
+#: inc/class-delete-old-posts-filters.php:454
+msgid "featured image and all files"
+msgstr "विशेष छवि और सभी फ़ाइलें"
+
+#: inc/class-delete-old-posts-filters.php:459
+msgid ""
+"Do you want to delete the images attached to the post (featured image and "
+"all files attached to it) when the post is deleted? Note: Attachments will "
+"not be deleted if used in another post (use \"force delete\" for that)."
+msgstr ""
+"क्या आप पोस्ट हटाते समय उससे जुड़ी छवियाँ (विशेष छवि और उससे जुड़ी सभी फ़ाइलें) भी हटाना "
+"चाहते हैं? ध्यान दें: अगर अटैचमेंट किसी दूसरी पोस्ट में उपयोग हो रहे हैं, तो वे नहीं हटाए जाएँगे "
+"(इसके लिए “ज़बरदस्ती हटाएँ” का उपयोग करें)।"
+
+#: inc/class-delete-old-posts-filters.php:463
+msgid "Delete all files attached to post:"
+msgstr "पोस्ट से जुड़ी सभी फ़ाइलें हटाएँ:"
+
+#: inc/class-delete-old-posts-filters.php:469
+msgid "Force delete attached files:"
+msgstr "जुड़ी हुई फ़ाइलें ज़बरदस्ती हटाएँ:"
+
+#: inc/class-delete-old-posts-filters.php:485
+msgid "This option is available in the Professional version."
+msgstr "यह विकल्प Professional संस्करण में उपलब्ध है।"
+
+#: inc/class-delete-old-posts-filters.php:488
+msgid "Upgrade and activate it."
+msgstr "अपग्रेड करें और इसे सक्रिय करें।"
+
+#: inc/class-delete-old-posts-filters.php:515
+msgid ""
+"The following posts will be automatically deleted when the next scheduled "
+"cron job runs."
+msgstr "अगली निर्धारित क्रॉन जॉब चलने पर निम्न पोस्ट अपने आप हटा दी जाएँगी।"
+
+#: inc/class-delete-old-posts-filters.php:515
+msgid ""
+"No posts will be automatically deleted when the next scheduled cron job runs."
+msgstr "अगली निर्धारित क्रॉन जॉब चलने पर कोई पोस्ट नहीं हटाई जाएगी।"
+
+#: inc/class-delete-old-posts-filters.php:524
+msgid ""
+" Don't forget to set the \"Start deleting posts\" option ON, to start "
+"deleting the post automatically in the background."
+msgstr ""
+" पोस्ट को बैकग्राउंड में अपने आप हटाने के लिए “पोस्ट हटाना शुरू करें” विकल्प चालू करना न भूलें।"
+
+#: inc/class-delete-old-posts-redirects.php:34
+msgid "Redirects"
+msgstr "रीडायरेक्ट"
+
+#: inc/class-delete-old-posts-redirects.php:169
+msgid "Deleted posts list"
+msgstr "हटाई गई पोस्ट की सूची"
+
+#: inc/class-delete-old-posts-redirects.php:186
+msgid "Redirect all deleted items to: "
+msgstr "सभी हटाए गए आइटम को यहाँ रीडायरेक्ट करें: "
+
+#: inc/class-delete-old-posts-redirects.php:204
+msgid "Search redirects"
+msgstr "रीडायरेक्ट खोजें"
+
+#: inc/class-delete-old-posts-redirects.php:233
+msgid "Redirects per page"
+msgstr "प्रति पेज रीडायरेक्ट"
+
+#: inc/class-delete-old-posts-redirects.php:261
+msgid "The redirects have been deleted."
+msgstr "रीडायरेक्ट हटा दिए गए हैं।"
+
+#: inc/class-delete-old-posts-redirects.php:283
+msgid "Deleted post slug:"
+msgstr "हटाई गई पोस्ट का स्लग:"
+
+#: inc/class-delete-old-posts-redirects.php:287
+msgid "New redirect to post (full URL starting with https:// or http://):"
+msgstr "पोस्ट पर नया रीडायरेक्ट (https:// या http:// से शुरू होने वाला पूरा URL):"
+
+#: inc/class-delete-old-posts-redirects.php:305
+msgid "It's NOT valid URL."
+msgstr "यह मान्य URL नहीं है।"
+
+#: inc/class-delete-old-posts-redirects.php:312
+msgid "The new redirect have been saved."
+msgstr "नया रीडायरेक्ट सहेज लिया गया है।"
+
+#. translators: %s: The redirect URL or title that was deleted
+#: inc/class-delete-old-posts-redirects.php:330
+#, php-format
+msgid "The redirect \"%s\" has been deleted."
+msgstr "रीडायरेक्ट “%s” हटा दिया गया है।"
+
+#: inc/class-delete-old-posts-redirects.php:345
+#: inc/class-delete-old-posts-redirects.php:349
+msgid "Sorry, not allowed!"
+msgstr "क्षमा करें, इसकी अनुमति नहीं है!"
+
+#: inc/class-delete-old-posts-redirects.php:476
+msgid "ID"
+msgstr "ID"
+
+#: inc/class-delete-old-posts-redirects.php:477
+msgid "Deleted post slug"
+msgstr "हटाई गई पोस्ट का स्लग"
+
+#: inc/class-delete-old-posts-redirects.php:478
+msgid "Redirection"
+msgstr "रीडायरेक्शन"
+
+#: inc/class-delete-old-posts-redirects.php:525
+msgid ""
+"Sorry. You can't use the redirection feature because your permalink "
+"structure is not using the postname. To use the redirect, change your "
+"permanent structure in "
+msgstr ""
+"आप रीडायरेक्शन सुविधा का उपयोग नहीं कर सकते, क्योंकि आपकी पर्मालिंक संरचना में पोस्ट का "
+"नाम उपयोग नहीं होता। रीडायरेक्ट का उपयोग करने के लिए अपनी पर्मालिंक संरचना यहाँ बदलें: "
+
+#: inc/class-delete-old-posts-redirects.php:525
+msgid "settings"
+msgstr "सेटिंग्स"
+
+#: inc/class-delete-old-posts-redirects.php:620
+msgid "Edit"
+msgstr "संपादित करें"
+
+#: inc/class-delete-old-posts-redirects.php:621
+#: inc/class-delete-old-posts-redirects.php:632
+msgid "Delete"
+msgstr "हटाएँ"
+
+#: inc/class-delete-old-posts.php:128
+msgid "Sorry, the security key did not verify."
+msgstr "क्षमा करें, सुरक्षा कुंजी सत्यापित नहीं हो सकी।"
+
+#: inc/class-delete-old-posts.php:173
+msgid ""
+"Choose a date or specify the number of days for the posts to be deleted!"
+msgstr "कोई दिनांक चुनें या वह दिनों की संख्या बताएँ जिसके बाद पोस्ट हटाई जानी चाहिए!"
+
+#. translators: %s: link to the Filters page
+#: inc/class-delete-old-posts.php:191
+#, php-format
+msgid ""
+"Hint! Test out the list of deleted posts in the \"%s\" menu, and when you're "
+"ready to begin deleting posts, activate the \"Start deleting posts\" option "
+"and click \"Save\". Note that no posts will be deleted until you take this "
+"action."
+msgstr ""
+"सुझाव! “%s” मेनू में हटाई जाने वाली पोस्ट की सूची का परीक्षण करें। जब आप पोस्ट हटाना शुरू "
+"करने के लिए तैयार हों, तो “पोस्ट हटाना शुरू करें” विकल्प चालू करें और “सहेजें” पर क्लिक करें। "
+"जब तक आप ऐसा नहीं करते, कोई पोस्ट नहीं हटाई जाएगी।"
+
+#: inc/class-delete-old-posts.php:192
+msgctxt "menu name in hint"
+msgid "Filters"
+msgstr "फिल्टर"
+
+#. translators: 1: month name, 2: day of the month, 3: year, 4: maximum number of posts deleted per day
+#: inc/class-delete-old-posts.php:199
+#, php-format
+msgid ""
+"Any posts published before %1$s %2$s, %3$s will be regularly deleted in the "
+"background. Up to %4$d posts per day."
+msgstr ""
+"%2$s %1$s %3$s से पहले प्रकाशित सभी पोस्ट बैकग्राउंड में नियमित रूप से हटाई जाएँगी। प्रति "
+"दिन अधिकतम %4$d पोस्ट।"
+
+#. translators: %s: date and time of the next scheduled cron run
+#: inc/class-delete-old-posts.php:202
+#, php-format
+msgid "Next cron job run scheduled on %s."
+msgstr "अगली क्रॉन जॉब %s को निर्धारित है।"
+
+#: inc/class-delete-old-posts.php:206
+msgid "The posts will be permanently deleted"
+msgstr "पोस्ट स्थायी रूप से हटा दी जाएँगी"
+
+#: inc/class-delete-old-posts.php:224
+msgid ""
+"Choose a date or specify the number of days to have your posts automatically "
+"deleted."
+msgstr ""
+"कोई दिनांक चुनें या वह दिनों की संख्या बताएँ जिसके बाद आपकी पोस्ट अपने आप हट जाएँगी।"
+
+#: inc/class-delete-old-posts.php:226
+msgid ""
+"With the available filters, you have complete control to determine which "
+"posts are deleted. Posts are automatically deleted when the WordPress Cron "
+"runs or whenever someone visits your website."
+msgstr ""
+"उपलब्ध फ़िल्टर से आप पूरी तरह तय कर सकते हैं कि कौन-सी पोस्ट हटाई जाएँ। WordPress क्रॉन "
+"चलने पर या किसी के आपकी वेबसाइट पर आने पर पोस्ट अपने आप हटाई जाती हैं।"
+
+#: inc/class-delete-old-posts.php:231
+msgid "Dismiss this notice."
+msgstr "इस सूचना को ख़ारिज करें।"
+
+#: inc/class-delete-old-posts.php:255
+msgid "Delete posts older than:"
+msgstr "इससे पुरानी पोस्ट हटाएँ:"
+
+#: inc/class-delete-old-posts.php:276
+msgid "days."
+msgstr "दिन।"
+
+#: inc/class-delete-old-posts.php:285
+msgid ""
+"Your posts published before the <strong>specified days</strong>, will be "
+"automatically deleted in the background any time the WP Cron runs or someone "
+"visits your website."
+msgstr ""
+"<strong>बताए गए दिनों</strong> से पुरानी आपकी पोस्ट हर बार WP-Cron चलने पर या "
+"किसी के आपकी वेबसाइट पर आने पर बैकग्राउंड में अपने आप हटा दी जाएँगी।"
+
+#: inc/class-delete-old-posts.php:291
+msgid "Choose the number of "
+msgstr "संख्या चुनें – "
+
+#: inc/class-delete-old-posts.php:297
+msgid "months"
+msgstr "महीने"
+
+#: inc/class-delete-old-posts.php:311
+msgid " to calculate the number of days automatically,"
+msgstr " – दिनों की संख्या की अपने आप गणना के लिए,"
+
+#: inc/class-delete-old-posts.php:315
+msgid "Click to copy"
+msgstr "कॉपी करने के लिए क्लिक करें"
+
+#: inc/class-delete-old-posts.php:322
+msgid "or select a date to calculate days in the past automatically:"
+msgstr "या दिनों की संख्या की अपने आप गणना के लिए कोई दिनांक चुनें:"
+
+#: inc/class-delete-old-posts.php:326
+msgid "Select date"
+msgstr "दिनांक चुनें"
+
+#: inc/class-delete-old-posts.php:405
+msgid "Use a fixed date instead of a number of days in the past."
+msgstr "दिनों की संख्या के बजाय एक निश्चित दिनांक का उपयोग करें।"
+
+#: inc/class-delete-old-posts.php:413
+msgid ""
+"Select this option if you want to use a fixed date instead of a number of "
+"days in the past. If you select this option, only the posts older than the "
+"selected date will be deleted. If this option is not selected, the post "
+"older than the number of days in the past will be deleted, which will always "
+"be relative to today."
+msgstr ""
+"अगर आप दिनों की संख्या के बजाय एक निश्चित दिनांक का उपयोग करना चाहते हैं, तो यह विकल्प "
+"चुनें। तब केवल चुने गए दिनांक से पुरानी पोस्ट हटाई जाएँगी। अगर यह विकल्प नहीं चुना गया है, "
+"तो बताए गए दिनों से पुरानी पोस्ट हटाई जाएँगी, जिनकी गणना हमेशा आज से होती है।"
+
+#: inc/class-delete-old-posts.php:434
+msgid "Redirect the URL of the deleted post to a similar post when requested."
+msgstr ""
+"अनुरोध किए जाने पर हटाई गई पोस्ट के URL को किसी मिलती-जुलती पोस्ट पर रीडायरेक्ट करें।"
+
+#: inc/class-delete-old-posts.php:442
+msgid ""
+"Even after the posts are removed, they can still be linked to or found on "
+"Google. Choose this option if you want to redirect your visitors to the "
+"deleted post to another similar post on your website. The plugin will "
+"automatically find the best matching option, but you can customize it in the "
+"\"Redirects\" menu. The HTTP response status code 301 Moved Permanently is "
+"used for the redirect."
+msgstr ""
+"पोस्ट हटाने के बाद भी उनसे लिंक हो सकते हैं या वे Google पर मिल सकती हैं। अगर आप हटाई "
+"गई पोस्ट पर आने वाले विज़िटर को अपनी वेबसाइट की किसी मिलती-जुलती पोस्ट पर भेजना चाहते "
+"हैं, तो यह विकल्प चुनें। प्लगइन अपने आप सबसे उपयुक्त पोस्ट ढूँढ लेता है, लेकिन आप इसे "
+"“रीडायरेक्ट” मेनू में बदल सकते हैं। रीडायरेक्ट के लिए HTTP स्टेटस कोड 301 Moved "
+"Permanently का उपयोग होता है।"
+
+#: inc/class-delete-old-posts.php:464
+msgid "Delete the Posts permanently, don't add them into Trash"
+msgstr "पोस्ट को स्थायी रूप से हटाएँ, उन्हें ट्रैश में न डालें"
+
+#. translators: %s: "WP-Cron" link to the WordPress cron documentation
+#: inc/class-delete-old-posts.php:470
+#, php-format
+msgid "Number of post to delete when the %s runs."
+msgstr "हर बार %s चलने पर हटाई जाने वाली पोस्ट की संख्या।"
+
+#: inc/class-delete-old-posts.php:500
+msgid ""
+"Choose the number of post to be deleted at the same time. Please note, that "
+"a higher number of post deleted at once means a higher load on your server. "
+"You can choose a smaller number on a hosting with low resources (ex. shared "
+"hosting) and a higher number if your website is running for example on a "
+"dedicated server. By default, one post is deleted."
+msgstr ""
+"एक साथ हटाई जाने वाली पोस्ट की संख्या चुनें। ध्यान दें कि एक बार में ज़्यादा पोस्ट हटाने से "
+"आपके सर्वर पर ज़्यादा भार पड़ता है। कम संसाधनों वाली होस्टिंग (उदा. शेयर्ड होस्टिंग) पर आप "
+"छोटी संख्या और डेडिकेटेड सर्वर पर चलने वाली वेबसाइट के लिए बड़ी संख्या चुन सकते हैं। डिफ़ॉल्ट "
+"रूप से एक पोस्ट हटाई जाती है।"
+
+#: inc/class-delete-old-posts.php:509
+msgid "These options are available in the Professional version."
+msgstr "ये विकल्प Professional संस्करण में उपलब्ध हैं।"
+
+#: inc/class-delete-old-posts.php:512
+msgid "Upgrade Now!"
+msgstr "अभी अपग्रेड करें!"
+
+#: inc/class-delete-old-posts.php:520
+msgid ""
+"Filter the deleted post by selecting more options in the filters menu. "
+"Available filters are custom post types, categories, taxonomies, users, "
+"favorite post, and text search (posts containing a text), so only some from "
+"the posts will be deleted even if they are older than selected date "
+"(selected days)."
+msgstr ""
+"“फिल्टर” मेनू में और विकल्प चुनकर हटाई जाने वाली पोस्ट को सीमित करें। उपलब्ध फ़िल्टर हैं: "
+"कस्टम पोस्ट प्रकार, श्रेणियाँ, टैक्सोनॉमी, उपयोगकर्ता, पसंदीदा पोस्ट और टेक्स्ट खोज (किसी "
+"टेक्स्ट वाली पोस्ट)। इस तरह केवल कुछ पोस्ट ही हटाई जाएँगी, भले ही वे चुने गए दिनांक (चुने "
+"गए दिनों) से पुरानी हों।"
+
+#: inc/class-delete-old-posts.php:534
+msgid "Start deleting the posts:"
+msgstr "पोस्ट हटाना शुरू करें:"
+
+#: inc/class-delete-old-posts.php:535
+msgid "Stop deleting the posts:"
+msgstr "पोस्ट हटाना रोकें:"
+
+#: inc/class-delete-old-posts.php:555
+msgid ""
+"Start/ Stop deleting posts. Select this option and click save to start/ stop "
+"deleting the posts automatically in background. Hint! You can first test the "
+"results when you save the filters."
+msgstr ""
+"पोस्ट हटाना शुरू/बंद करें। बैकग्राउंड में पोस्ट अपने आप हटाना शुरू/बंद करने के लिए यह विकल्प चुनें "
+"और “सहेजें” पर क्लिक करें। सुझाव! फ़िल्टर सहेजकर आप पहले परिणामों का परीक्षण कर सकते हैं।"
+
+#: inc/class-delete-old-posts.php:566
+msgid "Save"
+msgstr "सहेजें"
+
+#: inc/class-delete-old-posts.php:591
+msgid "The latest deleted post:"
+msgstr "सबसे हाल में हटाई गई पोस्ट:"
+
+#: inc/class-delete-old-posts.php:603
+msgid "Post published date:"
+msgstr "पोस्ट प्रकाशन दिनांक:"
+
+#: inc/class-delete-old-posts.php:608
+msgid "Id:"
+msgstr "ID:"

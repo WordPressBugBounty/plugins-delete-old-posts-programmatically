@@ -1,0 +1,680 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Delete old posts automatically\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/delete-old-posts-"
+"programmatically\n"
+"POT-Creation-Date: 2026-10-14T11:04:24+00:00\n"
+"PO-Revision-Date: 2026-10-14 11:08+0000\n"
+"Last-Translator: \n"
+"Language-Team: Italian\n"
+"Language: it_IT\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Loco https://localise.biz/\n"
+"X-Loco-Version: 2.8.9; wp-7.1.3; php-8.3.33\n"
+"X-Domain: delete-old-posts-programmatically\n"
+
+#. Plugin Name of the plugin
+#: delete-old-posts.php inc/class-delete-old-posts.php:32
+#: inc/class-delete-old-posts.php:33 inc/class-delete-old-posts.php:241
+msgid "Auto Post Cleaner"
+msgstr "Auto Post Cleaner"
+
+#. Description of the plugin
+#: delete-old-posts.php
+msgid ""
+"Automatically delete and redirect posts to similar ones to keep your site "
+"clean."
+msgstr ""
+"Elimina automaticamente gli articoli e li reindirizza ad articoli simili per "
+"mantenere pulito il tuo sito."
+
+#. Author of the plugin
+#: delete-old-posts.php
+msgid "WPMagic"
+msgstr "WPMagic"
+
+#. Author URI of the plugin
+#: delete-old-posts.php
+msgid "https://felsflow.dev"
+msgstr "https://felsflow.dev"
+
+#: inc/class-delete-old-posts-filters.php:52
+msgid "Filters"
+msgstr "Filtri"
+
+#: inc/class-delete-old-posts-filters.php:70
+msgid "Available filters to use when deleting the posts"
+msgstr "Filtri disponibili per l’eliminazione degli articoli"
+
+#: inc/class-delete-old-posts-filters.php:73
+msgid ""
+"Select which filters you would like to apply when deleting your posts from "
+"the options below."
+msgstr ""
+"Scegli tra le opzioni qui sotto quali filtri applicare quando elimini i tuoi "
+"articoli."
+
+#: inc/class-delete-old-posts-filters.php:81
+msgid ""
+"\n"
+"                                Once you've decided on the number of days in "
+"the past that posts should automatically be deleted, you can refine the "
+"criteria for deletion even further. If you want to delete posts of only one "
+"type, posts in specific categories, or posts with one or more taxonomies "
+"(for custom post types), simply select the appropriate options below. Any "
+"posts published before the date you have chosen will then be filtered to "
+"make sure only those meeting your additional criteria are deleted. This way, "
+"you can be sure that only the posts you want removed are deleted.\n"
+"                                "
+msgstr ""
+"\n"
+"                                Dopo aver deciso dopo quanti giorni gli "
+"articoli devono essere eliminati automaticamente, puoi affinare "
+"ulteriormente i criteri di eliminazione. Se vuoi eliminare solo gli articoli "
+"di un certo tipo, gli articoli di categorie specifiche o gli articoli con "
+"una o più tassonomie (per i tipi di contenuto personalizzati), seleziona "
+"semplicemente le opzioni corrispondenti qui sotto. Gli articoli pubblicati "
+"prima della data scelta verranno quindi filtrati, in modo che vengano "
+"eliminati solo quelli che soddisfano i tuoi criteri aggiuntivi. Così puoi "
+"essere sicuro che vengano eliminati solo gli articoli che vuoi rimuovere.\n"
+"                                "
+
+#: inc/class-delete-old-posts-filters.php:97 inc/class-delete-old-posts.php:110
+msgid "You don't have rights to delete the posts."
+msgstr "Non hai i permessi per eliminare gli articoli."
+
+#: inc/class-delete-old-posts-filters.php:106
+msgid "Save and test the deleted posts"
+msgstr "Salva e testa gli articoli da eliminare"
+
+#: inc/class-delete-old-posts-filters.php:138
+msgid ""
+"At least one post type has to be selected. The default post type have been "
+"automatically selected."
+msgstr ""
+"Deve essere selezionato almeno un tipo di contenuto. Il tipo di contenuto "
+"predefinito è stato selezionato automaticamente."
+
+#. translators: %s: the words "default post type" in bold
+#: inc/class-delete-old-posts-filters.php:162
+#, php-format
+msgid ""
+"You can choose to delete only the posts from a specific custom post type, or "
+"all posts types. If not otherwise specified, only the posts from the %s will "
+"be deleted."
+msgstr ""
+"Puoi scegliere di eliminare solo gli articoli di un tipo di contenuto "
+"personalizzato specifico o di tutti i tipi. Se non diversamente specificato, "
+"verranno eliminati solo gli articoli del %s."
+
+#. translators: %s: the words "default post type" in bold
+#: inc/class-delete-old-posts-filters.php:162
+msgid "default post type"
+msgstr "tipo di contenuto predefinito"
+
+#: inc/class-delete-old-posts-filters.php:180
+msgid "Choose the post type:"
+msgstr "Scegli il tipo di contenuto:"
+
+#: inc/class-delete-old-posts-filters.php:220
+msgid "Show hidden Custom Post Types."
+msgstr "Mostra i tipi di contenuto personalizzati nascosti."
+
+#: inc/class-delete-old-posts-filters.php:231
+msgid ""
+"You can choose to delete only the posts by a specific status. The default "
+"status used is \"publish\"."
+msgstr ""
+"Puoi scegliere di eliminare solo gli articoli con uno stato specifico. Lo "
+"stato predefinito è “publish” (pubblicato)."
+
+#: inc/class-delete-old-posts-filters.php:234
+msgid "Choose the post status:"
+msgstr "Scegli lo stato dell’articolo:"
+
+#: inc/class-delete-old-posts-filters.php:306
+msgid "list:"
+msgstr "elenco:"
+
+#. translators: %s: the words "any user" in bold
+#: inc/class-delete-old-posts-filters.php:351
+#, php-format
+msgid ""
+"You can choose to delete only the posts from specific users. By default (no "
+"user selected), posts from %s will be deleted."
+msgstr ""
+"Puoi scegliere di eliminare solo gli articoli di utenti specifici. Per "
+"impostazione predefinita (nessun utente selezionato) verranno eliminati gli "
+"articoli di %s."
+
+#. translators: %s: the words "any user" in bold
+#: inc/class-delete-old-posts-filters.php:351
+msgid "any user"
+msgstr "qualsiasi utente"
+
+#: inc/class-delete-old-posts-filters.php:356
+msgid "Delete only the posts from specific users:"
+msgstr "Elimina solo gli articoli di utenti specifici:"
+
+#. translators: %s: the default relation ("all selected terms") in bold
+#: inc/class-delete-old-posts-filters.php:382
+#, php-format
+msgid ""
+"Choose the relation applied to selected categories or terms. By default (no "
+"relation selected), %s will be used. \"All selected categories or terms\" "
+"mean that the deleted post will need to have relation with all selected "
+"categories or terms. \"Any selected categories or terms\" mean that if the "
+"post has relationship with only one of the selected terms, then the post "
+"will be deleted."
+msgstr ""
+"Scegli la relazione da applicare alle categorie o ai termini selezionati. "
+"Per impostazione predefinita (nessuna relazione selezionata) verrà usato %s. "
+"“Tutte le categorie o i termini selezionati” significa che l’articolo da "
+"eliminare deve essere collegato a tutte le categorie o i termini "
+"selezionati. “Qualsiasi categoria o termine selezionato” significa che "
+"l’articolo verrà eliminato se è collegato ad almeno uno dei termini "
+"selezionati."
+
+#. translators: %s: the default relation ("all selected terms") in bold
+#: inc/class-delete-old-posts-filters.php:382
+msgid "all selected terms"
+msgstr "tutti i termini selezionati"
+
+#: inc/class-delete-old-posts-filters.php:387
+msgid "Choose the relation applied to selected categories or taxonomies terms:"
+msgstr ""
+"Scegli la relazione da applicare alle categorie o ai termini di tassonomia "
+"selezionati:"
+
+#. translators: %s: the word "ALL" in bold
+#: inc/class-delete-old-posts-filters.php:389
+#, php-format
+msgid ""
+"All selected categories or terms (post will need to be in %s selected "
+"categories or terms)"
+msgstr ""
+"Tutte le categorie o i termini selezionati (l’articolo deve appartenere a %s "
+"le categorie o i termini selezionati)"
+
+#. translators: %s: the word "ALL" in bold
+#: inc/class-delete-old-posts-filters.php:389
+msgid "ALL"
+msgstr "TUTTE"
+
+#. translators: %s: the word "ANY" in bold
+#: inc/class-delete-old-posts-filters.php:391
+#, php-format
+msgid ""
+"Any selected categories or terms (post will need to be in %s selected "
+"categories or terms)"
+msgstr ""
+"Qualsiasi categoria o termine selezionato (l’articolo deve appartenere ad %s "
+"delle categorie o dei termini selezionati)"
+
+#. translators: %s: the word "ANY" in bold
+#: inc/class-delete-old-posts-filters.php:391
+msgid "ANY"
+msgstr "ALMENO UNA"
+
+#. translators: %s: the words "don't want to be deleted" in bold
+#: inc/class-delete-old-posts-filters.php:404
+#, php-format
+msgid ""
+"If you have some posts that you %s, write the posts Ids in the text box "
+"separated with coma (ex. 1009, 2345, 4563). You can find the post id in the "
+"browser location when you edit the post (ex. ?post=2033)."
+msgstr ""
+"Se hai alcuni articoli che %s, inserisci i loro ID nella casella di testo "
+"separati da virgole (es. 1009, 2345, 4563). Puoi trovare l’ID dell’articolo "
+"nella barra degli indirizzi del browser quando modifichi l’articolo (es. ?"
+"post=2033)."
+
+#. translators: %s: the words "don't want to be deleted" in bold
+#: inc/class-delete-old-posts-filters.php:404
+msgid "don't want to be deleted"
+msgstr "non vuoi eliminare"
+
+#: inc/class-delete-old-posts-filters.php:409
+msgid "Have some important posts? Enter the post IDs that you want to keep:"
+msgstr ""
+"Hai articoli importanti? Inserisci gli ID degli articoli che vuoi mantenere:"
+
+#: inc/class-delete-old-posts-filters.php:412
+msgid "Post IDs to exclude:"
+msgstr "ID degli articoli da escludere:"
+
+#. translators: %s: the word "keywords" in bold
+#: inc/class-delete-old-posts-filters.php:427
+#, php-format
+msgid ""
+"If you want delete only some posts containing some %s, write the keywords to "
+"search in the posts here (ex. pillow). If you want to exclude some posts "
+"from the search, write your keywords in the \"Negative keywords\" field "
+"below. Eg, \"Look for posts that include\" = \"pillow\" and \"Exclude from "
+"search results\" = \"sofa\", will return posts containing \"pillow\" but not "
+"\"sofa\"."
+msgstr ""
+"Se vuoi eliminare solo gli articoli che contengono determinate %s, inserisci "
+"qui le parole chiave da cercare (es. cuscino). Se vuoi escludere alcuni "
+"articoli dalla ricerca, inserisci le parole chiave nel campo qui sotto. Ad "
+"esempio, “Cerca gli articoli che contengono” = “cuscino” ed “Escludi dai "
+"risultati di ricerca” = “divano” restituirà gli articoli che contengono "
+"“cuscino” ma non “divano”."
+
+#. translators: %s: the word "keywords" in bold
+#: inc/class-delete-old-posts-filters.php:427
+msgid "keywords"
+msgstr "parole chiave"
+
+#: inc/class-delete-old-posts-filters.php:432
+msgid "Delete only posts that contain the keyword(s):"
+msgstr "Elimina solo gli articoli che contengono le parole chiave:"
+
+#: inc/class-delete-old-posts-filters.php:435
+msgid "Look for posts that include the keyword(s):"
+msgstr "Cerca gli articoli che contengono le parole chiave:"
+
+#: inc/class-delete-old-posts-filters.php:439
+msgid "Exclude from search results any posts that contain the keyword(s):"
+msgstr ""
+"Escludi dai risultati di ricerca gli articoli che contengono le parole "
+"chiave:"
+
+#. translators: %s: the words "featured image and all files" in bold
+#: inc/class-delete-old-posts-filters.php:454
+#, php-format
+msgid ""
+"If you also want to delete the %s attached to the post, select this option. "
+"When the post is deleted, the post thumbnail and all files attached to it "
+"will be deleted as well. Use this option carefully because there is no "
+"guarantee that the attachment isn't still published in some other post (ex. "
+"picture galleries)."
+msgstr ""
+"Se vuoi eliminare anche %s allegati all’articolo, seleziona questa opzione. "
+"Quando l’articolo viene eliminato, verranno eliminati anche la miniatura e "
+"tutti i file allegati. Usa questa opzione con attenzione, perché non è "
+"garantito che l’allegato non sia ancora usato in un altro articolo (es. "
+"gallerie di immagini)."
+
+#. translators: %s: the words "featured image and all files" in bold
+#: inc/class-delete-old-posts-filters.php:454
+msgid "featured image and all files"
+msgstr "l’immagine in evidenza e tutti i file"
+
+#: inc/class-delete-old-posts-filters.php:459
+msgid ""
+"Do you want to delete the images attached to the post (featured image and "
+"all files attached to it) when the post is deleted? Note: Attachments will "
+"not be deleted if used in another post (use \"force delete\" for that)."
+msgstr ""
+"Vuoi eliminare anche le immagini allegate all’articolo (immagine in evidenza "
+"e tutti i file allegati) quando l’articolo viene eliminato? Nota: gli "
+"allegati non vengono eliminati se sono usati in un altro articolo (per "
+"questo usa “forza eliminazione”)."
+
+#: inc/class-delete-old-posts-filters.php:463
+msgid "Delete all files attached to post:"
+msgstr "Elimina tutti i file allegati all’articolo:"
+
+#: inc/class-delete-old-posts-filters.php:469
+msgid "Force delete attached files:"
+msgstr "Forza l’eliminazione dei file allegati:"
+
+#: inc/class-delete-old-posts-filters.php:485
+msgid "This option is available in the Professional version."
+msgstr "Questa opzione è disponibile nella versione Professional."
+
+#: inc/class-delete-old-posts-filters.php:488
+msgid "Upgrade and activate it."
+msgstr "Esegui l’upgrade e attivala."
+
+#: inc/class-delete-old-posts-filters.php:515
+msgid ""
+"The following posts will be automatically deleted when the next scheduled "
+"cron job runs."
+msgstr ""
+"I seguenti articoli verranno eliminati automaticamente alla prossima "
+"esecuzione del cron job pianificato."
+
+#: inc/class-delete-old-posts-filters.php:515
+msgid ""
+"No posts will be automatically deleted when the next scheduled cron job runs."
+msgstr ""
+"Nessun articolo verrà eliminato alla prossima esecuzione del cron job "
+"pianificato."
+
+#: inc/class-delete-old-posts-filters.php:524
+msgid ""
+" Don't forget to set the \"Start deleting posts\" option ON, to start "
+"deleting the post automatically in the background."
+msgstr ""
+" Non dimenticare di attivare l’opzione “Avvia l’eliminazione degli articoli” "
+"per eliminare automaticamente gli articoli in background."
+
+#: inc/class-delete-old-posts-redirects.php:34
+msgid "Redirects"
+msgstr "Reindirizzamenti"
+
+#: inc/class-delete-old-posts-redirects.php:169
+msgid "Deleted posts list"
+msgstr "Elenco degli articoli eliminati"
+
+#: inc/class-delete-old-posts-redirects.php:186
+msgid "Redirect all deleted items to: "
+msgstr "Reindirizza tutti gli elementi eliminati a: "
+
+#: inc/class-delete-old-posts-redirects.php:204
+msgid "Search redirects"
+msgstr "Cerca reindirizzamenti"
+
+#: inc/class-delete-old-posts-redirects.php:233
+msgid "Redirects per page"
+msgstr "Reindirizzamenti per pagina"
+
+#: inc/class-delete-old-posts-redirects.php:261
+msgid "The redirects have been deleted."
+msgstr "I reindirizzamenti sono stati eliminati."
+
+#: inc/class-delete-old-posts-redirects.php:283
+msgid "Deleted post slug:"
+msgstr "Slug dell’articolo eliminato:"
+
+#: inc/class-delete-old-posts-redirects.php:287
+msgid "New redirect to post (full URL starting with https:// or http://):"
+msgstr ""
+"Nuovo reindirizzamento all’articolo (URL completo che inizia con https:// o "
+"http://):"
+
+#: inc/class-delete-old-posts-redirects.php:305
+msgid "It's NOT valid URL."
+msgstr "NON è un URL valido."
+
+#: inc/class-delete-old-posts-redirects.php:312
+msgid "The new redirect have been saved."
+msgstr "Il nuovo reindirizzamento è stato salvato."
+
+#. translators: %s: The redirect URL or title that was deleted
+#: inc/class-delete-old-posts-redirects.php:330
+#, php-format
+msgid "The redirect \"%s\" has been deleted."
+msgstr "Il reindirizzamento “%s” è stato eliminato."
+
+#: inc/class-delete-old-posts-redirects.php:345
+#: inc/class-delete-old-posts-redirects.php:349
+msgid "Sorry, not allowed!"
+msgstr "Spiacente, operazione non consentita!"
+
+#: inc/class-delete-old-posts-redirects.php:476
+msgid "ID"
+msgstr "ID"
+
+#: inc/class-delete-old-posts-redirects.php:477
+msgid "Deleted post slug"
+msgstr "Slug dell’articolo eliminato"
+
+#: inc/class-delete-old-posts-redirects.php:478
+msgid "Redirection"
+msgstr "Reindirizzamento"
+
+#: inc/class-delete-old-posts-redirects.php:525
+msgid ""
+"Sorry. You can't use the redirection feature because your permalink "
+"structure is not using the postname. To use the redirect, change your "
+"permanent structure in "
+msgstr ""
+"Non puoi usare la funzione di reindirizzamento perché la struttura dei "
+"permalink non usa il nome dell’articolo. Per usare il reindirizzamento, "
+"modifica la struttura dei permalink nelle "
+
+#: inc/class-delete-old-posts-redirects.php:525
+msgid "settings"
+msgstr "impostazioni"
+
+#: inc/class-delete-old-posts-redirects.php:620
+msgid "Edit"
+msgstr "Modifica"
+
+#: inc/class-delete-old-posts-redirects.php:621
+#: inc/class-delete-old-posts-redirects.php:632
+msgid "Delete"
+msgstr "Elimina"
+
+#: inc/class-delete-old-posts.php:128
+msgid "Sorry, the security key did not verify."
+msgstr "Spiacente, non è stato possibile verificare la chiave di sicurezza."
+
+#: inc/class-delete-old-posts.php:173
+msgid ""
+"Choose a date or specify the number of days for the posts to be deleted!"
+msgstr ""
+"Scegli una data o indica il numero di giorni dopo i quali gli articoli "
+"devono essere eliminati!"
+
+#. translators: %s: link to the Filters page
+#: inc/class-delete-old-posts.php:191
+#, php-format
+msgid ""
+"Hint! Test out the list of deleted posts in the \"%s\" menu, and when you're "
+"ready to begin deleting posts, activate the \"Start deleting posts\" option "
+"and click \"Save\". Note that no posts will be deleted until you take this "
+"action."
+msgstr ""
+"Suggerimento! Prova l’elenco degli articoli da eliminare nel menu “%s”. "
+"Quando sei pronto per iniziare a eliminare gli articoli, attiva l’opzione "
+"“Avvia l’eliminazione degli articoli” e fai clic su “Salva”. Nessun articolo "
+"verrà eliminato finché non lo fai."
+
+#: inc/class-delete-old-posts.php:192
+msgctxt "menu name in hint"
+msgid "Filters"
+msgstr "Filtri"
+
+#. translators: 1: month name, 2: day of the month, 3: year, 4: maximum number of posts deleted per day
+#: inc/class-delete-old-posts.php:199
+#, php-format
+msgid ""
+"Any posts published before %1$s %2$s, %3$s will be regularly deleted in the "
+"background. Up to %4$d posts per day."
+msgstr ""
+"Tutti gli articoli pubblicati prima del %2$s %1$s %3$s verranno eliminati "
+"regolarmente in background. Fino a %4$d articoli al giorno."
+
+#. translators: %s: date and time of the next scheduled cron run
+#: inc/class-delete-old-posts.php:202
+#, php-format
+msgid "Next cron job run scheduled on %s."
+msgstr "Prossima esecuzione del cron job pianificata il %s."
+
+#: inc/class-delete-old-posts.php:206
+msgid "The posts will be permanently deleted"
+msgstr "Gli articoli verranno eliminati definitivamente"
+
+#: inc/class-delete-old-posts.php:224
+msgid ""
+"Choose a date or specify the number of days to have your posts automatically "
+"deleted."
+msgstr ""
+"Scegli una data o indica il numero di giorni dopo i quali i tuoi articoli "
+"verranno eliminati automaticamente."
+
+#: inc/class-delete-old-posts.php:226
+msgid ""
+"With the available filters, you have complete control to determine which "
+"posts are deleted. Posts are automatically deleted when the WordPress Cron "
+"runs or whenever someone visits your website."
+msgstr ""
+"Con i filtri disponibili hai il pieno controllo su quali articoli vengono "
+"eliminati. Gli articoli vengono eliminati automaticamente quando viene "
+"eseguito il cron di WordPress o quando qualcuno visita il tuo sito."
+
+#: inc/class-delete-old-posts.php:231
+msgid "Dismiss this notice."
+msgstr "Ignora questo avviso."
+
+#: inc/class-delete-old-posts.php:255
+msgid "Delete posts older than:"
+msgstr "Elimina gli articoli più vecchi di:"
+
+#: inc/class-delete-old-posts.php:276
+msgid "days."
+msgstr "giorni."
+
+#: inc/class-delete-old-posts.php:285
+msgid ""
+"Your posts published before the <strong>specified days</strong>, will be "
+"automatically deleted in the background any time the WP Cron runs or someone "
+"visits your website."
+msgstr ""
+"I tuoi articoli più vecchi del <strong>numero di giorni indicato</strong> "
+"verranno eliminati automaticamente in background ogni volta che viene "
+"eseguito WP-Cron o qualcuno visita il tuo sito."
+
+#: inc/class-delete-old-posts.php:291
+msgid "Choose the number of "
+msgstr "Scegli il numero di "
+
+#: inc/class-delete-old-posts.php:297
+msgid "months"
+msgstr "mesi"
+
+#: inc/class-delete-old-posts.php:311
+msgid " to calculate the number of days automatically,"
+msgstr " per calcolare automaticamente il numero di giorni,"
+
+#: inc/class-delete-old-posts.php:315
+msgid "Click to copy"
+msgstr "Clicca per copiare"
+
+#: inc/class-delete-old-posts.php:322
+msgid "or select a date to calculate days in the past automatically:"
+msgstr ""
+"oppure seleziona una data per calcolare automaticamente il numero di giorni:"
+
+#: inc/class-delete-old-posts.php:326
+msgid "Select date"
+msgstr "Seleziona una data"
+
+#: inc/class-delete-old-posts.php:405
+msgid "Use a fixed date instead of a number of days in the past."
+msgstr "Usa una data fissa invece di un numero di giorni."
+
+#: inc/class-delete-old-posts.php:413
+msgid ""
+"Select this option if you want to use a fixed date instead of a number of "
+"days in the past. If you select this option, only the posts older than the "
+"selected date will be deleted. If this option is not selected, the post "
+"older than the number of days in the past will be deleted, which will always "
+"be relative to today."
+msgstr ""
+"Seleziona questa opzione se vuoi usare una data fissa invece di un numero di "
+"giorni. In questo caso verranno eliminati solo gli articoli più vecchi della "
+"data selezionata. Se questa opzione non è selezionata, verranno eliminati "
+"gli articoli più vecchi del numero di giorni indicato, sempre rispetto a "
+"oggi."
+
+#: inc/class-delete-old-posts.php:434
+msgid "Redirect the URL of the deleted post to a similar post when requested."
+msgstr ""
+"Reindirizza l’URL dell’articolo eliminato a un articolo simile quando viene "
+"richiesto."
+
+#: inc/class-delete-old-posts.php:442
+msgid ""
+"Even after the posts are removed, they can still be linked to or found on "
+"Google. Choose this option if you want to redirect your visitors to the "
+"deleted post to another similar post on your website. The plugin will "
+"automatically find the best matching option, but you can customize it in the "
+"\"Redirects\" menu. The HTTP response status code 301 Moved Permanently is "
+"used for the redirect."
+msgstr ""
+"Anche dopo l’eliminazione, gli articoli possono ancora essere linkati o "
+"trovati su Google. Scegli questa opzione se vuoi reindirizzare i visitatori "
+"di un articolo eliminato a un articolo simile del tuo sito. Il plugin trova "
+"automaticamente l’articolo più adatto, ma puoi personalizzarlo nel menu "
+"“Reindirizzamenti”. Per il reindirizzamento viene usato il codice di stato "
+"HTTP 301 Moved Permanently."
+
+#: inc/class-delete-old-posts.php:464
+msgid "Delete the Posts permanently, don't add them into Trash"
+msgstr "Elimina gli articoli definitivamente, senza spostarli nel cestino"
+
+#. translators: %s: "WP-Cron" link to the WordPress cron documentation
+#: inc/class-delete-old-posts.php:470
+#, php-format
+msgid "Number of post to delete when the %s runs."
+msgstr "Numero di articoli da eliminare a ogni esecuzione di %s."
+
+#: inc/class-delete-old-posts.php:500
+msgid ""
+"Choose the number of post to be deleted at the same time. Please note, that "
+"a higher number of post deleted at once means a higher load on your server. "
+"You can choose a smaller number on a hosting with low resources (ex. shared "
+"hosting) and a higher number if your website is running for example on a "
+"dedicated server. By default, one post is deleted."
+msgstr ""
+"Scegli il numero di articoli da eliminare contemporaneamente. Tieni presente "
+"che un numero più alto di articoli eliminati in una volta comporta un carico "
+"maggiore sul server. Puoi scegliere un numero più basso su un hosting con "
+"poche risorse (es. hosting condiviso) e un numero più alto se il tuo sito "
+"gira, ad esempio, su un server dedicato. Per impostazione predefinita viene "
+"eliminato un articolo."
+
+#: inc/class-delete-old-posts.php:509
+msgid "These options are available in the Professional version."
+msgstr "Queste opzioni sono disponibili nella versione Professional."
+
+#: inc/class-delete-old-posts.php:512
+msgid "Upgrade Now!"
+msgstr "Esegui l’upgrade ora!"
+
+#: inc/class-delete-old-posts.php:520
+msgid ""
+"Filter the deleted post by selecting more options in the filters menu. "
+"Available filters are custom post types, categories, taxonomies, users, "
+"favorite post, and text search (posts containing a text), so only some from "
+"the posts will be deleted even if they are older than selected date "
+"(selected days)."
+msgstr ""
+"Restringi gli articoli da eliminare con altre opzioni nel menu “Filtri”. I "
+"filtri disponibili sono tipi di contenuto personalizzati, categorie, "
+"tassonomie, utenti, articoli preferiti e ricerca testuale (articoli che "
+"contengono un testo), così verranno eliminati solo alcuni articoli, anche se "
+"sono più vecchi della data (dei giorni) selezionata."
+
+#: inc/class-delete-old-posts.php:534
+msgid "Start deleting the posts:"
+msgstr "Avvia l’eliminazione degli articoli:"
+
+#: inc/class-delete-old-posts.php:535
+msgid "Stop deleting the posts:"
+msgstr "Interrompi l’eliminazione degli articoli:"
+
+#: inc/class-delete-old-posts.php:555
+msgid ""
+"Start/ Stop deleting posts. Select this option and click save to start/ stop "
+"deleting the posts automatically in background. Hint! You can first test the "
+"results when you save the filters."
+msgstr ""
+"Avvia/interrompi l’eliminazione degli articoli. Seleziona questa opzione e "
+"fai clic su “Salva” per avviare/interrompere l’eliminazione automatica degli "
+"articoli in background. Suggerimento! Puoi prima testare i risultati "
+"salvando i filtri."
+
+#: inc/class-delete-old-posts.php:566
+msgid "Save"
+msgstr "Salva"
+
+#: inc/class-delete-old-posts.php:591
+msgid "The latest deleted post:"
+msgstr "Ultimo articolo eliminato:"
+
+#: inc/class-delete-old-posts.php:603
+msgid "Post published date:"
+msgstr "Data di pubblicazione dell’articolo:"
+
+#: inc/class-delete-old-posts.php:608
+msgid "Id:"
+msgstr "ID:"

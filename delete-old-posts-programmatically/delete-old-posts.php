@@ -4,24 +4,27 @@
  * Plugin Name: Auto Post Cleaner
  * Description: Automatically delete and redirect posts to similar ones to keep your site clean.
  * Author:      WPMagic
- * Author URI:  https://wpmagic.pwa.cloud
+ * Author URI:  https://felsflow.dev
  * License:     GPL3
  * License URI: https://www.gnu.org/licenses/gpl-3.0.html
- * Version:     3.14.0
- * Text Domain: delete-old-posts
+ * Version:     3.15.1
+ * Requires at least: 6.0
+ * Requires PHP:      7.4
+ * Text Domain: delete-old-posts-programmatically
  *
- * @package headless-cms
+ * @package AutoPostCleaner
  */
+// If this file is accessed directory, then abort.
+defined( 'ABSPATH' ) || exit;
+if ( !defined( 'DELOLDP_PLUGIN_FILE' ) ) {
+    define( 'DELOLDP_PLUGIN_FILE', __FILE__ );
+}
 use DEL\OLD\Posts\Cls;
 use DEL\OLD\Posts\Cls\Assets;
-// If this file is accessed directory, then abort.
-if ( !defined( 'WPINC' ) ) {
-    die;
-}
 if ( function_exists( 'dop_fs' ) ) {
     dop_fs()->set_basename( false, __FILE__ );
 } else {
-    // DO NOT REMOVE THIS IF, IT IS ESSENTIAL FOR THE `function_exists` CALL ABOVE TO PROPERLY WORK.
+    // DO NOT REMOVE THIS IF, IT IS ESSENTIAL FOR THE FREEMIUS TO PROPERLY WORK.
     // ... Freemius integration snippet ...
     /*******************
      * freemius
@@ -32,22 +35,24 @@ if ( function_exists( 'dop_fs' ) ) {
             global $dop_fs;
             if ( !isset( $dop_fs ) ) {
                 // Include Freemius SDK.
-                require_once dirname( __FILE__ ) . '/freemius/start.php';
+                require_once dirname( __FILE__ ) . '/vendor/freemius/start.php';
                 $dop_fs = fs_dynamic_init( array(
                     'id'               => '8165',
-                    'slug'             => 'delete-old-posts',
+                    'slug'             => 'delete-old-posts-programmatically',
+                    'premium_slug'     => 'delete-old-posts-premium',
                     'type'             => 'plugin',
                     'public_key'       => 'pk_344033c43756e8fcfcd1e6a2c6b17',
                     'is_premium'       => false,
                     'premium_suffix'   => 'Professional',
                     'has_addons'       => false,
                     'has_paid_plans'   => true,
+                    'is_org_compliant' => true,
+                    'has_affiliation'  => 'selected',
                     'menu'             => array(
-                        'slug'    => 'delete-old-posts',
-                        'support' => false,
+                        'slug'    => 'delete-old-posts-programmatically',
+                        'support' => true,
                     ),
                     'is_live'          => true,
-                    'is_org_compliant' => true,
                 ) );
             }
             return $dop_fs;
@@ -57,6 +62,27 @@ if ( function_exists( 'dop_fs' ) ) {
         dop_fs();
         // Signal that SDK was initiated.
         do_action( 'dop_fs_loaded' );
+        // Plugin icon for the Freemius screens (kept outside vendor/freemius so SDK updates don't remove it)
+        dop_fs()->add_filter( 'plugin_icon', function () {
+            return dirname( __FILE__ ) . '/assets/images/plugin-icon.png';
+        } );
+        // On activation, Freemius registers Freemius::_uninstall_plugin_hook as the WordPress uninstall hook
+        // On Delete, WordPress loads the inactive plugin's main file (include_once) and then calls that hook.
+        // Freemius cleans up and then fires do_action( 'after_uninstall' )
+        dop_fs()->add_action( 'after_uninstall', 'deloldp_uninstall_cleanup' );
+        function deloldp_uninstall_cleanup() {
+            foreach ( array(
+                'deloldp-post-days-option',
+                'delop_filters',
+                'deletedpostredirectsopt',
+                'deletedpostredirectsoptedited',
+                'post_delete_log_array'
+            ) as $option ) {
+                delete_option( $option );
+            }
+            wp_clear_scheduled_hook( 'deloldp_cron_delete_old_posts' );
+        }
+
     }
     // ... Plugin's main file logic ...
     /********************
@@ -84,7 +110,7 @@ if ( function_exists( 'dop_fs' ) ) {
      */
     add_action( 'init', 'delop_load_textdomain' );
     function delop_load_textdomain() {
-        load_plugin_textdomain( 'delete-old-posts', false, dirname( plugin_basename( __FILE__ ) ) . '/languages' );
+        load_plugin_textdomain( 'delete-old-posts-programmatically', false, dirname( plugin_basename( __FILE__ ) ) . '/languages' );
     }
 
 }

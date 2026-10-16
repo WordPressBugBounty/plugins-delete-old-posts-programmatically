@@ -1,10 +1,10 @@
 === Auto Post Cleaner ===
 Contributors: wpmagics, freemius
 Tags: bulk delete, auto delete, cleanup, posts, post manager
-Requires at least: 5.7
+Requires at least: 6.0
 Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: "trunk"
+Stable tag: 3.15.1
 License: GPL3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -87,6 +87,25 @@ If you want, you can help [translate](https://translate.wordpress.org/projects/w
 Please note that there are no guarantees that translations from the original English are accurate.
 
 == Changelog ==
+
+= 3.15.1 =
+* Fix: The plugin icon is shown again on the Freemius screens (opt-in, updates) instead of a placeholder.
+* Fix: JavaScript error on the plugin's admin pages.
+
+= 3.15.0 =
+* Fix: Fatal error in 'Redirects' when the plugin is set up for the first time.
+* Fix: Text Domain in translations.
+* Fix: Check the user's permissions for redirects.
+* Fix: Manually edited redirects now take priority over global URL sets.
+* Fix: The number of posts deleted per run now respects the selected limit across all post types.
+* Security fix: Escaped post titles and redirect URLs on the admin screens.
+* Security fix: Filter settings are now sanitized before saving.
+* Improved: Faster similar-post lookup for redirects, with caching (lower memory and server load).
+* Improved: Safer database query when re-attaching featured images.
+* Changed: The background deletion now runs every minute instead of every 15 seconds.
+* Improved: updated SDK integration.
+* The 'Upgrade' links have been replaced with 'Checkout'.
+* The languages files have been updated.
 
 = 3.14.0 =
 * Security fix: Added nonce verification to bulk actions on the redirects table to prevent CSRF.

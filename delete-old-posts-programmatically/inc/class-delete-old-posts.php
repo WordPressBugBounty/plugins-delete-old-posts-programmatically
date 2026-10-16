@@ -11,17 +11,17 @@ class Delete_Old_Posts {
      */
     public function __construct() {
         add_action( 'admin_menu', [$this, 'deloldp_custom_menu_page'] );
-        add_filter( 'plugin_action_links_delete-old-posts/delete-old-posts.php', [$this, 'deloldp_settings_link'] );
+        add_filter( 'plugin_action_links_' . plugin_basename( DELOLDP_PLUGIN_FILE ), [$this, 'deloldp_settings_link'] );
         // add scheduled task
         add_filter( 'cron_schedules', [$this, 'deloldp_add_cron_interval'] );
         add_action( 'deloldp_cron_delete_old_posts', [$this, 'deloldp_cron_exec'] );
-        if ( !wp_next_scheduled( 'deloldp_cron_delete_old_posts' ) ) {
-            wp_schedule_event( time(), 'fifteen_seconds', 'deloldp_cron_delete_old_posts' );
+        // schedule the event, or move existing sites from the old 15-second schedule
+        if ( wp_get_schedule( 'deloldp_cron_delete_old_posts' ) !== 'deloldp_one_minute' ) {
+            wp_clear_scheduled_hook( 'deloldp_cron_delete_old_posts' );
+            wp_schedule_event( time(), 'deloldp_one_minute', 'deloldp_cron_delete_old_posts' );
         }
         // delete scheduled tasks when deactivated
-        register_deactivation_hook( plugin_dir_path( dirname( __FILE__, 1 ) ), [$this, 'deloldp_deactivate'] );
-        // Not like register_uninstall_hook(), you do NOT have to use a static function.
-        dop_fs()->add_action( 'after_uninstall', [$this, 'deloldp_deleted'] );
+        register_deactivation_hook( plugin_basename( DELOLDP_PLUGIN_FILE ), [$this, 'deloldp_deactivate'] );
     }
 
     /**
@@ -29,10 +29,10 @@ class Delete_Old_Posts {
      */
     function deloldp_custom_menu_page() {
         $deloldp_menu = add_menu_page(
-            __( 'Auto Post Cleaner', 'delete-old-posts' ),
-            esc_html__( 'Auto Post Cleaner', 'delete-old-posts' ),
+            __( 'Auto Post Cleaner', "delete-old-posts-programmatically" ),
+            esc_html__( 'Auto Post Cleaner', "delete-old-posts-programmatically" ),
             'manage_options',
-            'delete-old-posts',
+            "delete-old-posts-programmatically",
             array($this, 'deloldp_PluginPage'),
             'dashicons-trash',
             5
@@ -41,10 +41,11 @@ class Delete_Old_Posts {
 
     /**
      * add settings link to plugin in the list of plugins
+     * @param mixed $links
      */
     function deloldp_settings_link( $links ) {
         // Build and escape the URL.
-        $url = esc_url( add_query_arg( 'page', 'delete-old-posts', get_admin_url() . 'admin.php' ) );
+        $url = esc_url( add_query_arg( 'page', "delete-old-posts-programmatically", get_admin_url() . 'admin.php' ) );
         // Create the link.
         $settings_link = "<a href='{$url}'>" . __( 'Settings' ) . '</a>';
         // Adds the link to the end of the array.
@@ -96,8 +97,8 @@ class Delete_Old_Posts {
         /**
          * check if user have the rights to delete posts
          */
-        if ( !current_user_can( 'delete_posts' ) & !current_user_can( 'delete_others_posts' ) ) {
-            esc_html_e( "You don't have rights to delete the posts.", "delete-old-posts" );
+        if ( !current_user_can( 'delete_posts' ) && !current_user_can( 'delete_others_posts' ) ) {
+            esc_html_e( "You don't have rights to delete the posts.", "delete-old-posts-programmatically" );
             // exit
             return;
         }
@@ -112,8 +113,7 @@ class Delete_Old_Posts {
          */
         if ( isset( $_POST['deloldp-post-days'] ) ) {
             if ( !isset( $_POST['secured-delete-old-posts'] ) || !wp_verify_nonce( $_POST['secured-delete-old-posts'], 'start-delete-old-posts' ) ) {
-                esc_html__( 'Sorry, the security key did not verify.', 'delete-old-posts' );
-                exit;
+                wp_die( esc_html__( 'Sorry, the security key did not verify.', "delete-old-posts-programmatically" ) );
             } else {
                 // process form data
                 if ( $_POST['deloldp-post-days'] > 0 ) {
@@ -161,7 +161,7 @@ class Delete_Old_Posts {
                     $this->saveOption( $pluginOptionArray );
                 } else {
                     // display info
-                    echo $this->deloldp_makeAlert( esc_html__( "Choose a date or specify the number of days for the posts to be deleted!", "delete-old-posts" ), "warning", "is-dismissible" );
+                    echo $this->deloldp_makeAlert( esc_html__( "Choose a date or specify the number of days for the posts to be deleted!", "delete-old-posts-programmatically" ), "warning", "is-dismissible" );
                 }
             }
         }
@@ -179,26 +179,33 @@ class Delete_Old_Posts {
         if ( isset( $postDeleteDaysTime ) && $postDeleteDaysTime > 0 ) {
             $displayInfoTop = true;
         }
-        $infoText = __( "Hint! Test out the list of deleted posts in the \"Filters\" menu, and when you're ready to begin deleting posts, activate the \"Start deleting posts\" option and click \"Save\". Note that no posts will be deleted until you take this action.", "delete-old-posts" );
+        $infoText = sprintf( 
+            /* translators: %s: link to the Filters page */
+            __( "Hint! Test out the list of deleted posts in the \"%s\" menu, and when you're ready to begin deleting posts, activate the \"Start deleting posts\" option and click \"Save\". Note that no posts will be deleted until you take this action.", "delete-old-posts-programmatically" ),
+            '<a href="' . esc_url( admin_url( 'admin.php?page=delete-old-posts-filters' ) ) . '">' . esc_html_x( 'Filters', 'menu name in hint', 'delete-old-posts-programmatically' ) . '</a>'
+         );
         if ( $displayInfoTop ) {
             if ( $postDeleteDays > 0 & $postToggledelete == 1 ) {
-                $timezoneGmtOffset = get_option( 'gmt_offset' );
                 $timestampNextCronRun = wp_next_scheduled( 'deloldp_cron_delete_old_posts' );
-                $calculateMaxNumberOfDeletedPosts = ( isset( $getOptionObject->params->deloldpPostsNr ) ? 60 / 15 * 60 * 24 * $getOptionObject->params->deloldpPostsNr : 60 / 15 * 60 * 24 );
+                $runsPerDay = DAY_IN_SECONDS / MINUTE_IN_SECONDS;
+                // 1440 runs per day
+                $calculateMaxNumberOfDeletedPosts = ( isset( $getOptionObject->params->deloldpPostsNr ) ? $runsPerDay * $getOptionObject->params->deloldpPostsNr : $runsPerDay );
+                /* translators: 1: month name, 2: day of the month, 3: year, 4: maximum number of posts deleted per day */
                 $infoText = sprintf(
-                    __( "Any posts published before %s %s, %s will be regularly deleted in the background. Up to %d posts per day.", "delete-old-posts" ),
-                    date( "F", $postDeleteDaysTime ),
-                    date( "d", $postDeleteDaysTime ),
-                    date( "Y", $postDeleteDaysTime ),
+                    __( "Any posts published before %1\$s %2\$s, %3\$s will be regularly deleted in the background. Up to %4\$d posts per day.", "delete-old-posts-programmatically" ),
+                    date_i18n( "F", $postDeleteDaysTime ),
+                    date_i18n( "d", $postDeleteDaysTime ),
+                    date_i18n( "Y", $postDeleteDaysTime ),
                     $calculateMaxNumberOfDeletedPosts
                 );
                 $infoText .= '<br />';
-                $infoText .= sprintf( __( "Next cron job run scheduled on %s.", "delete-old-posts" ), gmdate( "l jS \\of F Y h:i:s A", $timestampNextCronRun + $timezoneGmtOffset * 3600 ) );
+                /* translators: %s: date and time of the next scheduled cron run */
+                $infoText .= sprintf( __( "Next cron job run scheduled on %s.", "delete-old-posts-programmatically" ), wp_date( get_option( 'date_format' ) . ' ' . get_option( 'time_format' ), $timestampNextCronRun ) );
                 // show warning if post are permanently deleted
                 if ( is_object( $getOptionObject ) && property_exists( $getOptionObject, 'params' ) ) {
                     if ( $dop_fs->can_use_premium_code() ) {
                         if ( is_object( $getOptionObject->params ) && property_exists( $getOptionObject->params, 'deloldpSkiptrash' ) & $getOptionObject->params->deloldpSkiptrash == 1 ) {
-                            $infoText .= sprintf( " <span class='text-red-500'>%s.</span>", __( 'The posts will be permanently deleted', 'delete-old-posts' ) );
+                            $infoText .= sprintf( " <span class='text-red-500'>%s.</span>", __( 'The posts will be permanently deleted', "delete-old-posts-programmatically" ) );
                         }
                     }
                 }
@@ -221,18 +228,18 @@ class Delete_Old_Posts {
                     <div class="py-1"><svg class="fill-current h-6 w-6 text-teal-500 mr-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M2.93 17.07A10 10 0 1 1 17.07 2.93 10 10 0 0 1 2.93 17.07zm12.73-1.41A8 8 0 1 0 4.34 4.34a8 8 0 0 0 11.32 11.32zM9 11V9h2v6H9v-4zm0-6h2v2H9V5z"/></svg></div>
                     <div>
                         <p class="font-bold"><?php 
-        esc_html_e( 'Choose a date or specify the number of days to have your posts automatically deleted.', 'delete-old-posts' );
+        esc_html_e( 'Choose a date or specify the number of days to have your posts automatically deleted.', "delete-old-posts-programmatically" );
         ?></p>
                         <p class="text-sm">
                             <?php 
-        esc_html_e( 'With the available filters, you have complete control to determine which posts are deleted. Posts are automatically deleted when the WordPress Cron runs or whenever someone visits your website.', 'delete-old-posts' );
+        esc_html_e( 'With the available filters, you have complete control to determine which posts are deleted. Posts are automatically deleted when the WordPress Cron runs or whenever someone visits your website.', "delete-old-posts-programmatically" );
         ?>
                         </p>
                     </div>
                 </div>
                 <button type="button" class="notice-dismiss" @click="dismiss">
                     <span class="screen-reader-text"><?php 
-        esc_html_e( 'Dismiss this notice.', 'delete-old-posts' );
+        esc_html_e( 'Dismiss this notice.', "delete-old-posts-programmatically" );
         ?></span>
                 </button>
             </div>
@@ -244,7 +251,7 @@ class Delete_Old_Posts {
                             <div class="flex justify-between -mb-px">
                                 <div class=" text-blue-dark py-4 text-lg">
                                     <?php 
-        esc_html_e( 'Auto Post Cleaner', 'delete-old-posts' );
+        esc_html_e( 'Auto Post Cleaner', "delete-old-posts-programmatically" );
         ?>
                                 </div>
                                 <div class="flex text-sm">
@@ -260,7 +267,7 @@ class Delete_Old_Posts {
                                 <div class="md:border-r md:border-b md:pb-6 lg:border-b-0">
                                     <div class="m-2 text-base">
                                         <?php 
-        esc_html_e( 'Delete posts older than:', 'delete-old-posts' );
+        esc_html_e( 'Delete posts older than:', "delete-old-posts-programmatically" );
         ?>
                                         <input 
                                             type="number" 
@@ -285,7 +292,7 @@ class Delete_Old_Posts {
         ?>
                                         />
                                         <?php 
-        esc_html_e( 'days.', 'delete-old-posts' );
+        esc_html_e( 'days.', "delete-old-posts-programmatically" );
         ?>
                                         <span 
                                             class="dashicons dashicons-editor-help has-tooltip"
@@ -294,14 +301,16 @@ class Delete_Old_Posts {
                                         >
                                             <span class='tooltip rounded shadow-lg bg-gray-100 p-3 text-sm font-sans -mt-8 text-left max-w-md'>
                                                 <?php 
-        printf( __( 'Your posts published before the %s, will be automatically deleted in the background any time the WP Cron runs or someone visits your website.', 'delete-old-posts' ), '<strong>specified days</strong>' );
+        echo wp_kses( __( 'Your posts published before the <strong>specified days</strong>, will be automatically deleted in the background any time the WP Cron runs or someone visits your website.', 'delete-old-posts-programmatically' ), array(
+            'strong' => array(),
+        ) );
         ?>
                                             </span>
                                         </span>
                                     </div>
                                     <div class="m-2 text-gray-500">
                                         <?php 
-        esc_html_e( "Choose the number of ", "delete-old-posts" );
+        esc_html_e( "Choose the number of ", "delete-old-posts-programmatically" );
         ?>
                                         <select
                                             id="deloldp-post-months"
@@ -309,7 +318,7 @@ class Delete_Old_Posts {
                                             x-on:change="calculateDaysInMonths($event.target.value)"
                                         >
                                             <option value="" selected="selected"><?php 
-        esc_html_e( "months", "delete-old-posts" );
+        esc_html_e( "months", "delete-old-posts-programmatically" );
         ?></option>
                                             <option value="1">1</option>
                                             <option value="2">2</option>
@@ -325,15 +334,15 @@ class Delete_Old_Posts {
                                             <option value="12">12</option>
                                         </select>
                                         <?php 
-        esc_html_e( ' to calculate the number of days automatically,', 'delete-old-posts' );
+        esc_html_e( ' to calculate the number of days automatically,', "delete-old-posts-programmatically" );
         ?>
                                         <!-- <span class="dashicons dashicons-arrow-up-alt cursor-pointer" x-on:click="copyDays()"></span>  -->
                                         <span id="daysInXMonths" class="hidden"></span> 
                                         <?php 
-        // esc_html_e('Days', 'delete-old-posts');
+        // esc_html_e('Days', "delete-old-posts-programmatically");
         ?>
                                         <!-- <span class="text-xs cursor-pointer" x-on:click="copyDays()"><?php 
-        esc_html_e( 'Click to copy', 'delete-old-posts' );
+        esc_html_e( 'Click to copy', "delete-old-posts-programmatically" );
         ?></span> -->
                                     </div>
                                     <div class="m-2">
@@ -342,13 +351,13 @@ class Delete_Old_Posts {
                                                 <div class="mx-auto w-64">
                                                     <label for="datepicker" class="mb-1 text-gray-500 block">
                                                         <?php 
-        esc_html_e( "or select a date to calculate days in the past automatically:", "delete-old-posts" );
+        esc_html_e( "or select a date to calculate days in the past automatically:", "delete-old-posts-programmatically" );
         ?>
                                                     </label>
                                                     <div class="relative">
                                                     <input type="hidden" name="date" x-ref="date" :value="datepickerValue" />
                                                     <input type="text" x-on:click="showDatepicker = !showDatepicker" x-model="datepickerValue" x-on:keydown.escape="showDatepicker = false" class="w-full pl-4 pr-10 py-3 !bg-white leading-none rounded-lg shadow-sm focus:outline-none text-gray-600 font-medium focus:ring focus:ring-blue-600 focus:ring-opacity-50" placeholder="<?php 
-        esc_html__( "Select date", "delete-old-posts" );
+        esc_attr_e( "Select date", "delete-old-posts-programmatically" );
         ?>" readonly />
 
                                                     <div class="absolute top-0 right-0 px-3 py-1">
@@ -435,7 +444,7 @@ class Delete_Old_Posts {
                                         />
                                         <label for="fixdate">
                                             <?php 
-        esc_html_e( "Use a fixed date instead of a number of days in the past.", 'delete-old-posts' );
+        esc_html_e( "Use a fixed date instead of a number of days in the past.", "delete-old-posts-programmatically" );
         ?> 
                                             <span 
                                                 class="dashicons dashicons-editor-help has-tooltip"
@@ -444,7 +453,7 @@ class Delete_Old_Posts {
                                             >
                                                 <span class='tooltip rounded shadow-lg bg-gray-100 p-3 text-sm font-sans -mt-8 text-left max-w-md'>
                                                     <?php 
-        esc_html_e( 'Select this option if you want to use a fixed date instead of a number of days in the past. If you select this option, only the posts older than the selected date will be deleted. If this option is not selected, the post older than the number of days in the past will be deleted, which will always be relative to today.', 'delete-old-posts' );
+        esc_html_e( 'Select this option if you want to use a fixed date instead of a number of days in the past. If you select this option, only the posts older than the selected date will be deleted. If this option is not selected, the post older than the number of days in the past will be deleted, which will always be relative to today.', "delete-old-posts-programmatically" );
         ?>
                                                 </span>
                                             </span>
@@ -469,7 +478,7 @@ class Delete_Old_Posts {
                                     />
                                     <label for="redirect" class="">
                                         <?php 
-        esc_html_e( "Redirect the URL of the deleted post to a similar post when requested.", 'delete-old-posts' );
+        esc_html_e( "Redirect the URL of the deleted post to a similar post when requested.", "delete-old-posts-programmatically" );
         ?> 
                                         <span 
                                             class="dashicons dashicons-editor-help has-tooltip"
@@ -478,7 +487,7 @@ class Delete_Old_Posts {
                                         >
                                             <span class='tooltip rounded shadow-lg bg-gray-100 p-3 text-sm font-sans -mt-8 max-w-md right-3 text-left'>
                                                 <?php 
-        esc_html_e( 'Even after the posts are removed, they can still be linked to or found on Google. Choose this option if you want to redirect your visitors to the deleted post to another similar post on your website. The plugin will automatically find the best matching option, but you can customize it in the "Redirects" menu. The HTTP response status code 301 Moved Permanently is used for the redirect.', 'delete-old-posts' );
+        esc_html_e( 'Even after the posts are removed, they can still be linked to or found on Google. Choose this option if you want to redirect your visitors to the deleted post to another similar post on your website. The plugin will automatically find the best matching option, but you can customize it in the "Redirects" menu. The HTTP response status code 301 Moved Permanently is used for the redirect.', "delete-old-posts-programmatically" );
         ?>
                                             </span>
                                         </span>
@@ -506,13 +515,14 @@ class Delete_Old_Posts {
                                     />
                                     <label for="skiptrash" class="text-red-600">
                                         <?php 
-        esc_html_e( "Delete the Posts permanently, don't add them into Trash", 'delete-old-posts' );
+        esc_html_e( "Delete the Posts permanently, don't add them into Trash", "delete-old-posts-programmatically" );
         ?> <span class="dashicons dashicons-database-remove"></span>.
                                     </label>
                                     
                                     <div class="m-2">
                                         <?php 
-        printf( __( 'Number of post to delete when the %s runs.', 'delete-old-posts' ), '<a href="https://developer.wordpress.org/plugins/cron/" target="_blank">WP-Cron</a>' );
+        /* translators: %s: "WP-Cron" link to the WordPress cron documentation */
+        printf( __( 'Number of post to delete when the %s runs.', "delete-old-posts-programmatically" ), '<a href="https://developer.wordpress.org/plugins/cron/" target="_blank">WP-Cron</a>' );
         $numberOfPostsToDelete = 1;
         if ( $dop_fs->can_use_premium_code() ) {
             if ( is_object( $getOptionObject ) && property_exists( $getOptionObject, 'params' ) ) {
@@ -564,7 +574,7 @@ class Delete_Old_Posts {
                                         >
                                             <span class='tooltip rounded shadow-lg bg-gray-100 p-3 text-sm font-sans -mt-8 max-w-md right-3 text-left'>
                                                 <?php 
-        esc_html_e( 'Choose the number of post to be deleted at the same time. Please note, that a higher number of post deleted at once means a higher load on your server. You can choose a smaller number on a hosting with low resources (ex. shared hosting) and a higher number if your website is running for example on a dedicated server. By default, one post is deleted.', 'delete-old-posts' );
+        esc_html_e( 'Choose the number of post to be deleted at the same time. Please note, that a higher number of post deleted at once means a higher load on your server. You can choose a smaller number on a hosting with low resources (ex. shared hosting) and a higher number if your website is running for example on a dedicated server. By default, one post is deleted.', "delete-old-posts-programmatically" );
         ?>
                                             </span>
                                         </span>
@@ -573,9 +583,9 @@ class Delete_Old_Posts {
                                     <?php 
         if ( !$dop_fs->can_use_premium_code() ) {
             echo '
-                                        <section>' . esc_html__( 'These options are available in the Professional version.', 'delete-old-posts' );
+                                        <section>' . esc_html__( 'These options are available in the Professional version.', "delete-old-posts-programmatically" );
             echo '
-                                            <a href="' . $dop_fs->get_upgrade_url() . '">' . '<u>' . esc_html__( 'Upgrade Now!', 'delete-old-posts' ) . '</u>' . '</a>';
+                                            <a href="' . dop_fs()->checkout_url() . '">' . '<u>' . esc_html__( 'Upgrade Now!', "delete-old-posts-programmatically" ) . '</u>' . '</a>';
             echo '
                                         </section>';
         }
@@ -583,7 +593,7 @@ class Delete_Old_Posts {
 
                                     <section class="mx-8 mt-8 text-slate-500">
                                         <?php 
-        esc_html_e( "Filter the deleted post by selecting more options in the filters menu. Available filters are custom post types, categories, taxonomies, users, favorite post, and text search (posts containing a text), so only some from the posts will be deleted even if they are older than selected date (selected days).", "delete-old-posts" );
+        esc_html_e( "Filter the deleted post by selecting more options in the filters menu. Available filters are custom post types, categories, taxonomies, users, favorite post, and text search (posts containing a text), so only some from the posts will be deleted even if they are older than selected date (selected days).", "delete-old-posts-programmatically" );
         ?>
                                     </section>
 
@@ -602,12 +612,10 @@ class Delete_Old_Posts {
             }
         }
         if ( !$toggledelete ) {
-            esc_html_e( "Start", "delete-old-posts" );
+            esc_html_e( "Start deleting the posts:", "delete-old-posts-programmatically" );
         } else {
-            esc_html_e( "Stop", "delete-old-posts" );
+            esc_html_e( "Stop deleting the posts:", "delete-old-posts-programmatically" );
         }
-        echo "&nbsp;";
-        esc_html_e( "deleting the posts:", "delete-old-posts" );
         ?>
                                     <label class="switch ml-2">
                                         <input
@@ -631,7 +639,7 @@ class Delete_Old_Posts {
                                     >
                                         <span class='tooltip rounded shadow-lg bg-gray-100 p-3 text-sm text-left font-sans max-w-md'>
                                             <?php 
-        esc_html_e( 'Start/ Stop deleting posts. Select this option and click save to start/ stop deleting the posts automatically in background. Hint! You can first test the results when you save the filters.', 'delete-old-posts' );
+        esc_html_e( 'Start/ Stop deleting posts. Select this option and click save to start/ stop deleting the posts automatically in background. Hint! You can first test the results when you save the filters.', "delete-old-posts-programmatically" );
         ?>
                                         </span>
                                     </span>
@@ -643,7 +651,7 @@ class Delete_Old_Posts {
                                     class="bg-blue-500 rounded-full font-bold text-white px-4 py-3 ml-5 inline-block transition duration-300 ease-in-out hover:bg-blue-600"
                                 >
                                     <?php 
-        esc_html_e( 'Save', 'delete-old-posts' );
+        esc_html_e( 'Save', "delete-old-posts-programmatically" );
         ?>
                                     <svg xmlns="http://www.w3.org/2000/svg" class="inline ml-2 w-6 stroke-current text-white stroke-2" viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                         <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
@@ -674,7 +682,7 @@ class Delete_Old_Posts {
                         <div class="flex justify-between -mb-px">
                             <div class=" text-blue-dark py-4 text-lg">
                                 <?php 
-        esc_html_e( 'The latest deleted post:', 'delete-old-posts' );
+        esc_html_e( 'The latest deleted post:', "delete-old-posts-programmatically" );
         ?>
                             </div>
                             <div class="flex text-sm">
@@ -687,14 +695,14 @@ class Delete_Old_Posts {
                     <div class="text-gray-400 grid auto-cols-auto grid-flow-col gap-3">
                         <div class="tblrow">
                             <?php 
-        esc_html_e( 'Post published date:', 'delete-old-posts' );
+        esc_html_e( 'Post published date:', "delete-old-posts-programmatically" );
         if ( isset( $post_delete_log['deleted_post_timestamp'] ) ) {
-            echo "&nbsp;" . date( "d M Y h:i:s A", $post_delete_log['deleted_post_timestamp'] );
+            echo "&nbsp;" . date_i18n( "d M Y h:i:s A", $post_delete_log['deleted_post_timestamp'] );
         }
         ?>
                             <br />
                             <?php 
-        esc_html_e( 'Id:', 'delete-old-posts' );
+        esc_html_e( 'Id:', "delete-old-posts-programmatically" );
         echo "&nbsp;";
         if ( isset( $post_delete_log['deleted_post_id'] ) ) {
             echo $post_delete_log['deleted_post_id'];
@@ -718,19 +726,20 @@ class Delete_Old_Posts {
             </p>
             <hr /><br />
             <p class="text-center"><a href="<?php 
-        echo admin_url( 'admin.php' );
-        ?>?page=delete-old-posts-contact">Contact Support</a> | Add your ⭐⭐⭐⭐⭐ on <a href="https://wordpress.org/support/plugin/delete-old-posts-programmatically/reviews/#new-post" target="_blank">wordpress.org</a> to spread the love.</p>
+        echo dop_fs()->contact_url();
+        ?>">Contact Support</a> | Add your ⭐⭐⭐⭐⭐ on <a href="https://wordpress.org/support/plugin/delete-old-posts-programmatically/reviews/#new-post" target="_blank">wordpress.org</a> to spread the love.</p>
         </section>
         <?php 
     }
 
     /**
      * add custom cron interval
+     * @param mixed $schedules
      */
     function deloldp_add_cron_interval( $schedules ) {
-        $schedules['fifteen_seconds'] = array(
-            'interval' => 15,
-            'display'  => esc_html__( 'Every Fifteen Seconds' ),
+        $schedules['deloldp_one_minute'] = array(
+            'interval' => MINUTE_IN_SECONDS,
+            'display'  => esc_html__( 'Every Minute', "delete-old-posts-programmatically" ),
         );
         return $schedules;
     }
@@ -739,11 +748,8 @@ class Delete_Old_Posts {
      * function to delete the cron job
      */
     function deloldp_deactivate() {
-        // delete plugin data
-        delete_option( 'deloldp-post-days-option' );
-        // error_log('plugin deactivated');
-        $timestamp = wp_next_scheduled( 'deloldp_cron_delete_old_posts' );
-        wp_unschedule_event( $timestamp, 'deloldp_cron_delete_old_posts' );
+        // Deactivation: stop scheduled work only. Settings are preserved.
+        wp_clear_scheduled_hook( 'deloldp_cron_delete_old_posts' );
     }
 
     /**
@@ -961,22 +967,19 @@ class Delete_Old_Posts {
     }
 
     /**
-     * Make some actions when the plugin is removed
-     */
-    function deloldp_deleted() {
-        return true;
-    }
-
-    /**
      * Save deleted posts data in an option and use it to rediect traffic
      * 
-     * @param $deletedPostData (array)
+     * @param object $deletedPostData
      */
     function saveToRedirectOpt( $deletedPostData ) {
         // check if option to redirect the deleted posts is checked
         $deloldpRedirect_opt = get_option( 'deloldp-post-days-option' );
         if ( is_object( $deloldpRedirect_opt ) && property_exists( $deloldpRedirect_opt->params, 'deloldpRedirect' ) ) {
             if ( $deloldpRedirect_opt->params->deloldpRedirect == 1 ) {
+                if ( !is_object( $deletedPostData ) || empty( $deletedPostData->post_name ) ) {
+                    return;
+                }
+                // nothing to redirect
                 // option checked - save the redirect
                 if ( is_object( $deletedPostData ) ) {
                     // update deletedpostredirectsopt
@@ -984,9 +987,9 @@ class Delete_Old_Posts {
                     if ( !is_array( $deletedpostredirectsopt ) ) {
                         $deletedpostredirectsopt = array();
                     }
-                    $deletedpostredirectsopt[] = ( isset( $deletedPostData->post_name ) ? $deletedPostData->post_name : '' );
+                    $deletedpostredirectsopt[] = $deletedPostData->post_name;
                     // update the option
-                    array_unique( $deletedpostredirectsopt );
+                    $deletedpostredirectsopt = array_unique( $deletedpostredirectsopt );
                     update_option( 'deletedpostredirectsopt', $deletedpostredirectsopt );
                 }
             }
@@ -1160,6 +1163,10 @@ class Delete_Old_Posts {
                 $altPostsFinalArray[] = $oldCustomPost;
             }
         }
+        // sort the combined list oldest first
+        usort( $altPostsFinalArray, function ( $a, $b ) {
+            return strtotime( $a->post_date ) - strtotime( $b->post_date );
+        } );
         // get user saved options
         $getOptionObject = get_option( 'deloldp-post-days-option' );
         // get the list of deleted posts without deleting them
@@ -1168,6 +1175,8 @@ class Delete_Old_Posts {
             $postsDeleted = array();
         }
         // if NULL returned
+        // keep only the oldest N posts across all post types
+        $postsDeleted = array_slice( $postsDeleted, 0, (int) $nrOfPostsToGet );
         return $postsDeleted;
     }
 
@@ -1250,10 +1259,8 @@ class Delete_Old_Posts {
                         if ( $dop_fs->can_use_premium_code() ) {
                             // check if skipTrash is set
                             $skipTrashOption = 0;
-                            if ( is_object( $getOptionObject ) && property_exists( $getOptionObject, 'params' ) ) {
-                                if ( $getOptionObject->params->deloldpSkiptrash ) {
-                                    $skipTrashOption = $getOptionObject->params->deloldpSkiptrash;
-                                }
+                            if ( is_object( $getOptionObject ) && property_exists( $getOptionObject, 'params' ) && property_exists( $getOptionObject->params, 'deloldpSkiptrash' ) ) {
+                                $skipTrashOption = $getOptionObject->params->deloldpSkiptrash;
                             }
                             if ( $skipTrashOption == 1 ) {
                                 $deletePostSkipTrash = true;

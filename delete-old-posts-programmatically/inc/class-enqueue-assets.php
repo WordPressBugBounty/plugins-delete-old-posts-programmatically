@@ -61,7 +61,7 @@ class Enqueue_Assets {
 			if( ! function_exists('get_plugin_data') ){
 				require_once( ABSPATH . 'wp-admin/includes/plugin.php' );
 			}
-			$plugin_data = get_plugin_data( dirname(__DIR__, 1) . '/' . basename(dirname(__DIR__, 1)) . '.php' );
+			$plugin_data = get_plugin_data( DELOLDP_PLUGIN_FILE );
 			
 			if( isset($plugin_data['Version']) && $plugin_data['Version'] != '' ) return $plugin_data['Version'];
 			else return date('d_m_Y_H');
