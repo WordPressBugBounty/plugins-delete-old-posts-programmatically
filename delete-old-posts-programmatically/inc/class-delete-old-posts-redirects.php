@@ -616,12 +616,15 @@ class Redirects_List_Table extends \WP_List_Table {
     function column_post_slug( array $item){
         if( !isset($_REQUEST['page']) || !isset($item['id']) || !isset($item['post_slug']) ) return false; //exit earlier
 
+        $page  = sanitize_key( $_REQUEST['page'] );
+        $paged = $this->get_pagenum(); // current table page, 1 when not set
+
         $actions = array(
-                'edit'      => '<a href="' . esc_url( wp_nonce_url( admin_url('admin.php') . sprintf('?page=%s&action=%s&element=%s&paged=%s', esc_html($_REQUEST['page']), 'edit', $item['id'], esc_html($_REQUEST['paged'])), 'edit_redirect' ) ) . '">' . __('Edit', "delete-old-posts-programmatically") . '</a>',
-                'delete'    => '<a href="' . esc_url( wp_nonce_url( admin_url('admin.php') . sprintf('?page=%s&action=%s&element=%s&paged=%s', esc_html($_REQUEST['page']), 'delete', $item['id'], esc_html($_REQUEST['paged'])), 'delete_redirect' ) ) . '">' . __('Delete', "delete-old-posts-programmatically") . '</a>',
+                'edit'      => '<a href="' . esc_url( wp_nonce_url( admin_url('admin.php') . sprintf('?page=%s&action=%s&element=%d&paged=%d', $page, 'edit', $item['id'], $paged), 'edit_redirect' ) ) . '">' . __('Edit', "delete-old-posts-programmatically") . '</a>',
+                'delete'    => '<a href="' . esc_url( wp_nonce_url( admin_url('admin.php') . sprintf('?page=%s&action=%s&element=%d&paged=%d', $page, 'delete', $item['id'], $paged), 'delete_redirect' ) ) . '">' . __('Delete', "delete-old-posts-programmatically") . '</a>',
         );
 
-        return sprintf('%1$s %2$s', $item['post_slug'], $this->row_actions($actions));
+        return sprintf('%1$s %2$s', esc_html( $item['post_slug'] ), $this->row_actions($actions));
     }
 
     /**

@@ -15,11 +15,8 @@ class Delete_Old_Posts {
         // add scheduled task
         add_filter( 'cron_schedules', [$this, 'deloldp_add_cron_interval'] );
         add_action( 'deloldp_cron_delete_old_posts', [$this, 'deloldp_cron_exec'] );
-        // schedule the event, or move existing sites from the old 15-second schedule
-        if ( wp_get_schedule( 'deloldp_cron_delete_old_posts' ) !== 'deloldp_one_minute' ) {
-            wp_clear_scheduled_hook( 'deloldp_cron_delete_old_posts' );
-            wp_schedule_event( time(), 'deloldp_one_minute', 'deloldp_cron_delete_old_posts' );
-        }
+        // schedule on init (the schedule label is translated - too early on plugins_loaded)
+        add_action( 'init', [$this, 'deloldp_schedule_cron'] );
         // delete scheduled tasks when deactivated
         register_deactivation_hook( plugin_basename( DELOLDP_PLUGIN_FILE ), [$this, 'deloldp_deactivate'] );
     }
@@ -742,6 +739,16 @@ class Delete_Old_Posts {
             'display'  => esc_html__( 'Every Minute', "delete-old-posts-programmatically" ),
         );
         return $schedules;
+    }
+
+    /**
+     * schedule the event, or move existing sites from the old 15-second schedule
+     */
+    function deloldp_schedule_cron() {
+        if ( wp_get_schedule( 'deloldp_cron_delete_old_posts' ) !== 'deloldp_one_minute' ) {
+            wp_clear_scheduled_hook( 'deloldp_cron_delete_old_posts' );
+            wp_schedule_event( time(), 'deloldp_one_minute', 'deloldp_cron_delete_old_posts' );
+        }
     }
 
     /**

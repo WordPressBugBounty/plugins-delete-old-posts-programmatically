@@ -7,7 +7,7 @@
  * Author URI:  https://felsflow.dev
  * License:     GPL3
  * License URI: https://www.gnu.org/licenses/gpl-3.0.html
- * Version:     3.15.1
+ * Version:     3.15.2
  * Requires at least: 6.0
  * Requires PHP:      7.4
  * Text Domain: delete-old-posts-programmatically

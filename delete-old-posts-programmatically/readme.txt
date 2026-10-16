@@ -4,7 +4,7 @@ Tags: bulk delete, auto delete, cleanup, posts, post manager
 Requires at least: 6.0
 Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 3.15.1
+Stable tag: 3.15.2
 License: GPL3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -87,6 +87,10 @@ If you want, you can help [translate](https://translate.wordpress.org/projects/w
 Please note that there are no guarantees that translations from the original English are accurate.
 
 == Changelog ==
+
+= 3.15.2 =
+* Fix: "Translation loading triggered too early" notice in the debug log after updating or activating the plugin.
+* Fix: PHP warning on the Redirects page.
 
 = 3.15.1 =
 * Fix: The plugin icon is shown again on the Freemius screens (opt-in, updates) instead of a placeholder.
